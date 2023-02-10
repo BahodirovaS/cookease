@@ -65,7 +65,8 @@
 * Response shape (JSON):
     ```json
     {
-        "message": "Your account has been created",
+        "username": "username",
+        "password": "password",
     }
     ```
 
@@ -99,24 +100,46 @@
     }
     ```
 
-### Search page
+### Search recipe page
 
 * Endpoint path: /search-recipe
-* Endpoint method: GET, PUT
+* Endpoint method: GET
 * Query parameters:
   * ingredients: string
   * quantity: integer
-  * dairy free: boolean
-  * egg free: boolean
-  * gluten free: boolean
-  * vegetarian: boolean
-  * vegan: boolean
-  * 30 mins: boolean
-  * 1 hour: boolean
-  * favorites: boolean
+  * intolerances: string
+  * diet: string
+  * ready in minutes: integer
 
-* Headers:
-  * Authorization: none
+* Response: Search results with option to favorite
+* Response shape (JSON):
+    ```json
+    "results": [
+        {
+            "id": 716429,
+            "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
+            "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+            "favorites": true,
+        },
+        {
+            "id": 715538,
+            "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
+            "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
+            "favorites": false,
+        }
+    ],
+    ```
+
+### Search recipe page like button
+
+* Endpoint path: /search-recipe
+* Endpoint method: PUT
+* Query parameters:
+  * ingredients: string
+  * quantity: integer
+  * intolerances: string
+  * diet: string
+  * ready in minutes: integer
 
 * Request shape (JSON):
     ```json
@@ -167,16 +190,11 @@
         {
             "name": "carrot",
             "quantity": 2,
-        }
+        },
     ],
     "instructions": "stop, drop, and roll",
-    "dairy free" : false,
-    "egg free": false,
-    "gluten free": false,
-    "vegetarian": false,
-    "vegan": false,
-    "30 mins": false,
-    "1 hour": false,
+    "diet": "vegetarian",
+    "readyInMinutes": 30,
     }
     ```
 
@@ -215,7 +233,7 @@
 ### My recipes page
 
 * Endpoint path: /my-recipes
-* Endpoint method: GET, DELETE, PUT
+* Endpoint method: GET
 * Query parameters:
   * title: string
   * ingredients: string
@@ -226,23 +244,8 @@
 * Headers:
   * Authorization: Bearer token
 
-* Request shape (JSON): PUT
-    ```json
-    {
-    "title": "garlic bread",
-    "ingredients": [
-        {
-            "name": "carrot",
-            "quantity": 2,
-        }
-    ],
-    "instructions": "stop, drop, and roll",
-    "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
-    }
-    ```
-
 * Response: New recipe added
-* Response shape (JSON): GET, PUT
+* Response shape (JSON):
     ```json
     "results": [
         {
@@ -258,17 +261,108 @@
     ],
     ```
 
+
+### My recipes page
+
+* Endpoint path: /my-recipes
+* Endpoint method: DELETE
+* Query parameters:
+  * title: string
+  * ingredients: string
+  * instructions: string
+  * quantity: integer
+  * image: string
+
+* Headers:
+  * Authorization: Bearer token
+
 Response: Always true
-Response shape (JSON): DELETE
+Response shape (JSON):
     ```json
     true
+    ```
+
+### My recipes page
+
+* Endpoint path: /my-recipes
+* Endpoint method: PUT
+* Query parameters:
+  * title: string
+  * ingredients: string
+  * instructions: string
+  * quantity: integer
+  * image: string
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request shape (JSON):
+    ```json
+    {
+    "title": "garlic bread",
+    "ingredients": [
+        {
+            "name": "carrot",
+            "quantity": 2,
+        }
+    ],
+    "instructions": "stop, drop, and roll",
+    "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+    }
+    ```
+
+* Response: New recipe added
+* Response shape (JSON):
+    ```json
+    "results": [
+        {
+            "id": 716429,
+            "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
+            "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+        },
+        {
+            "id": 715538,
+            "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
+            "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
+        }
+    ],
     ```
 
 
 ### Favorite Recipes
 
 * Endpoint path: /favorite-recipes
-* Endpoint method: GET, PUT
+* Endpoint method: GET
+* Query parameters:
+  * favorites: boolean
+
+* Headers:
+  * Authorization: Bearer token
+
+
+* Response: recipes that have a favorites: true
+* Response shape (JSON):
+    ```json
+    "results": [
+        {
+            "id": 716429,
+            "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
+            "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+            "favorites":true,
+        },
+        {
+            "id": 715538,
+            "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
+            "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
+            "favorites":true,
+        }
+    ],
+    ```
+
+### Favorite Recipes
+
+* Endpoint path: /favorite-recipes
+* Endpoint method: PUT
 * Query parameters:
   * favorites: boolean
 
@@ -290,11 +384,13 @@ Response shape (JSON): DELETE
             "id": 716429,
             "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
             "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
+            "favorite": false
         },
         {
             "id": 715538,
             "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
             "image": "https://spoonacular.com/recipeImages/715538-312x231.jpg",
+            "favorite": false
         }
     ],
     ```
@@ -316,13 +412,9 @@ Response shape (JSON): DELETE
             "id": 716429,
             "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
             "image": "https://spoonacular.com/recipeImages/716429-312x231.jpg",
-            "dairy free" : false,
-            "egg free": false,
-            "gluten free": false,
-            "vegetarian": false,
-            "vegan": false,
-            "30 mins": false,
-            "1 hour": false,
+            "intolerances": "eggs, peanuts",
+            "diet": null,
+            "readyInMinutes": 30,
             "ingredients": [
                 {
                     "name": "carrot",
@@ -331,7 +423,6 @@ Response shape (JSON): DELETE
             ],
             "instructions": "stop, drop, and roll",
             "description": "one serving contains 2 calories",
-
         },
     ],
     ```
