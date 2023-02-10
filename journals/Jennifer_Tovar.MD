@@ -1,0 +1,1 @@
+2/9: Today we cloned the repository and added the keys.py file to the cookease directory to store our api keys. We added our api keys to gitignore. We added the api-design.md file to the docs directory and added the api endpoints to the file. We reviewed our wireframe and made sure that it was completed. We completed the endpoints for our api.
