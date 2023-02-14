@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from .client import Queries
+
 
 class DuplicateAccountError(ValueError):
     pass
