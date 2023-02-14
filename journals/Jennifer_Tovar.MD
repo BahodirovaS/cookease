@@ -1,0 +1,6 @@
+## February 9, 2023 
+Today we cloned the repository and added the keys.py file to the cookease directory to store our api keys. We added our api keys to gitignore. We added the api-design.md file to the docs directory and added the api endpoints to the file. We reviewed our wireframe and made sure that it was completed. We completed the endpoints for our api.
+## February 10, 2023 
+Today we modified our wireframe and our api endpoints with Riley's help. We read the D1: FastApi and RDBMSes on learn to learn more about what type of database we want to use for our project.
+## February 13, 2023
+Today we created our database and began the authentication process for our project. We read through the project advice on learn and implemented what we needed for our database. We installed jwtdown fastapi. We then followed along with Curtis and the video he provided on how to create our database and the authentication process. We decided to complete the authentication process tomorrow so that we can continue our learning on some of the stuff that we were confused about. 
