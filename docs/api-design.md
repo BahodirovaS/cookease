@@ -81,39 +81,10 @@
     }
     ```
 
-### Edit user page (STRETCH)
-
-* Endpoint path: /edit-user
-* Endpoint method: PUT
-* Query parameters:
-  * password: string
-  * password: string
-
-* Headers:
-  * Authorization: Bearer token
-
-* Request shape (JSON):
-    ```json
-    {
-    "password": "password",
-    "confirm_password": "confirm_password",
-    }
-    ```
-
-* Response: You have changed your password
-* Response shape (JSON):
-    ```json
-    {
-    "first_name": "first_name",
-    "last_name": "last_name",
-    "username": "username",
-    "password": "password",
-    }
-    ```
 
 ### Search recipe page
 
-* Endpoint path: /search-recipe
+* Endpoint path: /search-recipes
 * Endpoint method: GET
 * Query parameters:
   * includeIngredients: string
