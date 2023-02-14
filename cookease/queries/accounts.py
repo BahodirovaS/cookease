@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from .client import Queries
 
-
 class DuplicateAccountError(ValueError):
     pass
 
@@ -19,11 +18,11 @@ class AccountOut(BaseModel):
     first_name: str
     last_name: str
 
-# hold info on account
+
 class AccountQueries(Queries):
     pass
 
-# holds account info's favorited items
+
 class FavoritesQueries(Queries):
     pass
 
