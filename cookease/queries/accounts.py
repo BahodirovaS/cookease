@@ -18,6 +18,9 @@ class AccountOut(BaseModel):
     first_name: str
     last_name: str
 
+class AccountOutWithPassword(AccountOut):
+    hashed_password: str
+
 
 class AccountQueries(Queries):
     pass
@@ -25,7 +28,3 @@ class AccountQueries(Queries):
 
 class FavoritesQueries(Queries):
     pass
-
-# he made this to hide the password so it's not returned for AccountOut
-class AccountOutWithPassword(AccountOut):
-    hashed_password: str
