@@ -81,9 +81,10 @@
     }
     ```
 
+
 ### Search recipe page
 
-* Endpoint path: /search-recipe
+* Endpoint path: /search-recipes
 * Endpoint method: GET
 * Query parameters:
   * includeIngredients: string
