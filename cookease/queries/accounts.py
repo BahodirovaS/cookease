@@ -49,7 +49,6 @@ class AccountQueries(Queries):
             raise DuplicateAccountError()
         props["id"] = str(props["_id"])
         del props["_id"]
-        print(props, "AAAAAAAAA")
         return AccountOutWithPassword(**props)
 
 
