@@ -7,9 +7,11 @@ router = APIRouter()
 
 @router.get('/search-recipes')
 def get_recipe(
-    info: Recipe,
+    # info: Recipe,
+    diet: str,
+    intolerances: str,
+    includeIngredients: str,
+    maxReadyTime: str,
     repo: RecipeQueries = Depends()
 ):
-    return repo.get_recipe(info)
-
-
+    return repo.get_recipe(diet, intolerances, includeIngredients, maxReadyTime)
