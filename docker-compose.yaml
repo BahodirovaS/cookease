@@ -1,8 +1,6 @@
 volumes:
     mongo-data:
         external: true
-    jwtdown-db-data:
-        external: true
 services:
   mongo:
     image: mongo:5
