@@ -18,6 +18,7 @@ from queries.accounts import (
     DuplicateAccountError
 )
 
+
 class AccountForm(BaseModel):
     username: str
     password: str
