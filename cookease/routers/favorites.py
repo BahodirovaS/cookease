@@ -1,4 +1,4 @@
-from fastapi import (Depends, APIRouter, Request)
+from fastapi import (Depends, APIRouter, Request, Response)
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
 
@@ -11,21 +11,21 @@ router = APIRouter()
 
 @router.get("/favorite-recipes", response_model=FavoriteList)
 async def get_favorite(
-    request: Request,
+    recipe_id: int,
     repo: FavoritesQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    if account_data and authenticator.cookie_name in request.cookies:
-        return FavoriteList(favorites=repo.get_favorite())
+    return repo.get_favorite(recipe_id)
 
 
 @router.post("/favorites-recipes", response_model=FavoriteOut)
 async def create_favorite(
-    request: Request,
+    recipe_id: int,
+    response: Response,
     favorite: FavoriteIn,
     repo: FavoritesQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    if account_data and authenticator.cookie_name in request.cookies:
-        favorites = repo.create_favorite(favorite)
-        return favorites
+    if favorite is None:
+        response.status_code=400
+    return repo.create_favorite(favorite, recipe_id)

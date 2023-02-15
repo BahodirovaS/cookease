@@ -38,5 +38,5 @@ class FavoritesQueries(Queries):
             self.collection.insert_one(favorites)
         except DuplicateKeyError:
             raise DuplicateAccountError()
-        favorites["recipe_id"] = str(favorites["_recipe_id"])
+        favorites["recipe_id"] = str(favorites["recipe_id"])
         return FavoriteOut(**favorites)
