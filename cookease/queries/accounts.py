@@ -51,6 +51,3 @@ class AccountQueries(Queries):
         del props["_id"]
         return AccountOutWithPassword(**props)
 
-
-class FavoritesQueries(Queries):
-    pass
