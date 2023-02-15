@@ -15,8 +15,7 @@ from queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,
-    DuplicateAccountError,
-    FavoritesQueries,
+    DuplicateAccountError
 )
 
 class AccountForm(BaseModel):
@@ -34,14 +33,6 @@ class AccountToken(Token):
 
 
 router = APIRouter()
-
-# hide pages if you're not logged in
-@router.get("/cookease/favorites", response_model=bool)
-async def get_protected(
-    favorites: FavoritesQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data),
-):
-    return favorites.get_current_account_data(account_data)
 
 
 # create an account (sign up)

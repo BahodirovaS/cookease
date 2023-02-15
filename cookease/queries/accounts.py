@@ -52,5 +52,4 @@ class AccountQueries(Queries):
         return AccountOutWithPassword(**props)
 
 
-class FavoritesQueries(Queries):
-    pass
+
