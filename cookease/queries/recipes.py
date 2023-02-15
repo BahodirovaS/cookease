@@ -14,7 +14,7 @@ class Recipe(BaseModel):
 class RecipeQueries:
     def get_recipe(self, diet: str, intolerances: str, includeIngredients: str, maxReadyTime:int):
         res = requests.get(
-            'https://api.spoonacular.com/recipes/complexSearch'
-            + diet + intolerances + includeIngredients + maxReadyTime + "apiKey=" + key)
+            'https://api.spoonacular.com/recipes/complexSearch?'
+            + diet + intolerances + includeIngredients + maxReadyTime + "&apiKey=" + key)
         data = res.json()
         return data
