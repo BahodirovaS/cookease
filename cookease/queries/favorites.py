@@ -1,29 +1,42 @@
 from .client import Queries
 from pydantic import BaseModel
+from pymongo.errors import DuplicateKeyError
+from typing import List
 
+
+
+class DuplicateAccountError(ValueError):
+    pass
 
 class FavoriteIn(BaseModel):
     recipe_id: int
 
 class FavoriteOut(BaseModel):
-    user_id: int
     recipe_id: int
+    user_id: int
     id: int
+
+class FavoriteList(BaseModel):
+    favorites: List[FavoriteOut]
 
 class FavoritesQueries(Queries):
     DB_NAME = "db-name"
     COLLECTION = "favorites"
 
 
-    def get_favorite(self, id: int) -> FavoriteOut:
-        favorites = self.collection.find_one({"id": id})
+    def get_favorite(self, recipe_id: int) -> FavoriteOut:
+        favorites = self.collection.find_one({"recipe_id": recipe_id})
         if not favorites:
             return None
-        favorites["id"] = str(favorites["_id"])
+        favorites["recipe_id"] = str(favorites["_recipe_id"])
         return FavoriteOut(**favorites)
 
-    def create_favorite(self, favorite: FavoriteIn) -> FavoriteOut:
+    def create_favorite(self, favorite: FavoriteIn, recipe_id:int) -> FavoriteOut:
         favorites = favorite.dict()
-        self.collection.insert_one(favorites)
-        favorites["id"] = str(favorites["_id"])
-        return FavoriteOut(recipes = [], **favorites)
+        favorites["recipe_id"] = recipe_id
+        try:
+            self.collection.insert_one(favorites)
+        except DuplicateKeyError:
+            raise DuplicateAccountError()
+        favorites["recipe_id"] = str(favorites["_recipe_id"])
+        return FavoriteOut(**favorites)
