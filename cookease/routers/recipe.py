@@ -10,4 +10,6 @@ def get_recipe(
     info: Recipe,
     repo: RecipeQueries = Depends()
 ):
-    return repo.get_recipe()
+    return repo.get_recipe(info)
+
+
