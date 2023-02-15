@@ -18,6 +18,7 @@ services:
     volumes:
       - ./cookease:/app
     environment:
+      SPOONACULAR_API_KEY: ${SPOONACULAR_API_KEY}
       DATABASE_URL: mongodb://root:password@mongo
       SIGNING_KEY: 8CAF51754496A33C7878BD98B4
       DATABASE_NAME: db-name
