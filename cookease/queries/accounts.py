@@ -50,4 +50,3 @@ class AccountQueries(Queries):
         props["id"] = str(props["_id"])
         del props["_id"]
         return AccountOutWithPassword(**props)
-

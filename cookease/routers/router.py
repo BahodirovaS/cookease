@@ -15,12 +15,7 @@ from queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,
-    DuplicateAccountError,
-)
-
-from queries.favorites import (
-    Favorite,
-    FavoritesQueries,
+    DuplicateAccountError
 )
 
 
@@ -39,24 +34,6 @@ class AccountToken(Token):
 
 
 router = APIRouter()
-
-
-# hide pages if you're not logged in
-@router.get("/cookease/favorites", response_model=bool)
-async def get_protected(
-    account_data: dict = Depends(authenticator.get_current_account_data),
-):
-    return True
-
-
-@router.post("/cookease/favorites", response_model=bool)
-async def favorite_a_recipe(
-    info: Favorite,
-    repo: FavoritesQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data),
-):
-    favorite = repo.create(favorite)
-    return favorite
 
 
 # create an account (sign up)
