@@ -12,7 +12,7 @@ router = APIRouter()
 @router.get("/favorite-recipes", response_model=FavoriteOut)
 async def get_favorite(
     favorite: FavoritesQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     if "username" in account_data.username:
         return FavoriteOut(favorites = favorite.get_all())
@@ -23,7 +23,7 @@ async def get_favorite(
 async def create_favorite(
     favorite: FavoriteIn,
     repo: FavoritesQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     if "username" in account_data.username:
         favorites = repo.create(favorite)
