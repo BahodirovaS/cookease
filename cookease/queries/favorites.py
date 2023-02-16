@@ -2,6 +2,7 @@ from .client import Queries
 from pydantic import BaseModel
 from pymongo.errors import DuplicateKeyError
 from typing import List
+from bson.objectid import ObjectId
 
 
 
@@ -49,3 +50,11 @@ class FavoritesQueries(Queries):
         if result.inserted_id:
             result = self.get_favorite(result.inserted_id)
             return result
+
+    def delete_favorite(self, id: str, user_id: str):
+        self.collection.delete_one(
+            {
+                "id" : ObjectId(id),
+                "user_id" : ObjectId(user_id)
+            }
+        )
