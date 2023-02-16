@@ -26,7 +26,6 @@ class FavoritesQueries(Queries):
 
     def get_favorite(self, user_id: int) -> list[FavoriteOut]:
         results = self.collection.find({"user_id": user_id})
-        print(results, "*********")
         favorites = []
         for recipe in results:
             recipe['recipe_id'] = str(recipe['_recipe_id'])
