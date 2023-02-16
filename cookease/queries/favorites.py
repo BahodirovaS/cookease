@@ -37,9 +37,9 @@ class FavoritesQueries(Queries):
         favorite = favorite.dict()
         favorite["user_id"] = user_id
         try:
-          result = self.collection.insert_one(favorite)
+            result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
             raise DuplicateAccountError()
         if result.inserted_id:
-            result = self.get_favorite(result.inserted_id)
+            result = self.get_favorites(result.inserted_id)
             return result
