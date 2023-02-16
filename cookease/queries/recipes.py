@@ -3,7 +3,6 @@ from pydantic import BaseModel
 import os
 from keys.keys import SPOONACULAR_API_KEY
 
-# key = os.environ["SPOONACULAR_API_KEY"]
 
 class Recipe(BaseModel):
     diet: str
