@@ -4,7 +4,6 @@ from pymongo.errors import DuplicateKeyError
 from typing import List
 
 
-
 class DuplicateAccountError(ValueError):
     pass
 
@@ -28,7 +27,7 @@ class FavoritesQueries(Queries):
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
-            recipe['recipe_id'] = str(recipe['_recipe_id'])
+            recipe['recipe_id'] = str(recipe['recipe_id'])
             favorite = FavoriteOut(**recipe)
             favorites.append(favorite)
         return favorites
