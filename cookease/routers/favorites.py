@@ -35,6 +35,7 @@ async def create_favorite(
         response.status_code=400
     return repo.create_favorite(favorite = favorite, user_id = account_data["id"])
 
+
 @router.delete("/favorites-recipes/{id}", response_model=bool)
 async def remove_favorite(
     id: str,
