@@ -27,7 +27,7 @@ class FavoritesQueries(Queries):
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
-            recipe['recipe_id'] = str(recipe['recipe_id'])
+            recipe['id'] = str(recipe['_id'])
             favorite = FavoriteOut(**recipe)
             favorites.append(favorite)
         return favorites
@@ -46,5 +46,5 @@ class FavoritesQueries(Queries):
         except DuplicateKeyError:
             raise DuplicateAccountError()
         if result.inserted_id:
-            result = self.get_favorite(result.inserted_id)
+            result = self.get_favorites(result.inserted_id)
             return result
