@@ -4,7 +4,12 @@ from authenticator import authenticator
 
 from pydantic import BaseModel
 
-from queries.favorites import (FavoritesQueries, FavoriteIn, FavoriteOut, FavoriteList)
+from queries.favorites import (
+    FavoritesQueries, 
+    FavoriteIn, 
+    FavoriteOut, 
+    FavoriteList
+)
 
 router = APIRouter()
 
