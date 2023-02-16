@@ -53,7 +53,7 @@ class FavoritesQueries(Queries):
     def delete_favorite(self, id: str, user_id: str):
         self.collection.delete_one(
             {
-                "id" : ObjectId(id),
-                "user_id" : ObjectId(user_id)
+                "_id" : ObjectId(id),
+                "user_id" : user_id
             }
         )
