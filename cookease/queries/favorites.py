@@ -24,7 +24,7 @@ class FavoritesQueries(Queries):
     COLLECTION = "favorites"
 
 
-    def get_favorite(self, user_id: int) -> list[FavoriteOut]:
+    def get_favorites(self, user_id: int) -> list[FavoriteOut]:
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
@@ -33,12 +33,13 @@ class FavoritesQueries(Queries):
             favorites.append(favorite)
         return favorites
 
-    def create_favorite(self, favorite: FavoriteIn, recipe_id:int) -> FavoriteOut:
-        favorites = favorite.dict()
-        favorites["recipe_id"] = recipe_id
+    def create_favorite(self, favorite: FavoriteIn, user_id:int) -> FavoriteOut:
+        favorite = favorite.dict()
+        favorite["user_id"] = user_id
         try:
-            self.collection.insert_one(favorites)
+          result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
             raise DuplicateAccountError()
-        favorites["recipe_id"] = str(favorites["recipe_id"])
-        return FavoriteOut(**favorites)
+        if result.inserted_id:
+            result = self.get_favorite(result.inserted_id)
+            return result
