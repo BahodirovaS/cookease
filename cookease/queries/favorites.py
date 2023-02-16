@@ -47,5 +47,5 @@ class FavoritesQueries(Queries):
         except DuplicateKeyError:
             raise DuplicateAccountError()
         if result.inserted_id:
-            result = self.get_favorite(result.inserted_id)
+            result = self.get_favorites(result.inserted_id)
             return result
