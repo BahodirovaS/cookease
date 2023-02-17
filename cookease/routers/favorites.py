@@ -4,23 +4,28 @@ from authenticator import authenticator
 
 from pydantic import BaseModel
 
-from queries.favorites import (FavoritesQueries, FavoriteIn, FavoriteOut, FavoriteList)
+from queries.favorites import (
+    FavoritesQueries,
+    FavoriteIn,
+    FavoriteOut,
+    FavoriteList
+)
 
 router = APIRouter()
 
 
 @router.get("/favorite-recipes", response_model=FavoriteList)
 async def get_favorite(
-    recipe_id: int,
     repo: FavoritesQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    return repo.get_favorite(recipe_id)
+    return {
+        "favorites": repo.get_favorites(user_id=account_data["id"])
+    }
 
 
-@router.post("/favorites-recipes", response_model=FavoriteOut)
+@router.post("/favorites-recipes")
 async def create_favorite(
-    recipe_id: int,
     response: Response,
     favorite: FavoriteIn,
     repo: FavoritesQueries = Depends(),
@@ -28,4 +33,15 @@ async def create_favorite(
 ):
     if favorite is None:
         response.status_code=400
-    return repo.create_favorite(favorite, recipe_id)
+    return repo.create_favorite(favorite = favorite, user_id = account_data["id"])
+
+
+@router.delete("/favorites-recipes/{id}", response_model=bool)
+async def remove_favorite(
+    id: str,
+    repo: FavoritesQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)
+):
+
+    repo.delete_favorite(id = id, user_id=account_data["id"])
+    return True
