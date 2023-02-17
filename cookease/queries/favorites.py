@@ -51,9 +51,10 @@ class FavoritesQueries(Queries):
             return result
 
     def delete_favorite(self, id: str, user_id: str):
+        result = self.collection.find_one({"recipe_id": id})
         self.collection.delete_one(
             {
-                "_id" : ObjectId(id),
+                "recipe_id" : id,
                 "user_id" : user_id
             }
         )
