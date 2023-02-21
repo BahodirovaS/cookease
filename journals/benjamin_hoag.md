@@ -8,6 +8,10 @@
 - We got all of the swagger end points up and running.
 
 ## February 15, 2023
-- We were working on the "get all favorites" end point only to realize that it will not work until we have recipes in the data base.
+-We were working on the "get all favorites" end point only to realize that it will not work until we have recipes in the data base.
 -We switched over to getting data from our third party api and keep hitting errors.
 -We hit a stopping point after we were able to get recipes and we will pick up there tomorrow.
+
+## February 16, 2023
+-We can create a favorite and delete a favorite if we use the object ID but we want to use the recipe ID.
+-We worked on routers and queries for the "favorites"
