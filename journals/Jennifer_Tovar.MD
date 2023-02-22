@@ -1,7 +1,7 @@
 ## February 23, 2023
 
 ## February 22, 2023
-
+    Today we started the frontend application for our project. It was a successful day as we completed the authentication for the frontend. We now have a signup page, a login page, a navigation page, an App page, a Main page and an Index page. We can signup a user and login successfully. We have a nav bar on the main page. My aha moment was when we realized that we all have to install redux. The website will not work without it being installed. Tomorrow we will tackle incorporating bootstrap to the signup and login page. 
 ## February 21, 2023
     Today was my turn to be on the driver seat. We started the day with some blockers from Thursday, with our delete function not working. We fixed our delete function so that our delete endpoint would work to delete a favorite recipe by resetting the code back to what it was on Thursday. My aha moment was when Candice helped me realize that we were trying to delete the wrong id(recipe_id) for our delete endpoint and when our function was working, we were actually deleting the correct id(ObjectId), which was the id from spoonacular that was auto generated but we were trying to change it to delete the wrong id(recipe_id). We completed the recipe details endpoint and tested it to make sure it worked and it did! We are offically done with backend!!! We began to read the learn explorations for React to be ready to start the frontend tomorrow.  
 ## February 16, 2023
