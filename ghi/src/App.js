@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import Construct from "./Construct.js";
-import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { useGetTokenQuery } from "./auth/authApi.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from "./SignUp.js";
 import LogIn from "./LogIn.js";
+import Nav from "./Nav";
+import MainPage from "./MainPage";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
@@ -13,10 +12,14 @@ function App() {
   useGetTokenQuery();
   return (
     <BrowserRouter>
+      <Nav />
+      <div>
       <Routes>
-        <Route path="/token" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<LogIn />} />
       </Routes>
+      </div>
     </BrowserRouter>
   );
 }

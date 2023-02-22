@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSignUpMutation } from "./auth/authApi";
 import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
-// import Notification from "./Notification";
 import { preventDefault } from "./auth/utils.js";
 
 function SignUp() {
@@ -24,9 +23,6 @@ function SignUp() {
       <div className="modal-content">
         <div className="box content">
           <h3>Sign Up</h3>
-          {/* {error ? (
-            <Notification type="danger">{error.data.detail}</Notification>
-          ) : null} */}
           <form
             method="POST"
             onSubmit={preventDefault(signUp, () => ({

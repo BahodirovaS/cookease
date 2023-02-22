@@ -8,7 +8,7 @@ function LogIn() {
   const dispatch = useDispatch();
   const { show, username, password } = useSelector((state) => state.account);
   const modalClass = `modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
-  const [logIn, { error, isLoading: logInLoading }] = useLogInMutation();
+  const [logIn, { isLoading: logInLoading }] = useLogInMutation();
   const field = useCallback(
     (e) =>
       dispatch(updateField({ field: e.target.name, value: e.target.value })),
@@ -21,9 +21,6 @@ function LogIn() {
       <div className="modal-content">
         <div className="box content">
           <h3>Log In</h3>
-          {/* {error ? (
-            <Notification type="danger">{error.data.detail}</Notification>
-          ) : null} */}
           <form method="POST" onSubmit={preventDefault(logIn, target)}>
             <div className="field">
               <label className="label" htmlFor="username">
