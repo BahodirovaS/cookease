@@ -23,3 +23,10 @@
 -Tried to start on the DEL function of favorites to remove a favorites from the list, but ran into some blockers. Got it to work by hard coding in the 12 digit hex code id
 but we don't know how to grab the string id with a variable. Tried to change it to use recipe id instead of the long str but we couldn't figure that out either.
 -> Braeden/Benjamin main drivers
+
+## February 21st, 2023
+
+-Started work on get recipe details function. Got it to work and finished it. Will use this function to get all information from spoonacular API and filter it in the front end
+-Talked with Candice a bit and figured out our delete function that we left off was correct and working as intended and will incorporate rest in frontend
+
+-> Jenn main driver

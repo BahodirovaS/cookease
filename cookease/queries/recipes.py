@@ -3,14 +3,6 @@ from pydantic import BaseModel
 import os
 from keys.keys import SPOONACULAR_API_KEY
 
-
-class Recipe(BaseModel):
-    diet: str
-    intolerances: str
-    includeIngredients: str
-    maxReadyTime: str
-
-
 class RecipeQueries:
     def get_recipe(self, diet: str, intolerances: str, includeIngredients: str, maxReadyTime: str):
         res = requests.get(
@@ -22,8 +14,7 @@ class RecipeQueries:
 class RecipeDetails:
     def get_details(self, id: int):
         res = requests.get(
-            'https://api.spoonacular.com/recipes/' + str(id) + "/information?apiKey=" + SPOONACULAR_API_KEY 
+            'https://api.spoonacular.com/recipes/' + str(id) + "/information?apiKey=" + SPOONACULAR_API_KEY
         )
         data = res.json()
         return data
-        

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from queries.recipes import RecipeQueries, Recipe, RecipeDetails
+from queries.recipes import RecipeQueries, RecipeDetails
 
 
 router = APIRouter()
@@ -7,7 +7,6 @@ router = APIRouter()
 
 @router.get('/search-recipes')
 def get_recipe(
-    # info: Recipe,
     diet: str,
     intolerances: str,
     includeIngredients: str,

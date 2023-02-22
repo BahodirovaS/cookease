@@ -20,7 +20,7 @@ services:
     environment:
       SPOONACULAR_API_KEY: ${SPOONACULAR_API_KEY}
       DATABASE_URL: mongodb://root:password@mongo
-      SIGNING_KEY: 8CAF51754496A33C7878BD98B4
+      SIGNING_KEY: ${SIGNING_KEY}
       DATABASE_NAME: db-name
       WAIT_HOSTS: mongo:27017
       WAIT_BEFORE: 5
