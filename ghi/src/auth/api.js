@@ -14,9 +14,9 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Account", "Recipes", "Token"],
+  tagTypes: ["Account", "Recipes", "Favorites", "Recipe-Detail", "Token"],
   endpoints: (builder) => ({
-    addBook: builder.mutation({
+    addFavoriteRecipe: builder.mutation({
       query: (form) => {
         const formData = new FormData(form);
         const entries = Array.from(formData.entries());
@@ -26,46 +26,67 @@ export const apiSlice = createApi({
         }, {});
         return {
           method: "post",
-          url: "/api/books",
+          url: "/favorites-recipes",
           credentials: "include",
           body: data,
         };
       },
-      invalidatesTags: [{ type: "Books", id: "LIST" }],
+      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
     }),
-    getBooks: builder.query({
-      query: () => `/api/books`,
+    getFavorite: builder.query({
+      query: () => `/favorites-recipes`,
       providesTags: (data) => {
-        const tags = [{ type: "Books", id: "LIST" }];
-        if (!data || !data.books) return tags;
+        const tags = [{ type: "Favorites", id: "LIST" }];
+        if (!data || !data.recipes) return tags;
 
-        const { books } = data;
-        if (books) {
-          tags.concat(...books.map(({ id }) => ({ type: "Books", id })));
+        const { recipes } = data;
+        if (recipes) {
+          tags.concat(...recipes.map(({ id }) => ({ type: "Favorites", id })));
         }
         return tags;
       },
     }),
-    borrowBook: builder.mutation({
-      query: (bookId) => ({
-        method: "post",
-        url: `/api/books/${bookId}/loans`,
-      }),
-      invalidatesTags: [{ type: "Books", id: "LIST" }],
+    getRecipe: builder.mutation({
+      query: () => `/search-recipes`,
+      providesTags: (data) => {
+        const tags = [{ type: "Recipes", id: "LIST" }];
+        if (!data || !data.recipes) return tags;
+
+        const { recipes } = data;
+        if (recipes) {
+          tags.concat(...recipes.map(({ id }) => ({ type: "Recipes", id })));
+        }
+        return tags;
+      },
     }),
-    returnBook: builder.mutation({
-      query: (bookId) => ({
+    getRecipeDetails: builder.query({
+      query: () => `/recipe-details`,
+      providesTags: (data) => {
+        const tags = [{ type: "Recipe-Detail", id: "LIST" }];
+        if (!data || !data.recipes) return tags;
+
+        const { recipes } = data;
+        if (recipes) {
+          tags.concat(...recipes.map(({ id }) => ({ type: "Recipe-Detail", id })));
+        }
+        return tags;
+      },
+    }),
+    deleteFavorite: builder.mutation({
+      query: (id) => ({
         method: "delete",
-        url: `/api/books/${bookId}/loans`,
+        url: `/favorites-recipes/{id}`,
       }),
-      invalidatesTags: [{ type: "Books", id: "LIST" }],
+      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
     }),
   }),
 });
 
 export const {
-  useAddBookMutation,
-  useBorrowBookMutation,
-  useGetBooksQuery,
-  useReturnBookMutation,
+  useAddFavoriteRecipeMutation,
+  useGetFavoriteQuery,
+  useDeleteFavoriteMutation,
+  useGetRecipeMutation,
+  useGetRecipeDetailsQuery,
+  getRecipe,
 } = apiSlice;
