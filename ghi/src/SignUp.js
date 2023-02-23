@@ -9,7 +9,7 @@ function SignUp() {
   const { show, username, password, first_name, last_name } = useSelector(
     (state) => state.account
   );
-  const modalClass = `modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
+  const modalClass = `my-modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
   const [signUp, { error, isLoading: signUpLoading }] = useSignUpMutation();
   const field = useCallback(
     (e) =>
