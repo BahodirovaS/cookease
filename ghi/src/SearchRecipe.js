@@ -1,20 +1,26 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipe } from './auth/api';
+import { getRecipe, useGetRecipeQuery } from './auth/api';
 
 function RecipeSearch() {
     const navigate = useNavigate;
-    const recipes = useSelector(state => state.recipes);
+    const { data: recipes, isLoading } = useGetRecipeQuery("vegan", "dairy", "carrots", "45");
+    // const recipes = useSelector(state => state.recipes);
     console.log(recipes)
+    const [recipeData, setRecipeData] = useState([]);
+    // console.log(recipeData)
+    console.log(isLoading)
     const [diet, setDiet] = useState('');
     const [intolerances, setIntolerances] = useState('');
     const [includeIngredients, setIncludeIngredients] = useState('');
     const [maxReadyTime, setMaxReadyTime] = useState('');
     const dispatch = useDispatch();
 
-    function handleSubmit() {
+    const handleChange = async () => {
         dispatch(getRecipe({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }));
+        let data = await getRecipe();
+        setRecipeData(data["data"]);
         setDiet('');
         setIntolerances('');
         setIncludeIngredients('');
@@ -58,10 +64,10 @@ function RecipeSearch() {
                     onChange={(e) => setMaxReadyTime(e.target.value)}
                 />
             </div>
-            <button onClick={handleSubmit}>Search</button>
+            <button onClick={handleChange}>Search</button>
             <div>
                 <ul>
-                    {recipes.map((recipe) => (
+                    {isLoading && !recipes ? null : recipes.results.map((recipe) => (
                         <li key={recipe.id}>
                             <h3>{recipe.title}</h3>
                             <img src={recipe.image} alt={recipe.title} />
