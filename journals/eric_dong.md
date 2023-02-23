@@ -30,3 +30,12 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Talked with Candice a bit and figured out our delete function that we left off was correct and working as intended and will incorporate rest in frontend
 
 -> Jenn main driver
+
+# February 22nd, 2023
+
+-Started work on frontend auth, we got it to work was able to double check that user was created as well as be able to log in by using FASTapi, also FASTapi returns token.
+-Unsure how to use this token in the front end and how it all works, but it works with the backend for the time being
+
+-> Eric main driver -> Sabina
+
+# February 23rd, 2023
