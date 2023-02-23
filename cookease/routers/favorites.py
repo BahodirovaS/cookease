@@ -14,7 +14,7 @@ from queries.favorites import (
 router = APIRouter()
 
 
-@router.get("/favorite-recipes", response_model=FavoriteList)
+@router.get("/favorites-recipes", response_model=FavoriteList)
 async def get_favorite(
     repo: FavoritesQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
