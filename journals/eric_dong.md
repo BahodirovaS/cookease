@@ -39,3 +39,8 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -> Eric main driver -> Sabina
 
 # February 23rd, 2023
+
+-Started our search page, ran into a few blockers making sense of the code in learn and the example repo.
+-Eventually got some help from candice explaining what we're doing wrong, we constructed our end point wrong and couldnt get any data
+
+-> Braeden main driver
