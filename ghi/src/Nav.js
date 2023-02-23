@@ -5,7 +5,7 @@ function Nav() {
     const location = useLocation()
 
     return (
-        <nav className="navbar navbar-expand-lg nav-light bg-white">
+        <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
             <div className="container-fluid">
             <NavLink className="navbar-brand fs-3" to="/">CookEase</NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

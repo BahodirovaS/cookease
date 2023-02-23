@@ -7,7 +7,7 @@ import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
 function LogIn() {
   const dispatch = useDispatch();
   const { show, username, password } = useSelector((state) => state.account);
-  const modalClass = `modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
+  const modalClass = `my-modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
   const [logIn, { isLoading: logInLoading }] = useLogInMutation();
   const field = useCallback(
     (e) =>
