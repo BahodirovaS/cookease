@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from pymongo.errors import DuplicateKeyError
 from typing import List
 from bson.objectid import ObjectId
+from fastapi.exceptions import HTTPException
+from pymongo import ASCENDING
 
 
 class DuplicateAccountError(ValueError):
@@ -42,19 +44,20 @@ class FavoritesQueries(Queries):
     def create_favorite(self, favorite: FavoriteIn, user_id:str) -> FavoriteOut:
         favorite = favorite.dict()
         favorite["user_id"] = user_id
+        self.collection.create_index([("user_id", ASCENDING), ("recipe_id", ASCENDING)], unique = True)
         try:
-            self.collection.insert_one(favorite)
+            result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
-            raise DuplicateAccountError()
+            raise HTTPException(status_code=400, detail="favorite already exists")
         if result.inserted_id:
-            result = self.get_favorite(result.inserted_id)
-            return result
+                result = self.get_favorite(result.inserted_id)
+                return result
+
 
     def delete_favorite(self, id: str, user_id: str):
-        result = self.collection.find_one({"recipe_id": id})
         self.collection.delete_one(
             {
-                "recipe_id" : id,
+                "_id" : ObjectId(id),
                 "user_id" : user_id
             }
         )
