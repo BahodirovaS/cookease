@@ -6,6 +6,8 @@ services:
     image: mongo:5
     volumes:
       - mongo-data:/data/db
+    ports:
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
@@ -19,7 +21,7 @@ services:
       - ./cookease:/app
     environment:
       SPOONACULAR_API_KEY: ${SPOONACULAR_API_KEY}
-      DATABASE_URL: mongodb://root:password@mongo
+      DATABASE_URL: mongodb://root:password@mongo/admin
       SIGNING_KEY: ${SIGNING_KEY}
       DATABASE_NAME: db-name
       WAIT_HOSTS: mongo:27017
@@ -39,3 +41,4 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_cookease_API_HOST: http://localhost:8000
+      REACT_APP_SPOONACULAR_HOST: https://api.spoonacular.com/recipes/complexSearch??

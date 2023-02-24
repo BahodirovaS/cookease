@@ -46,22 +46,9 @@ export const apiSlice = createApi({
         return tags;
       },
     }),
-    getRecipe: builder.mutation({
-      query: () => `/search-recipes`,
-      providesTags: (data) => {
-        const tags = [{ type: "Recipes", id: "LIST" }];
-        if (!data || !data.recipes) return tags;
-
-        const { recipes } = data;
-        if (recipes) {
-          tags.concat(...recipes.map(({ id }) => ({ type: "Recipes", id })));
-        }
-        return tags;
-      },
-    }),
     getRecipe: builder.query({
       // http://localhost:8000/search-recipes?diet=vegan&intolerances=dairy&includeIngredients=carrots&maxReadyTime=45
-      query: (diet, intolerances, includeIngredients, maxReadyTime) => `/search-recipes?diet=${diet}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&maxReadyTime=${maxReadyTime}`,
+      query: (diet, intolerances, includeIngredients, maxReadyTime) => `/search-recipes?diet=${diet}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&maxReadyTime=${maxReadyTime}&number=20`,
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;

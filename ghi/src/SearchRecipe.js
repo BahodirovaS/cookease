@@ -1,24 +1,29 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipe, useGetRecipeQuery } from './auth/api';
+import { getRecipe } from './auth/api';
+// import { useGetRecipeQuery } from "./auth/test";
+import { useGetRecipeQuery } from "./auth/api";
 
 function RecipeSearch() {
     const navigate = useNavigate;
-    const { data: recipes, isLoading } = useGetRecipeQuery("vegan", "dairy", "carrots", "45");
+    const { data: recipes, isLoading } = useGetRecipeQuery("vegetarian", "eggs", "cheese", "45");
+
     // const recipes = useSelector(state => state.recipes);
-    console.log(recipes)
+    // console.log(data)
     const [recipeData, setRecipeData] = useState([]);
     // console.log(recipeData)
-    console.log(isLoading)
+    // console.log(isLoading)
     const [diet, setDiet] = useState('');
     const [intolerances, setIntolerances] = useState('');
     const [includeIngredients, setIncludeIngredients] = useState('');
     const [maxReadyTime, setMaxReadyTime] = useState('');
     const dispatch = useDispatch();
 
+    // const { data, isLoading } = useGetRecipeQuery(diet, intolerances, includeIngredients, maxReadyTime);
     const handleChange = async () => {
         dispatch(getRecipe({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }));
+        // dispatch(getRecipe(diet, intolerances, includeIngredients, maxReadyTime));
         let data = await getRecipe();
         setRecipeData(data["data"]);
         setDiet('');
