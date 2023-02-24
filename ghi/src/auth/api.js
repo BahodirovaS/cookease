@@ -4,7 +4,7 @@ import { authApiSlice } from "./authApi";
 export const apiSlice = createApi({
   reducerPath: "recipes",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_cookease_API_HOST,
+    baseUrl: process.env.REACT_APP_SAMPLE_SERVICE_API_HOST,
     prepareHeaders: (headers, { getState }) => {
       const selector = authApiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
@@ -48,7 +48,8 @@ export const apiSlice = createApi({
     }),
     getRecipe: builder.query({
       // http://localhost:8000/search-recipes?diet=vegan&intolerances=dairy&includeIngredients=carrots&maxReadyTime=45
-      query: (diet, intolerances, includeIngredients, maxReadyTime) => `/search-recipes?diet=${diet}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&maxReadyTime=${maxReadyTime}&number=20`,
+      // ${process.env.REACT_APP_SAMLPE_SERVICE_API_HOST}/api/things
+      query: (diet, intolerances, includeIngredients, maxReadyTime) => `/search-recipes?diet=${diet}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&maxReadyTime=${maxReadyTime}`,
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;

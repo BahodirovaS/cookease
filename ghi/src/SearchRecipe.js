@@ -7,8 +7,7 @@ import { useGetRecipeQuery } from "./auth/api";
 
 function RecipeSearch() {
     const navigate = useNavigate;
-    const { data: recipes, isLoading } = useGetRecipeQuery("vegetarian", "eggs", "cheese", "45");
-
+    const { data: recipes, isLoading } = useGetRecipeQuery(diet, intolerances, includeIngredients, maxReadyTime);
     // const recipes = useSelector(state => state.recipes);
     // console.log(data)
     const [recipeData, setRecipeData] = useState([]);

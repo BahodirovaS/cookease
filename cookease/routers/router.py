@@ -23,11 +23,14 @@ class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
 
+
 class HttpError(BaseModel):
     detail: str
+
 
 class AccountToken(Token):
     account: AccountOut
