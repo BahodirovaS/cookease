@@ -7,7 +7,7 @@ import { useGetRecipeQuery } from "./auth/api";
 
 function RecipeSearch() {
     const navigate = useNavigate;
-    const { data, isLoading } = useGetRecipeQuery()
+    const { data, isLoading } = useGetRecipeQuery({ diet: "gluten-free", intolerances: "cheese", includeIngredients: "corn", maxReadyTime: "30" })
     // const recipes = useSelector(state => state.recipes);
     const [recipes, setRecipes] = useState([]);
     console.log(recipes)
@@ -18,11 +18,15 @@ function RecipeSearch() {
     const [includeIngredients, setIncludeIngredients] = useState('');
     const [maxReadyTime, setMaxReadyTime] = useState('');
     const dispatch = useDispatch();
-
+    const [run, results] = getRecipe.useLazyQuery();
+    console.log(data)
     // const { data, isLoading } = useGetRecipeQuery(diet, intolerances, includeIngredients, maxReadyTime);
     const handleChange = async () => {
-        const run = await dispatch(getRecipe({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }));
-        setRecipes(run.data)
+        const new_results = await run({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }).unwrap()
+        console.log(new_results)
+        setRecipes(results)
+        console.log(run)
+        console.log(results)
         // dispatch(getRecipe(diet, intolerances, includeIngredients, maxReadyTime));
         // setRecipeData(data["data"]);
         // let data = await getRecipe();
