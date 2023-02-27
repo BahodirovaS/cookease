@@ -46,8 +46,8 @@ export const apiSlice = createApi({
         return tags;
       },
     }),
-    getRecipe: builder.mutation({
-      query: () => `/search-recipes`,
+    getRecipe: builder.query({
+      query: (payload) => `/search-recipes?diet=${payload.diet}&intolerances=${payload.intolerances}&includeIngredients=${payload.includeIngredients}&maxReadyTime=${payload.maxReadyTime}&number=${payload.number}`,
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;
@@ -60,7 +60,7 @@ export const apiSlice = createApi({
       },
     }),
     getRecipeDetails: builder.query({
-      query: () => `/recipe-details`,
+      query: () => `/recipe-details/{id}`,
       providesTags: (data) => {
         const tags = [{ type: "Recipe-Detail", id: "LIST" }];
         if (!data || !data.recipes) return tags;
@@ -86,7 +86,7 @@ export const {
   useAddFavoriteRecipeMutation,
   useGetFavoriteQuery,
   useDeleteFavoriteMutation,
-  useGetRecipeMutation,
   useGetRecipeDetailsQuery,
-  getRecipe,
+  useGetRecipeQuery,
+  useLazyGetRecipeQuery,
 } = apiSlice;

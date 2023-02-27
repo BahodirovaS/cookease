@@ -13,6 +13,7 @@ app.include_router(favorites.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost:8000",
         os.environ.get("CORS_HOST", "http://localhost:3000")
     ],
     allow_credentials=True,
