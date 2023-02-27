@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<LogIn />} />
-          <Route path="search-recipe" element={<RecipeSearch />} />
+          <Route path="search-recipes" element={<RecipeSearch />} />
         </Routes>
       </div>
     </BrowserRouter>

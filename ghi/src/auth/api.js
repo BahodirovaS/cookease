@@ -60,7 +60,7 @@ export const apiSlice = createApi({
       },
     }),
     getRecipeDetails: builder.query({
-      query: () => `/recipe-details`,
+      query: () => `/recipe-details/{id}`,
       providesTags: (data) => {
         const tags = [{ type: "Recipe-Detail", id: "LIST" }];
         if (!data || !data.recipes) return tags;

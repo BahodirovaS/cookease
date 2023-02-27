@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLazyGetRecipeQuery } from "./auth/api";
+import { Link } from "react-router-dom"
 
 function RecipeSearch() {
     const [form, setForm] = useState({
@@ -79,7 +80,9 @@ function RecipeSearch() {
                     <ul>
                         {lazyData?.results?.map((recipe) => (
                             <li key={recipe.id}>
-                                <h3>{recipe.title}</h3>
+                                <Link to="/recipe-details/{id}" >
+                                    <h3>{recipe.title}</h3>
+                                </Link>
                                 <img src={recipe.image} alt={recipe.title} />
                             </li>
                         ))}
