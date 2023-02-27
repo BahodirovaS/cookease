@@ -20,7 +20,9 @@ def get_recipe(
     )
 
 
-@router.get("/recipe-details")
-def get_recipe_details(id: int, repo: RecipeDetails = Depends()):
-
+@router.get('/recipe-details/{id}')
+def get_recipe_details(
+    id: int,
+    repo:  RecipeDetails = Depends()
+):
     return repo.get_details(id)
