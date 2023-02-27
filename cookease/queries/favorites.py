@@ -25,7 +25,7 @@ class FavoriteList(BaseModel):
 
 
 class FavoritesQueries(Queries):
-    DB_NAME = "db-name"
+    DB_NAME = "cookease"
     COLLECTION = "favorites"
 
     def get_favorites(self, user_id: str) -> List[FavoriteOut]:
