@@ -1,5 +1,5 @@
 ## February 23, 2023
-
+    Today we started off the day with blockers from yesterday. We decided to try to tackle the search page to see if we can get it to work. We found that the api.js was not working so we began to change some code around and test the code we had. We were not able to figure out the search page and why it wasn't working properly. The issue we were facing was that when you entered the fields and pressed enter, the results were not compatible with the fields that we entered. We will tackle this blocker again tomorrow.
 ## February 22, 2023
     Today we started the frontend application for our project. It was a successful day as we completed the authentication for the frontend. We now have a signup page, a login page, a navigation page, an App page, a Main page and an Index page. We can signup a user and login successfully. We have a nav bar on the main page. My aha moment was when we realized that we all have to install redux. The website will not work without it being installed. Tomorrow we will tackle incorporating bootstrap to the signup and login page. 
 ## February 21, 2023
