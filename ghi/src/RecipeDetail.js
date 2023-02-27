@@ -19,7 +19,7 @@ function RecipeDetails() {
     return (
         <>
             <div>{data.title}</div>
-            <div>{data.image}</div>
+            <img src={data.image} alt={data.title} />
             <div>{data.readyInMinutes}</div>
             <div>
                 <table>
@@ -29,7 +29,7 @@ function RecipeDetails() {
                                 return number.steps.map((step) => {
                                     return (
                                         <tr key={step.number}>
-                                            <td>Step {step.number})</td>
+                                            <td>Step {step.number} - </td>
                                             <td>{step.step}</td>
                                         </tr>
                                     )
@@ -53,9 +53,10 @@ function RecipeDetails() {
                             {data.extendedIngredients.map((ingredient) => {
                                 return (
                                     <tr key={ingredient.id}>
-                                        <td>{ingredient.image}</td>
+                                        <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt={ingredient.name} />
                                         <td>{ingredient.name}</td>
                                     </tr>
+
                                 )
                             })};
                         </tbody>
