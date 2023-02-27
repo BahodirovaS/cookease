@@ -5,20 +5,22 @@ from queries.recipes import RecipeQueries, RecipeDetails
 router = APIRouter()
 
 
-@router.get('/search-recipes')
+@router.get("/search-recipes")
 def get_recipe(
     diet: str,
     intolerances: str,
     includeIngredients: str,
     maxReadyTime: str,
-    repo: RecipeQueries = Depends()
+    number: str,
+    repo: RecipeQueries = Depends(),
 ):
-    return repo.get_recipe(diet, intolerances, includeIngredients, maxReadyTime)
+
+    return repo.get_recipe(
+        diet, intolerances, includeIngredients, maxReadyTime, number
+    )
 
 
-@router.get('/recipe-details')
-def get_recipe_details(
-    id: int,
-    repo:  RecipeDetails = Depends()
-):
+@router.get("/recipe-details")
+def get_recipe_details(id: int, repo: RecipeDetails = Depends()):
+
     return repo.get_details(id)
