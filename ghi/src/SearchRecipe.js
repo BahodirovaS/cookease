@@ -20,6 +20,7 @@ function RecipeSearch() {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -80,7 +81,7 @@ function RecipeSearch() {
                     <ul>
                         {lazyData?.results?.map((recipe) => (
                             <li key={recipe.id}>
-                                <Link to="/recipe-details/{id}" >
+                                <Link to={`/recipe-details/${recipe.id}`} >
                                     <h3>{recipe.title}</h3>
                                 </Link>
                                 <img src={recipe.image} alt={recipe.title} />

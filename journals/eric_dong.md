@@ -44,3 +44,16 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Eventually got some help from candice explaining what we're doing wrong, we constructed our end point wrong and couldnt get any data
 
 -> Braeden main driver
+
+# February 24th, 2023
+
+-Hard stuck on search recipes page and redux! Got a lot of help from tyler and Jimmy but couldn't figure much out at the end of the day. Not sure why we are getting errors
+
+-> Sabina main driver
+
+# February 27th, 2023
+
+-Braeden figured out how to fix our search recipes page over the weekend with Tyler
+-Started work on Recipe details page and currently have everything printing properly
+
+-> Jenn/Eric/Sabina driver
