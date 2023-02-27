@@ -47,14 +47,7 @@ export const apiSlice = createApi({
       },
     }),
     getRecipe: builder.query({
-      // http://localhost:8000/search-recipes?diet=vegan&intolerances=dairy&includeIngredients=carrots&maxReadyTime=45
-      // ?diet=${ params.diet } & intolerances=${ params.intolerances } & includeIngredients=${ params.includeIngredients } & maxReadyTime=${ params.maxReadyTime }
-      // ${process.env.REACT_APP_SAMLPE_SERVICE_API_HOST}/api/things
-      queryFn: (params) => ({
-        url: `/search-recipes`,
-        method: "get",
-        params: {...params},
-      }),
+      query: (payload) => `/search-recipes?diet=${payload.diet}&intolerances=${payload.intolerances}&includeIngredients=${payload.includeIngredients}&maxReadyTime=${payload.maxReadyTime}&number=${payload.number}`,
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;
@@ -95,6 +88,5 @@ export const {
   useDeleteFavoriteMutation,
   useGetRecipeDetailsQuery,
   useGetRecipeQuery,
+  useLazyGetRecipeQuery,
 } = apiSlice;
-
-export const {getRecipe} = apiSlice.endpoints
