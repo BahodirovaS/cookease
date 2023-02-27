@@ -6,6 +6,7 @@ import LogIn from "./LogIn.js";
 import Nav from "./Nav";
 import MainPage from "./MainPage";
 import RecipeSearch from "./SearchRecipe";
+import RecipeDetail from "./RecipeDetail";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
@@ -20,6 +21,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<LogIn />} />
           <Route path="search-recipes" element={<RecipeSearch />} />
+          <Route path="recipe-detail" element={<RecipeDetail />} />
         </Routes>
       </div>
     </BrowserRouter>
