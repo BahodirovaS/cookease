@@ -1,16 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipe } from './auth/api';
-// import { useGetRecipeQuery } from "./auth/test";
+import { getRecipe, apiSlice } from './auth/api';
 import { useGetRecipeQuery } from "./auth/api";
+
 
 function RecipeSearch() {
     const navigate = useNavigate;
-    const { data: recipes, isLoading } = useGetRecipeQuery(diet, intolerances, includeIngredients, maxReadyTime);
+    const { data, isLoading } = useGetRecipeQuery()
     // const recipes = useSelector(state => state.recipes);
-    // console.log(data)
-    const [recipeData, setRecipeData] = useState([]);
+    const [recipes, setRecipes] = useState([]);
+    console.log(recipes)
     // console.log(recipeData)
     // console.log(isLoading)
     const [diet, setDiet] = useState('');
@@ -21,10 +21,11 @@ function RecipeSearch() {
 
     // const { data, isLoading } = useGetRecipeQuery(diet, intolerances, includeIngredients, maxReadyTime);
     const handleChange = async () => {
-        dispatch(getRecipe({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }));
+        const run = await dispatch(getRecipe({ diet: diet, intolerances: intolerances, includeIngredients: includeIngredients, maxReadyTime: maxReadyTime }));
+        setRecipes(run.data)
         // dispatch(getRecipe(diet, intolerances, includeIngredients, maxReadyTime));
-        let data = await getRecipe();
-        setRecipeData(data["data"]);
+        // setRecipeData(data["data"]);
+        // let data = await getRecipe();
         setDiet('');
         setIntolerances('');
         setIncludeIngredients('');
@@ -71,7 +72,7 @@ function RecipeSearch() {
             <button onClick={handleChange}>Search</button>
             <div>
                 <ul>
-                    {isLoading && !recipes ? null : recipes.results.map((recipe) => (
+                    {isLoading && !recipes ? null : recipes?.results?.map((recipe) => (
                         <li key={recipe.id}>
                             <h3>{recipe.title}</h3>
                             <img src={recipe.image} alt={recipe.title} />
