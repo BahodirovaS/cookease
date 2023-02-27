@@ -7,6 +7,7 @@ import Nav from "./Nav";
 import MainPage from "./MainPage";
 import RecipeSearch from "./SearchRecipe";
 import RecipeDetails from "./RecipeDetail";
+import FavoriteRecipes from "./FavoriteRecipes";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
@@ -22,6 +23,7 @@ function App() {
           <Route path="login" element={<LogIn />} />
           <Route path="search-recipes" element={<RecipeSearch />} />
           <Route path="recipe-details/:id" element={<RecipeDetails />} />
+          <Route path="favorites-recipes" element={<FavoriteRecipes />} />
         </Routes>
       </div>
     </BrowserRouter>
