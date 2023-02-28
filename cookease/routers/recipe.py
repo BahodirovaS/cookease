@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends
-from queries.recipes import RecipeQueries, RecipeDetails, IngredientWidget
-
+from queries.recipes import RecipeQueries, RecipeDetails
 
 router = APIRouter()
 

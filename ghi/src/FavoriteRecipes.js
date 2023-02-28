@@ -1,12 +1,13 @@
 import { useGetFavoriteQuery, useGetRecipeDetailsQuery } from "./auth/api";
-import { useGetTokenQuery} from "./auth/authApi";
+import { useGetTokenQuery } from "./auth/authApi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
+
 
 function FavoriteRecipes() {
     const { data: tokenData } = useGetTokenQuery()
     const { data: favorites, isLoading } = useGetFavoriteQuery()
-    const { data: data } = useGetRecipeDetailsQuery()
+    const { data: data } = useGetRecipeDetailsQuery(favorites.favorites[0].recipe_id)
 
     if (isLoading) {
         return (
@@ -25,12 +26,26 @@ function FavoriteRecipes() {
         )
     }
 
+    if (!favorites) {
+        return null;
+    }
+
+    const FavoriteList = favorites.favorites.map((favorite) => favorite.recipe_id)
+
+    console.log(FavoriteList)
     console.log(data)
+
+
+    // const { data: data } = useGetRecipeDetailsQuery({
+    //     ids: FavoriteList
+    // });
+
+    // console.log(data)
 
     return (
         <>
             <div>
-                {favorites}
+                Hello
             </div>
         </>
     )
