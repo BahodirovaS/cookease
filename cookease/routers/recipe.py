@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from queries.recipes import RecipeQueries, RecipeDetails, IngredientWidget
+from queries.recipes import RecipeQueries, RecipeDetails
 
 
 router = APIRouter()
@@ -18,14 +18,6 @@ def get_recipe(
     return repo.get_recipe(
         diet, intolerances, includeIngredients, maxReadyTime, number
     )
-
-
-@router.get('/ingredient/{id}')
-def get_ingredient_widget(
-    id: int,
-    repo: IngredientWidget = Depends(),
-):
-    return repo.get_ingredient_widget(id)
 
 
 @router.get('/recipe-details/{id}')

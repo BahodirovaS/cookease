@@ -90,7 +90,6 @@ export const {
   useGetFavoriteQuery,
   useDeleteFavoriteMutation,
   useGetRecipeDetailsQuery,
-  useGetIngredientWidgetQuery,
   useGetRecipeQuery,
   useLazyGetRecipeQuery,
 } = apiSlice;

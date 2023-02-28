@@ -1,12 +1,11 @@
-import { useGetFavoriteQuery, useGetRecipeDetailsQuery } from "./auth/api";
+import { useGetFavoriteQuery } from "./auth/api";
 import { useGetTokenQuery} from "./auth/authApi";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux"
+import RecipeCard from "./RecipeCard";
 
 function FavoriteRecipes() {
     const { data: tokenData } = useGetTokenQuery()
     const { data: favorites, isLoading } = useGetFavoriteQuery()
-    const { data: recipes } = useGetRecipeDetailsQuery()
 
     if (isLoading) {
         return (
@@ -17,13 +16,34 @@ function FavoriteRecipes() {
     if (!tokenData) {
         return (
             <div>
-                <h1>Unauthorized :(</h1>
+                <h1>Unauthorized</h1>
                 <div>
                     <Link to='/login'>Login</Link>
                 </div>
             </div>
         )
     }
+
+    console.log(favorites)
+
+
+    // const { data: data } = useGetRecipeDetailsQuery({
+    //     ids: FavoriteList
+    // });
+
+    // console.log(data)
+
+    return (
+        <>
+            <div>
+                <ul>
+                    {favorites.favorites.map((recipe) => (
+                        <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                    ))}
+                </ul>
+            </div>
+        </>
+    )
 
 }
 

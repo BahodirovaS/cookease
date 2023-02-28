@@ -12,13 +12,14 @@ class DuplicateAccountError(ValueError):
 
 
 class FavoriteIn(BaseModel):
-    recipe_id: int
+    id: int
+    title: str
+    image: str
 
 
 class FavoriteOut(FavoriteIn):
     user_id: str
-    id: int | str
-
+    id: int
 
 
 class FavoriteList(BaseModel):
@@ -33,7 +34,8 @@ class FavoritesQueries(Queries):
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
-            recipe['id'] = str(recipe['_id'])
+            print(recipe)
+            recipe['_id'] = str(recipe['_id'])
             favorite = FavoriteOut(**recipe)
             favorites.append(favorite)
         return favorites
@@ -41,13 +43,14 @@ class FavoritesQueries(Queries):
     def get_favorite(self, id) -> FavoriteOut:
         result = self.collection.find_one({"_id": id})
         if result:
-            result["id"] = str(result["_id"])
+            result["_id"] = str(result["_id"])
             return FavoriteOut(**result)
 
     def create_favorite(self, favorite: FavoriteIn, user_id: str) -> FavoriteOut:
         favorite = favorite.dict()
         favorite["user_id"] = user_id
-        self.collection.create_index([("user_id", ASCENDING), ("recipe_id", ASCENDING)], unique=True)
+        self.collection.create_index(
+            [("user_id", ASCENDING), ("_id", ASCENDING), ("title", ASCENDING), ("image", ASCENDING)], unique=True)
         try:
             result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
