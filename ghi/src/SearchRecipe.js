@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLazyGetRecipeQuery } from "./auth/api";
-import { Link } from "react-router-dom"
+// import RecipeCard from './RecipeCard';
+import { Link } from 'react-router-dom';
 
 function RecipeSearch() {
     const [form, setForm] = useState({
@@ -11,6 +12,7 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -77,6 +79,7 @@ function RecipeSearch() {
                     />
                 </div>
                 <button className='btn btn-outline-success' type='submit'>Search</button>
+            </form>
                 <div>
                     <ul>
                         {lazyData?.results?.map((recipe) => (
@@ -89,7 +92,6 @@ function RecipeSearch() {
                         ))}
                     </ul>
                 </div>
-            </form>
         </div>
     );
 };
