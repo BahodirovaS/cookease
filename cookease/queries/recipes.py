@@ -1,5 +1,6 @@
 import requests
 import os
+import json
 
 from keys.keys import SPOONACULAR_API_KEY
 
@@ -37,14 +38,6 @@ class RecipeDetails:
             + str(id)
             + "/information?apiKey="
             + SPOONACULAR_API_KEY
-        )
-        data = res.json()
-        return data
-
-class IngredientWidget:
-    def get_ingredient_widget(self, id: int):
-        res = requests.get(
-            "https://api.spoonacular.com/recipes/{id}/ingredientWidget"
         )
         data = res.json()
         return data

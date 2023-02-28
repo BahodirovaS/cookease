@@ -86,3 +86,5 @@ export const {
   useLogOutMutation,
   useSignUpMutation,
 } = authApiSlice;
+
+export const { getToken } = authApiSlice.endpoints

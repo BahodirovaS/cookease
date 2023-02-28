@@ -27,6 +27,9 @@ function Nav() {
                                 <li>
                                     <NavLink className="dropdown-item" aria-current="page" to="search-recipes">Search Recipe</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink className="dropdown-item" aria-current="page" to="favorites-recipes">Favorite Recipes</NavLink>
+                                </li>
                             </ul>
                         </div>
                     </ul>

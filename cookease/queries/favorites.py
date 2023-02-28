@@ -20,6 +20,7 @@ class FavoriteOut(FavoriteIn):
     id: int | str
 
 
+
 class FavoriteList(BaseModel):
     favorites: List[FavoriteOut]
 

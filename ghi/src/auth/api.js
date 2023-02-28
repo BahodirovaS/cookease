@@ -34,7 +34,10 @@ export const apiSlice = createApi({
       invalidatesTags: [{ type: "Recipes", id: "LIST" }],
     }),
     getFavorite: builder.query({
-      query: () => `/favorites-recipes`,
+      query: () => ({
+        url: `/favorites-recipes`,
+        credentials: "include",
+      }),
       providesTags: (data) => {
         const tags = [{ type: "Favorites", id: "LIST" }];
         if (!data || !data.recipes) return tags;
@@ -71,9 +74,6 @@ export const apiSlice = createApi({
         }
         return tags;
       },
-    }),
-    getIngredientWidget: builder.query({
-      query: (recipe_id) => `/recipe-details/${recipe_id}`,
     }),
     deleteFavorite: builder.mutation({
       query: (id) => ({

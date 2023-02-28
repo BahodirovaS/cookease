@@ -1,19 +1,18 @@
-import { useGetFavoriteQuery } from "./auth/api";
-import { useGetTokenQuery } from "./auth/authApi";
+import { useGetFavoriteQuery, useGetRecipeDetailsQuery } from "./auth/api";
+import { useGetTokenQuery} from "./auth/authApi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
 
 function FavoriteRecipes() {
     const { data: tokenData } = useGetTokenQuery()
-    const { favorites, isLoading } = useGetFavoriteQuery()
+    const { data: favorites, isLoading } = useGetFavoriteQuery()
+    const { data: data } = useGetRecipeDetailsQuery()
 
     if (isLoading) {
         return (
             <progress className="progress is-primary" max="100"></progress>
         )
     }
-
-    console.log(tokenData)
-    console.log(favorites)
 
     if (!tokenData) {
         return (
@@ -25,6 +24,16 @@ function FavoriteRecipes() {
             </div>
         )
     }
+
+    console.log(data)
+
+    return (
+        <>
+            <div>
+                {favorites}
+            </div>
+        </>
+    )
 
 }
 

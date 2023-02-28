@@ -1,5 +1,14 @@
+## February 27, 2023
+    We figured out the search component! We used the lazy data hook redux has in its toolbox. We also removed the required fiels in front-end so we only need maxReadyTime. We moved on to the component that shows recipe details once the recipe title is clicked in the search page, and realized our data loads only sometimes...so we added an isLoading if/else statement since our data wasn't loading when it was called. I wanted to add an ingredient widget our api provides, but I am not sure how to convert the response content-type from text/html to application/json. 
+
+## February 24, 2023
+    Still can't get the search component to load any data, we tried adding async/away, tried changing up our redux queries in the apiSlice function, tried importing the getRecipe query from the apiSlice different ways, still couldn't figure it out. Braeden and Tyler stayed after class to figure it out. Not sure if we tied our backend and front-end correctly, but it might be that our data is loading after it is called, so we are getting undefined.
+
+## February 23, 2023
+    The Nav bar and main page load corrently! Our problem was not that we were using modal instead of bootstrap, one line of code had a container name that bootstrap didn't recognize so we added a "my" in front of it. Also had to add a color scheme to the nav bar so the hamburger icon showed when we pulled up localhost. Moving on, we all tried to get the search recipe to return an array of recipes, but still kept getting undefined. Plus, some of our code was throwing errors such as "getRecipe is not a function". Spent pretty much the rest of the day trying new things and researching, so hopefully we get it tomorrow.
+
 ## February 22, 2023
-    Today, we worked on user authentication in the front end using RTK. We made an auth folder to store the react redux applications then used them to create our login and signup forms. We then wanted to create a nav bar to temporarily store our routes to test whether they worked. An issue we ran into was whether or not we should use bootstrap, since we made our login and signup forms using modals. When I tested the routes out after including bootstrap in our public/index.html file, the forms weren't loading and we realized it was because we didn't write them for bootstrap. Therefore, we now have to update our LogIn.js and SignUp.js to be compatible with bootsrap. 
+    Today, we worked on user authentication in the front end using RTK. We made an auth folder to store the react redux applications then used them to create our login and signup forms. We then wanted to create a nav bar to temporarily store our routes to test whether they worked. An issue we ran into was whether or not we should use bootstrap, since we made our login and signup forms using modals. When I tested the routes out after including bootstrap in our public/index.html file, the forms weren't loading and we realized it was because we didn't write them for bootstrap. Therefore, we now have to update our LogIn.js and SignUp.js to be compatible with bootsrap.
 
 
 ## February 16, 2023

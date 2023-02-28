@@ -1,21 +1,17 @@
 import { useGetRecipeDetailsQuery } from "./auth/api";
 import { useParams } from 'react-router-dom'
-import { useGetIngredientWidgetQuery } from "./auth/api";
 
 
 function RecipeDetails() {
     const { id } = useParams()
 
     const { data, isLoading } = useGetRecipeDetailsQuery(id)
-    const { ingredient } = useGetIngredientWidgetQuery(id)
 
     if (isLoading) {
         return (
             <progress className="progress is-primary" max="100"></progress>
         )
     }
-
-    console.log(ingredient)
 
     return (
         <>
@@ -56,6 +52,8 @@ function RecipeDetails() {
                                     <tr key={ingredient.id}>
                                         <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt={ingredient.name} />
                                         <td>{ingredient.name}</td>
+                                        <td>{ ingredient.measures.us.amount }</td>
+                                        <td>{ingredient.measures.us.unitShort}</td>
                                     </tr>
 
                                 )
