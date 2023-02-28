@@ -1,6 +1,8 @@
 import { useGetFavoriteQuery } from "./auth/api";
+import { useGetFavoriteQuery } from "./auth/api";
 import { useGetTokenQuery} from "./auth/authApi";
 import { Link } from "react-router-dom";
+import RecipeCard from "./RecipeCard";
 import RecipeCard from "./RecipeCard";
 
 function FavoriteRecipes() {
@@ -24,7 +26,7 @@ function FavoriteRecipes() {
         )
     }
 
-    console.log(favorites)
+    console.log(data)
 
     return (
         <>
