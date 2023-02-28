@@ -1,10 +1,10 @@
 import { useGetFavoriteQuery } from "./auth/api";
 import { useGetTokenQuery } from "./auth/authApi";
-
+import { Link } from "react-router-dom";
 
 function FavoriteRecipes() {
-    const { token } = useGetTokenQuery()
-    const { data, isLoading } = useGetFavoriteQuery()
+    const { data: tokenData } = useGetTokenQuery()
+    const { favorites, isLoading } = useGetFavoriteQuery()
 
     if (isLoading) {
         return (
@@ -12,8 +12,20 @@ function FavoriteRecipes() {
         )
     }
 
-    console.log(data)
-    console.log(token)
+    console.log(tokenData)
+    console.log(favorites)
+
+    if (!tokenData) {
+        return (
+            <div>
+                <h1>Unauthorized :(</h1>
+                <div>
+                    <Link to='/login'>Login</Link>
+                </div>
+            </div>
+        )
+    }
+
 }
 
 export default FavoriteRecipes

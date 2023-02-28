@@ -72,6 +72,9 @@ export const apiSlice = createApi({
         return tags;
       },
     }),
+    getIngredientWidget: builder.query({
+      query: (recipe_id) => `/recipe-details/${recipe_id}`,
+    }),
     deleteFavorite: builder.mutation({
       query: (id) => ({
         method: "delete",
@@ -87,6 +90,7 @@ export const {
   useGetFavoriteQuery,
   useDeleteFavoriteMutation,
   useGetRecipeDetailsQuery,
+  useGetIngredientWidgetQuery,
   useGetRecipeQuery,
   useLazyGetRecipeQuery,
 } = apiSlice;

@@ -40,3 +40,11 @@ class RecipeDetails:
         )
         data = res.json()
         return data
+
+class IngredientWidget:
+    def get_ingredient_widget(self, id: int):
+        res = requests.get(
+            "https://api.spoonacular.com/recipes/{id}/ingredientWidget"
+        )
+        data = res.json()
+        return data

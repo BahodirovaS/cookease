@@ -1,10 +1,13 @@
 import { useGetRecipeDetailsQuery } from "./auth/api";
 import { useParams } from 'react-router-dom'
+import { useGetIngredientWidgetQuery } from "./auth/api";
+
 
 function RecipeDetails() {
     const { id } = useParams()
 
     const { data, isLoading } = useGetRecipeDetailsQuery(id)
+    const { ingredient } = useGetIngredientWidgetQuery(id)
 
     if (isLoading) {
         return (
@@ -12,8 +15,7 @@ function RecipeDetails() {
         )
     }
 
-    console.log(data);
-
+    console.log(ingredient)
 
     return (
         <>
