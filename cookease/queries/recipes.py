@@ -30,6 +30,23 @@ class RecipeQueries:
         data = res.json()
         return data
 
+class IngredientWidget:
+    def get_ingredient_widget(self, id: int):
+
+        headers={
+            "x-api-key": SPOONACULAR_API_KEY,
+            "Accept": "application/json"
+            }
+        url = "https://api.spoonacular.com/recipes/" + str(id) + "/ingredientWidget?"
+        res = requests.get(
+            url=url, headers=headers
+        )
+        try:
+            data = json.loads(res.content)
+        except json.JSONDecodeError as e:
+            raise ValueError("Error decoding JSON response") from e
+        return data
+
 
 class RecipeDetails:
     def get_details(self, id: int):

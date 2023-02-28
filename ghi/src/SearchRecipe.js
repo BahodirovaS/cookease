@@ -11,7 +11,8 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
-
+    // const [favorites, setFavorites] = useState([])
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         await LazyRecipe({ ...form })
@@ -19,6 +20,9 @@ function RecipeSearch() {
     const handleInputChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
+    // const handleAddFavorite = (recipe) => {
+    //     setFavorites([...favorites, recipe])
+    // }
 
 
     return (
@@ -71,7 +75,6 @@ function RecipeSearch() {
                         type="text"
                         id="number"
                         name='number'
-
                         value={form.number}
                         onChange={handleInputChange}
                     />
@@ -85,6 +88,7 @@ function RecipeSearch() {
                                     <h3>{recipe.title}</h3>
                                 </Link>
                                 <img src={recipe.image} alt={recipe.title} />
+                                {/* <button onClick={() => handleAddFavorite(recipe)}>Like</button> */}
                             </li>
                         ))}
                     </ul>

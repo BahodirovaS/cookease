@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 function FavoriteRecipes() {
     const { data: tokenData } = useGetTokenQuery()
     const { data: favorites, isLoading } = useGetFavoriteQuery()
-    const { data: data } = useGetRecipeDetailsQuery()
+    const { data: recipes } = useGetRecipeDetailsQuery()
 
     if (isLoading) {
         return (
@@ -24,16 +24,6 @@ function FavoriteRecipes() {
             </div>
         )
     }
-
-    console.log(data)
-
-    return (
-        <>
-            <div>
-                {favorites}
-            </div>
-        </>
-    )
 
 }
 

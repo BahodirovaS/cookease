@@ -19,6 +19,15 @@ def get_recipe(
         diet, intolerances, includeIngredients, maxReadyTime, number
     )
 
+
+@router.get('/ingredient/{id}')
+def get_ingredient_widget(
+    id: int,
+    repo: IngredientWidget = Depends(),
+):
+    return repo.get_ingredient_widget(id)
+
+
 @router.get('/recipe-details/{id}')
 def get_recipe_details(
     id: int,
