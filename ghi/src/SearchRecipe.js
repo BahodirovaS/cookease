@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLazyGetRecipeQuery } from "./auth/api";
+import { useAddFavoriteRecipeMutation, useLazyGetRecipeQuery } from "./auth/api";
 import RecipeCard from './RecipeCard';
 
 function RecipeSearch() {
@@ -10,7 +10,7 @@ function RecipeSearch() {
         maxReadyTime: '',
         number: '',
     })
-    const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
+    const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery();
 
 
     const handleSubmit = async (e) => {
