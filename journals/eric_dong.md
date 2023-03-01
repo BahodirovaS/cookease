@@ -57,3 +57,9 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Started work on Recipe details page and currently have everything printing properly
 
 -> Jenn/Eric/Sabina driver
+
+# February 28th, 2023
+
+-Got kind of stuck on add favorite feature, so we split off and some people went to work on that and change the back end.
+-I worked on some bootstrap and CSS in the front end, did the Sign up page, also added logo into the navbar
+-Also worked on the logout function and button with Jenn
