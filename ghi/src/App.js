@@ -1,8 +1,8 @@
 import "./App.css";
 import { useGetTokenQuery } from "./auth/authApi.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from "./SignUp.js";
-import LogIn from "./LogIn.js";
+import SignUp from "./SignUp";
+import LogIn from "./LogIn";
 import Nav from "./Nav";
 import MainPage from "./MainPage";
 import RecipeSearch from "./SearchRecipe";

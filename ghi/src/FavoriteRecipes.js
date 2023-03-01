@@ -26,10 +26,6 @@ function FavoriteRecipes() {
         )
     }
 
-    if (!favorites) {
-        return null;
-    }
-
     const FavoriteList = favorites.favorites.map((favorite) => favorite.recipe_id)
 
     console.log(FavoriteList)
