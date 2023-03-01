@@ -1,8 +1,6 @@
 import { useGetFavoriteQuery } from "./auth/api";
-import { useGetFavoriteQuery } from "./auth/api";
 import { useGetTokenQuery} from "./auth/authApi";
 import { Link } from "react-router-dom";
-import RecipeCard from "./RecipeCard";
 import RecipeCard from "./RecipeCard";
 
 function FavoriteRecipes() {
@@ -14,6 +12,7 @@ function FavoriteRecipes() {
             <progress className="progress is-primary" max="100"></progress>
         )
     }
+    console.log(favorites)
 
     if (!tokenData) {
         return (
@@ -26,7 +25,6 @@ function FavoriteRecipes() {
         )
     }
 
-    console.log(data)
 
     return (
         <>
