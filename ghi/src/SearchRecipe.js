@@ -31,6 +31,7 @@ function RecipeSearch() {
 
 
     return (
+        
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
