@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAddFavoriteRecipeMutation, useLazyGetRecipeQuery } from "./auth/api";
+import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
 import RecipeCard from './RecipeCard';
 
 function RecipeSearch() {
@@ -10,8 +10,8 @@ function RecipeSearch() {
         maxReadyTime: '',
         number: '',
     })
-    const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery();
-
+    const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
+    const [favoriteRecipe] = useAddFavoriteRecipeMutation()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,6 +19,14 @@ function RecipeSearch() {
     }
     const handleInputChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
+    }
+
+    const handleFavorite = async (id, title, image) => {
+        if (!id in lazyData) {
+        await favoriteRecipe({id, title, image})
+        } else {
+            console.log("You have already favorited this")
+        }
     }
 
 
@@ -81,7 +89,10 @@ function RecipeSearch() {
                 <div>
                 <ul>
                     {lazyData?.results?.map((recipe) => (
-                        <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id}/>
+                        <>
+                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                            <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                        </>
                     ))}
                 </ul>
                 </div>

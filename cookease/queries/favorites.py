@@ -19,7 +19,7 @@ class FavoriteIn(BaseModel):
 
 class FavoriteOut(FavoriteIn):
     user_id: str
-    id: int
+    recipe_id: str
 
 
 class FavoriteList(BaseModel):
@@ -34,7 +34,7 @@ class FavoritesQueries(Queries):
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
-            recipe['_id'] = str(recipe['_id'])
+            recipe['recipe_id'] = str(recipe['_id'])
             favorite = FavoriteOut(**recipe)
             favorites.append(favorite)
         return favorites
@@ -43,13 +43,14 @@ class FavoritesQueries(Queries):
         result = self.collection.find_one({"_id": id})
         if result:
             result["_id"] = str(result["_id"])
+            result["recipe_id"] = str(result["_id"])
             return FavoriteOut(**result)
 
     def create_favorite(self, favorite: FavoriteIn, user_id: str) -> FavoriteOut:
         favorite = favorite.dict()
         favorite["user_id"] = user_id
         self.collection.create_index(
-            [("user_id", ASCENDING), ("_id", ASCENDING), ("title", ASCENDING), ("image", ASCENDING)], unique=True)
+            [("user_id", ASCENDING), ("id", ASCENDING), ("title", ASCENDING), ("image", ASCENDING)], unique=True)
         try:
             result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
