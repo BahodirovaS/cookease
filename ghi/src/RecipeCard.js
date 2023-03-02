@@ -12,12 +12,13 @@ const RecipeCard = (props) => {
         }
     }
     return (
-        <li key={props.id}>
+        <div key={props.id}>
+            <img className="image" src={props.image} alt={props.title} />
             <Link to={`/recipe-details/${props.id}`} >
-                <h3>{props.title}</h3>
+                <h4 className="title">{props.title}</h4>
+                <p>Read More</p>
             </Link>
-            <img src={props.image} alt={props.title} />
-        </li>
+        </div>
     )
 }
 
