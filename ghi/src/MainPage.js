@@ -1,4 +1,5 @@
 import './assets/css/main.css'
+import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
 function MainPage() {
     return (
@@ -107,88 +108,73 @@ function MainPage() {
                         <p>Our <span>Developers</span></p>
                     </div>
                     <div className="row gy-4 justify-content-center">
-                        <div className="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div className="chef-member">
                                 <div className="member-img">
-                                    <img src="assets/img/chefs/chefs-1.jpg" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5603AQEroIqWTEaRcA/profile-displayphoto-shrink_800_800/0/1665683162033?e=1683158400&v=beta&t=Gy71-N8tyzeVgCV_Wt4A85cUOwVOtB4lPP6cqrLxFY0" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href=""><i className="bi bi-twitter"></i></a>
-                                        <a href=""><i className="bi bi-facebook"></i></a>
-                                        <a href=""><i className="bi bi-instagram"></i></a>
-                                        <a href=""><i className="bi bi-linkedin"></i></a>
+                                        <a href="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
                                 <div className="member-info">
                                     <h4>Sabina Bahodirova</h4>
-                                    <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                             <div className="chef-member">
                                 <div className="member-img">
-                                    <img src="assets/img/chefs/chefs-2.jpg" className="img-fluid" alt="" />
+                                    <img src="https://ca.slack-edge.com/T040E31DKM2-U0477JWLGBT-865f48ebb996-512" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href=""><i className="bi bi-twitter"></i></a>
-                                        <a href=""><i className="bi bi-facebook"></i></a>
-                                        <a href=""><i className="bi bi-instagram"></i></a>
-                                        <a href=""><i className="bi bi-linkedin"></i></a>
+                                        <a href="https://gitlab.com/ericd214"><i className="bi bi-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/ericdong214/"><i className="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
                                 <div className="member-info">
                                     <h4>Eric Dong</h4>
-                                    <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="chef-member">
                                 <div className="member-img">
-                                    <img src="assets/img/chefs/chefs-3.jpg" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_800_800/0/1664378159408?e=1683158400&v=beta&t=nrpptTTor0xPpkB0C5Y7924iuJK0WhGIEV9cqN5CiWU" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href=""><i className="bi bi-twitter"></i></a>
-                                        <a href=""><i className="bi bi-facebook"></i></a>
-                                        <a href=""><i className="bi bi-instagram"></i></a>
-                                        <a href=""><i className="bi bi-linkedin"></i></a>
+                                        <a href="https://gitlab.com/ben_hoag"><i className="bi bi-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/benjamin-hoag/"><i className="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
                                 <div className="member-info">
                                     <h4>Benjamin Hoag</h4>
-                                    <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="chef-member">
                                 <div className="member-img">
-                                    <img src="assets/img/chefs/chefs-3.jpg" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D4E03AQFUEPkARwkTDg/profile-displayphoto-shrink_800_800/0/1671496174672?e=1683158400&v=beta&t=l6Eo7fNbrSDxpqZGZcrLlPOZ3qBFEaDkc0qpYdlBokM" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href=""><i className="bi bi-twitter"></i></a>
-                                        <a href=""><i className="bi bi-facebook"></i></a>
-                                        <a href=""><i className="bi bi-instagram"></i></a>
-                                        <a href=""><i className="bi bi-linkedin"></i></a>
+                                        <a href="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
                                 <div className="member-info">
                                     <h4>Braeden Sizemore</h4>
-                                    <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="chef-member">
                                 <div className="member-img">
-                                    <img src="assets/img/chefs/chefs-3.jpg" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/C5603AQGJ1n_GtbbxgQ/profile-displayphoto-shrink_800_800/0/1664238671994?e=1683158400&v=beta&t=g92XLu-xklVD3bZQVHvW3vasQ15WeivuGVmQkOGYAMw" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href=""><i className="bi bi-twitter"></i></a>
-                                        <a href=""><i className="bi bi-facebook"></i></a>
-                                        <a href=""><i className="bi bi-instagram"></i></a>
-                                        <a href=""><i className="bi bi-linkedin"></i></a>
+                                        <a href="https://gitlab.com/jennifertovar2010"><i className="bi bi-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/jennifermtovar/"><i className="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
                                 <div className="member-info">
                                     <h4>Jennifer Tovar</h4>
-                                    <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
                                 </div>
                             </div>
                         </div>

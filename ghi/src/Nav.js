@@ -4,8 +4,6 @@ import { useEffect } from "react";
 
 
 function Nav() {
-    const location = useLocation()
-
     const navigate = useNavigate();
     const [logOut, { data }] = useLogOutMutation();
 

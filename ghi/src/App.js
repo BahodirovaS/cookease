@@ -8,6 +8,7 @@ import MainPage from "./MainPage";
 import RecipeSearch from "./SearchRecipe";
 import RecipeDetails from "./RecipeDetail";
 import FavoriteRecipes from "./FavoriteRecipes";
+import Footer from "./Footer";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
@@ -26,6 +27,7 @@ function App() {
           <Route path="favorites-recipes" element={<FavoriteRecipes />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
