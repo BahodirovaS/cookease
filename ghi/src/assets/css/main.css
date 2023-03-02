@@ -85,7 +85,7 @@ section {
 
 .section-header p {
   margin: 0;
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 400;
   font-family: var(--font-primary);
 }
@@ -592,7 +592,7 @@ section {
 
 .about h3 {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 50px;
   margin-bottom: 30px;
   font-family: var(--font-secondary);
 }
@@ -614,10 +614,17 @@ section {
   font-family: var(--font-default);
 }
 
-.about .call-us p {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-primary);
+.about .call-us a {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: var(--color-primary);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);;
 }
 
 .about .content ul {
@@ -632,7 +639,7 @@ section {
 
 .about .content ul i {
   position: absolute;
-  font-size: 20px;
+  font-size: 25px;
   left: 0;
   top: -3px;
   color: var(--color-primary);
@@ -1119,7 +1126,7 @@ section {
 .chefs .chef-member {
   overflow: hidden;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 1px;
   background: #fff;
   box-shadow: 0px 0 30px rgba(55, 55, 63, 0.08);
   transition: 0.3s;
@@ -1544,7 +1551,7 @@ section {
 }
 
 .hero h2 {
-  font-size: 64px;
+  font-size: 80px;
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--color-secondary);
