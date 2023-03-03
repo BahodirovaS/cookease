@@ -16,7 +16,7 @@ function Nav() {
 
     return (
         <>
-            <header id="header" className="header fixed-top d-flex align-items-center">
+            <header id="header" className="header d-flex align-items-center">
                 <div className="container d-flex align-items-center justify-content-between">
                     <a href="/" className="logo d-flex align-items-center me-auto me-lg-0">
                         <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '100%' }} />
