@@ -19,98 +19,97 @@ function SignUp() {
   );
 
   return (
-    <section class="vh-100 bg-image"
+    <section className="vh-100 bg-image"
       style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
       <div className={modalClass} key="signup-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div className="card" style={{ borderRadius: "15px" }}>
-                <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
-                  <form
-                    method="POST"
-                    onSubmit={preventDefault(signUp, () => ({
-                      username: username,
-                      password,
-                      first_name,
-                      last_name,
-                    }))}
-                  >
-                    <div className="form-outline mb-4">
-                      <label className="label" htmlFor="username">
-                        Username
-                      </label>
-                      <div className="control">
-                        <input
-                          required
-                          onChange={field}
-                          value={username}
-                          name="username"
-                          className="form-control form-control-lg"
-                          type="text"
-                          placeholder="Username"
-                        />
-                      </div>
+        <div className="container">
+          <div className="form-container">
+            <div className="card" style={{ borderRadius: "15px" }}>
+              <div className="card-body p-5">
+                <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
+                <form
+                  method="POST"
+                  onSubmit={preventDefault(signUp, () => ({
+                    username: username,
+                    password,
+                    first_name,
+                    last_name,
+                  }))}
+                >
+                  <div className="form-outline mb-4">
+                    <label className="label" htmlFor="username">
+                      Username
+                    </label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={username}
+                        name="username"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Username"
+                      />
                     </div>
-                    <div className="form-outline mb-4">
-                      <label className="label">Password</label>
-                      <div className="control">
-                        <input
-                          required
-                          onChange={field}
-                          value={password}
-                          name="password"
-                          className="form-control form-control-lg"
-                          type="password"
-                          placeholder="Password"
-                        />
-                      </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={password}
+                        name="password"
+                        className="form-control form-control-lg"
+                        type="password"
+                        placeholder="Password"
+                      />
                     </div>
-                    <div className="form-outline mb-4">
-                      <label className="label">First name</label>
-                      <div className="control">
-                        <input
-                          required
-                          onChange={field}
-                          value={first_name}
-                          name="first_name"
-                          className="form-control form-control-lg"
-                          type="text"
-                          placeholder="Your First Name"
-                        />
-                      </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">First name</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={first_name}
+                        name="first_name"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Your First Name"
+                      />
                     </div>
-                    <div className="form-outline mb-4">
-                      <label className="label">Last name</label>
-                      <div className="control">
-                        <input
-                          required
-                          onChange={field}
-                          value={last_name}
-                          name="last_name"
-                          className="form-control form-control-lg"
-                          type="text"
-                          placeholder="Your Last Name"
-                        />
-                      </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">Last name</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={last_name}
+                        name="last_name"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Your Last Name"
+                      />
                     </div>
-                    <div className="d-flex justify-content-center">
-                      <div className="control">
-                        <button disabled={signUpLoading} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                          Sign up!
-                        </button>
-                      </div>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <div className="control">
+                      <button disabled={signUpLoading} className="btn1">
+                        Sign up!
+                      </button>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div >
-    </section>
+      </div>
+
+    </section >
   );
 }
 

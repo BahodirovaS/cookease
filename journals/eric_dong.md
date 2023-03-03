@@ -63,3 +63,12 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Got kind of stuck on add favorite feature, so we split off and some people went to work on that and change the back end.
 -I worked on some bootstrap and CSS in the front end, did the Sign up page, also added logo into the navbar
 -Also worked on the logout function and button with Jenn
+
+# March 1st, 2023
+
+-Finished the rest of our features, got our like button to add recipes to favorites
+-Did some css for signup and login pages and overall css for project
+
+# March 2nd, 2023
+
+-More CSS stuff and decorating

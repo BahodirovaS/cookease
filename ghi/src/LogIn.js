@@ -16,62 +16,60 @@ function LogIn() {
   );
 
   return (
-    <div className={modalClass} key="login-modal">
-      <div className="modal-background"></div>
-      <div className="modal-content">
-        <div className="box content">
-          <h3>Log In</h3>
-          <form method="POST" onSubmit={preventDefault(logIn, target)}>
-            <div className="field">
-              <label className="label" htmlFor="username">
-                Username
-              </label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={username}
-                  name="username"
-                  className="input"
-                  type="text"
-                  placeholder="Username"
-                />
+    <section
+      className="vh-100 bg-image"
+      style={{
+        backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')"
+      }}
+    >
+      <div className={modalClass} key="login-modal">
+        <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
+        <div className="container">
+          <div className="form-container" style={{ height: "577px", width: "420px" }}>
+            <div className="card" style={{ borderRadius: "15px", height: "100%" }}>
+              <div className="card-body p-5 h-100 d-flex flex-column justify-content-center">
+                <h2 className="text-uppercase text-center mkb-5">Log in</h2>
+                <form method="POST" onSubmit={preventDefault(logIn, target)}>
+                  <div className="form-outline mb-4">
+                    <label className="label" htmlFor="username">Username</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={username}
+                        name="username"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Username"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={password}
+                        name="password"
+                        className="form-control form-control-lg"
+                        type="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <div className="control">
+                      <button disabled={logInLoading} className="btn1">Submit</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={password}
-                  name="password"
-                  className="input"
-                  type="password"
-                  placeholder="secret..."
-                />
-              </div>
-            </div>
-            <div className="field is-grouped">
-              <div className="control">
-                <button disabled={logInLoading} className="button is-primary">
-                  Submit
-                </button>
-              </div>
-              <div className="control">
-                <button
-                  type="button"
-                  onClick={() => dispatch(showModal(null))}
-                  className="button"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
