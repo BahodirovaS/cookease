@@ -3,21 +3,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLogInMutation } from "./auth/authApi";
 import { eventTargetSelector as target, preventDefault } from "./auth/utils";
 import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 function LogIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const [error, setError] = useState(null)
   const { show, username, password } = useSelector((state) => state.account);
   const modalClass = `my-modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
   const [logIn, { isLoading: logInLoading, isSuccess: logInSuccess }] = useLogInMutation();
 
-  useEffect(() => {
-    if (logInSuccess) {
-      navigate("/");
+  const handleLogIn = async (e) => {
+    e.preventDefault();
+    const { data, error } = await logIn({ username, password })
+    if (error) {
+      setError("Incorrect username or password")
     }
-  }, [logInSuccess, navigate]);
+    else {
+      dispatch(showModal(null));
+      navigate("/")
+    }
+  }
 
   const field = useCallback(
     (e) =>
@@ -40,7 +47,8 @@ function LogIn() {
             <div className="card" style={{ borderRadius: "15px", height: "100%" }}>
               <div className="card-body p-5 h-100 d-flex flex-column justify-content-center">
                 <h2 className="text-uppercase text-center mkb-5">Log in</h2>
-                <form method="POST" onSubmit={preventDefault(logIn, target)}>
+                {error && <div className="alert alert-danger">{error}</div>}
+                <form method="POST" onSubmit={handleLogIn}>
                   <div className="form-outline mb-4">
                     <label className="label" htmlFor="username">Username</label>
                     <div className="control">
