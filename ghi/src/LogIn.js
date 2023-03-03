@@ -25,7 +25,7 @@ function LogIn() {
       <div className={modalClass} key="login-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
         <div className="container">
-          <div className="form-container" style={{ height: "573px", width: "420px" }}>
+          <div className="form-container" style={{ height: "573px", width: "442px" }}>
             <div className="card" style={{ borderRadius: "15px", height: "100%" }}>
               <div className="card-body p-5 h-100 d-flex flex-column justify-content-center">
                 <h2 className="text-uppercase text-center mkb-5">Log in</h2>
@@ -69,7 +69,7 @@ function LogIn() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 
