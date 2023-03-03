@@ -4,14 +4,24 @@ import { useSignUpMutation } from "./auth/authApi";
 import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import { preventDefault } from "./auth/utils.js";
 import 'bootstrap/dist/css/bootstrap.css'
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { show, username, password, first_name, last_name } = useSelector(
     (state) => state.account
   );
   const modalClass = `my-modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
-  const [signUp, { error, isLoading: signUpLoading }] = useSignUpMutation();
+  const [signUp, { error, isLoading: signUpLoading, isSuccess: signUpSuccess }] = useSignUpMutation();
+
+  useEffect(() => {
+    if (signUpSuccess) {
+      navigate("/");
+    }
+  }, [signUpSuccess, navigate]);
+
   const field = useCallback(
     (e) =>
       dispatch(updateField({ field: e.target.name, value: e.target.value })),
@@ -20,7 +30,7 @@ function SignUp() {
 
   return (
     <section className="vh-100 bg-image"
-      style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
+      style={{ backgroundImage: "url('https://i.imgur.com/NBJdjVd.jpeg')" }}>
       <div className={modalClass} key="signup-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
         <div className="account-container">

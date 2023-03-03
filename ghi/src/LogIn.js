@@ -3,23 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLogInMutation } from "./auth/authApi";
 import { eventTargetSelector as target, preventDefault } from "./auth/utils";
 import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function LogIn() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { show, username, password } = useSelector((state) => state.account);
   const modalClass = `my-modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
-  const [logIn, { isLoading: logInLoading }] = useLogInMutation();
+  const [logIn, { isLoading: logInLoading, isSuccess: logInSuccess }] = useLogInMutation();
+
+  useEffect(() => {
+    if (logInSuccess) {
+      navigate("/");
+    }
+  }, [logInSuccess, navigate]);
+
   const field = useCallback(
     (e) =>
       dispatch(updateField({ field: e.target.name, value: e.target.value })),
     [dispatch]
   );
 
+
   return (
     <section
       className="vh-100 bg-image"
       style={{
-        backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')"
+        backgroundImage: "url('https://i.imgur.com/NBJdjVd.jpeg')"
       }}
     >
       <div className={modalClass} key="login-modal">
