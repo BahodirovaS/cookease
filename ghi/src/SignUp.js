@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSignUpMutation } from "./auth/authApi";
 import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import { preventDefault } from "./auth/utils.js";
+import 'bootstrap/dist/css/bootstrap.css'
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -18,98 +19,97 @@ function SignUp() {
   );
 
   return (
-    <div className={modalClass} key="signup-modal">
-      <div className="modal-background"></div>
-      <div className="modal-content">
-        <div className="box content">
-          <h3>Sign Up</h3>
-          <form
-            method="POST"
-            onSubmit={preventDefault(signUp, () => ({
-              username: username,
-              password,
-              first_name,
-              last_name,
-            }))}
-          >
-            <div className="field">
-              <label className="label" htmlFor="username">
-                Username
-              </label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={username}
-                  name="username"
-                  className="input"
-                  type="text"
-                  placeholder="Username"
-                />
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={password}
-                  name="password"
-                  className="input"
-                  type="password"
-                  placeholder="secret..."
-                />
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">First name</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={first_name}
-                  name="first_name"
-                  className="input"
-                  type="text"
-                  placeholder="Your First Name"
-                />
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Last name</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={last_name}
-                  name="last_name"
-                  className="input"
-                  type="text"
-                  placeholder="Your Last Name"
-                />
-              </div>
-            </div>
-            <div className="field is-grouped">
-              <div className="control">
-                <button disabled={signUpLoading} className="button is-primary">
-                  Submit
-                </button>
-              </div>
-              <div className="control">
-                <button
-                  type="button"
-                  onClick={() => dispatch(showModal(null))}
-                  className="button"
+    <section className="vh-100 bg-image"
+      style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
+      <div className={modalClass} key="signup-modal">
+        <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
+        <div className="container">
+          <div className="form-container">
+            <div className="card" style={{ borderRadius: "15px" }}>
+              <div className="card-body p-5">
+                <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
+                <form
+                  method="POST"
+                  onSubmit={preventDefault(signUp, () => ({
+                    username: username,
+                    password,
+                    first_name,
+                    last_name,
+                  }))}
                 >
-                  Cancel
-                </button>
+                  <div className="form-outline mb-4">
+                    <label className="label" htmlFor="username">
+                      Username
+                    </label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={username}
+                        name="username"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Username"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={password}
+                        name="password"
+                        className="form-control form-control-lg"
+                        type="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">First name</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={first_name}
+                        name="first_name"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Your First Name"
+                      />
+                    </div>
+                  </div>
+                  <div className="form-outline mb-4">
+                    <label className="label">Last name</label>
+                    <div className="control">
+                      <input
+                        required
+                        onChange={field}
+                        value={last_name}
+                        name="last_name"
+                        className="form-control form-control-lg"
+                        type="text"
+                        placeholder="Your Last Name"
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <div className="control">
+                      <button disabled={signUpLoading} className="btn1">
+                        Sign up!
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+
+    </section >
   );
 }
 
