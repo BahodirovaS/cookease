@@ -17,21 +17,13 @@ export const apiSlice = createApi({
   tagTypes: ["Account", "Recipes", "Favorites", "Recipe-Detail", "Token"],
   endpoints: (builder) => ({
     addFavoriteRecipe: builder.mutation({
-      query: (form) => {
-        const formData = new FormData(form);
-        const entries = Array.from(formData.entries());
-        const data = entries.reduce((acc, [key, value]) => {
-          acc[key] = Number.parseInt(value) || value;
-          return acc;
-        }, {});
-        return {
+      query: (id) => ({
           method: "post",
           url: "/favorites-recipes",
           credentials: "include",
-          body: data,
-        };
-      },
-      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
+          body: {...id},
+      }),
+      invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
     getFavorite: builder.query({
       query: () => ({

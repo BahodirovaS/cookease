@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useLazyGetRecipeQuery } from "./auth/api";
-import { Link } from "react-router-dom"
+import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
+import RecipeCard from './RecipeCard';
 
 function RecipeSearch() {
     const [form, setForm] = useState({
@@ -11,6 +11,7 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
+    const [favoriteRecipe] = useAddFavoriteRecipeMutation()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -20,8 +21,17 @@ function RecipeSearch() {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
+    const handleFavorite = async (id, title, image) => {
+        if (!id in lazyData) {
+        await favoriteRecipe({id, title, image})
+        } else {
+            console.log("You have already favorited this")
+        }
+    }
+
 
     return (
+        
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -71,25 +81,22 @@ function RecipeSearch() {
                         type="text"
                         id="number"
                         name='number'
-
                         value={form.number}
                         onChange={handleInputChange}
                     />
                 </div>
                 <button className='btn btn-outline-success' type='submit'>Search</button>
-                <div>
-                    <ul>
-                        {lazyData?.results?.map((recipe) => (
-                            <li key={recipe.id}>
-                                <Link to={`/recipe-details/${recipe.id}`} >
-                                    <h3>{recipe.title}</h3>
-                                </Link>
-                                <img src={recipe.image} alt={recipe.title} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
             </form>
+                <div>
+                <ul>
+                    {lazyData?.results?.map((recipe) => (
+                        <>
+                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                            <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                        </>
+                    ))}
+                </ul>
+                </div>
         </div>
     );
 };

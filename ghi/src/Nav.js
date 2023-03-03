@@ -1,8 +1,19 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useLogOutMutation } from './auth/authApi';
+import { useEffect } from "react";
 
 
 function Nav() {
     const location = useLocation()
+
+    const navigate = useNavigate();
+    const [logOut, { data }] = useLogOutMutation();
+
+    useEffect(() => {
+        if (data) {
+            navigate("/");
+        }
+    }, [data, navigate]);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
@@ -31,6 +42,9 @@ function Nav() {
                                 </li>
                                 <li>
                                     <NavLink className="dropdown-item" aria-current="page" to="favorites-recipes">Favorite Recipes</NavLink>
+                                </li>
+                                <li>
+                                    <button onClick={logOut}>Log Out</button>
                                 </li>
                             </ul>
                         </div>
