@@ -24,7 +24,11 @@ function RecipeSearch() {
 
     const handleFavorite = async (id, title, image) => {
         if (!(id in lazyData)) {
+<<<<<<< Updated upstream
         await favoriteRecipe({id, title, image})
+=======
+            await favoriteRecipe({ id, title, image })
+>>>>>>> Stashed changes
         } else {
             console.log("You have already favorited this")
         }
@@ -88,7 +92,7 @@ function RecipeSearch() {
                 </div>
                 <button className='btn btn-outline-success' type='submit'>Search</button>
             </form>
-                <div>
+            <div>
                 <ul>
                     {lazyData?.results?.map((recipe) => (
                         <>
@@ -99,7 +103,7 @@ function RecipeSearch() {
                         </>
                     ))}
                 </ul>
-                </div>
+            </div>
         </div>
     );
 };
