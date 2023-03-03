@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
+import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "./auth/api";
 import RecipeCard from './RecipeCard';
+import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
 
 function RecipeSearch() {
@@ -12,7 +13,9 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
+    const { data: favorites, isLoading } = useGetFavoriteQuery()
     const [favoriteRecipe] = useAddFavoriteRecipeMutation()
+    const [unFavoriteRecipe] = useDeleteFavoriteMutation()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,12 +24,26 @@ function RecipeSearch() {
     const handleInputChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-
+    console.log(favorites)
     const handleFavorite = async (id, title, image) => {
-        if (!(id in lazyData)) {
-        await favoriteRecipe({id, title, image})
-        } else {
-            console.log("You have already favorited this")
+        let isFavorite = false;
+        let favoriteRecipeId;
+        if (isLoading) {
+            for (const recipe of favorites.favorites || []) {
+                if (recipe.id === id) {
+                    isFavorite = true;
+                    favoriteRecipeId = recipe.recipe_id;
+                    break;
+                }
+            }
+            if (isFavorite) {
+                // Remove the recipe from favorites
+                await unFavoriteRecipe({ id: favoriteRecipeId});
+                console.log("You deleted a recipe")
+            } else {
+                // Add the recipe to favorites
+                await favoriteRecipe({ id, title, image });
+            }
         }
     }
 
