@@ -283,7 +283,7 @@ section {
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height: 70px;
   margin-right: 6px;
 }
 
@@ -327,6 +327,33 @@ section {
   .navbar {
     padding: 0;
   }
+
+  .navbar .d-flex .btn {
+    font-family: var(--font-primary);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .offcanvas .dropdown a {
+    font-family: var(--font-primary);
+    font-size: 50px;
+    font-weight: bold;
+    color: #7f7f90;
+    transition: 0.3s;
+  }
+
+  .offcanvas>div>div>div>a:before {
+    transition: all 0.3s ease-in-out 0s
+  }
+
+  .offcanvas .dropdown a:hover:before {
+    visibility: visible;
+  }
+
+  .offcanvas .dropdown a:hover {
+    color: #000;
+  }
+
 
   .navbar ul {
     margin: 0;

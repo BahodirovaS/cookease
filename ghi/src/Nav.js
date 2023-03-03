@@ -1,11 +1,12 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useLogOutMutation } from './auth/authApi';
+import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
 import { useEffect } from "react";
 
 
 function Nav() {
     const navigate = useNavigate();
     const [logOut, { data }] = useLogOutMutation();
+    const { data: currentUser } = useGetTokenQuery()
 
     useEffect(() => {
         if (data) {
@@ -14,41 +15,46 @@ function Nav() {
     }, [data, navigate]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-            <div className="container-fluid">
-                <NavLink className="navbar-brand fs-3" to="/">CookEase</NavLink>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <div className="dropdown">
-                            <button className="btn text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Account
-                            </button>
-                            <ul className="dropdown-menu">
-                                <li>
-                                    <NavLink className="dropdown-item" aria-current="page" to="signup">SignUp</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink className="dropdown-item" aria-current="page" to="login">LogIn</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink className="dropdown-item" aria-current="page" to="search-recipes">Search Recipe</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink className="dropdown-item" aria-current="page" to="favorites-recipes">Favorite Recipes</NavLink>
-                                </li>
-                                <li>
-                                    <button onClick={logOut}>Log Out</button>
-                                </li>
-                            </ul>
+        <>
+            <header id="header" className="header fixed-top d-flex align-items-center">
+                <div className="container d-flex align-items-center justify-content-between">
+                    <a href="/" className="logo d-flex align-items-center me-auto me-lg-0">
+                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '100%' }} />
+                    </a>
+                    <a className="btn-book-a-table" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        Menu
+                    </a>
+                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div className="offcanvas-header">
+                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '75%' }} />
+                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                    </ul>
+                        <div className="offcanvas-body" style={{ width: '100%', maxWidth: '100vw' }}>
+                            <div className="dropdown mt-3" style={{ width: '100%', maxWidth: '100vw' }}>
+                                <div>
+                                    <a className="dropdown-item" href="/">Home</a>
+                                    <a className="dropdown-item" href="search-recipes">Search Recipes</a>
+                                    <a className="dropdown-item" href="favorites-recipes">Users - Loved Recipes</a>
+                                    <div>
+                                        {currentUser ? (
+                                            <a className="dropdown-item" href="#" onClick={() => logOut()}>Log Out</a>
+                                        ) : (
+                                            <>
+                                                <a className="dropdown-item" href="signup">Sign Up</a>
+                                                <a className="dropdown-item" href="login">Log In</a>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </header>
+        </>
     )
+
+
 }
 
 export default Nav;

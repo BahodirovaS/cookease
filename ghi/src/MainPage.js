@@ -1,6 +1,7 @@
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
+
 function MainPage() {
     return (
         <>
@@ -21,7 +22,9 @@ function MainPage() {
                 <div className="container" data-aos="fade-up">
                     <div className="section-header">
                         <h2>About Us</h2>
-                        <p>What is <span>CookEase?</span></p>
+                        <p>What is
+                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '25%' }} />?
+                        </p>
                     </div>
                     <div className="row gy-4">
                         <div className="col-lg-7 position-relative about-img" style={{ backgroundImage: 'url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about-2.jpg)' }} data-aos="fade-up" data-aos-delay="150">
@@ -32,20 +35,17 @@ function MainPage() {
                         </div>
                         <div className="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
                             <div className="content ps-0 ps-lg-5">
-                                <p className="bi bi-check2-all">
+                                <p >
                                     Welcome to our little corner of the culinary world! We're the app that's dedicated to making your cooking adventures more exciting, more delicious, and definitely more stress-free.
                                 </p>
                                 <ul>
-                                    <li><i className="bi bi-check2-all"></i> We know that sometimes, finding the perfect recipe can be a bit of a puzzle. You've got a fridge full of ingredients, a rumbling tummy, and a hankering for something tasty. But where do you even begin?</li>
-                                    <li><i className="bi bi-check2-all"></i> That's where we come in. With our nifty search function, you can easily find recipes that fit your exact needs. Want to make something vegan? No problem. Got a gluten intolerance? We've got you covered. Just type in your ingredients, select your preferences, and voila! You've got a whole bunch of recipes at your fingertips.</li>
+                                    <li><i ></i> We know that sometimes, finding the perfect recipe can be a bit of a puzzle. You've got a fridge full of ingredients, a rumbling tummy, and a hankering for something tasty. But where do you even begin?</li>
+                                    <li><i ></i> That's where we come in. With our nifty search function, you can easily find recipes that fit your exact needs. Want to make something vegan? No problem. Got a gluten intolerance? We've got you covered. Just type in your ingredients, select your preferences, and voila! You've got a whole bunch of recipes at your fingertips.</li>
                                 </ul>
                                 <p>
                                     So go ahead, explore, experiment, and enjoy. And if you create something truly amazing, don't forget to share it with us! We love seeing what our users cook up.
                                     Happy cooking!
                                 </p>
-                                <div className="position-relative mt-4">
-                                    <img src="assets/img/about-2.jpg" className="img-fluid" alt="" />
-                                </div>
                             </div>
                         </div>
                     </div>

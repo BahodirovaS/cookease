@@ -2,15 +2,14 @@ function Footer() {
     return (
         <footer id="footer" className="footer">
             <div className="container">
-                <div className="row gy-3">
-                    <div className="col-lg-3 col-md-6 d-flex">
+                <div className="row gy">
+                    <div className="col-lg-3 col-md-6 footer-links d-flex">
                         <i className="bi bi-geo-alt icon"></i>
                         <div>
-                            <h4>Address</h4>
-                            <p>
-                                119 Nueces St<br />
-                                Austin, TX 78701<br />
-                            </p>
+                            <h4>API</h4>
+                            <a href="https://spoonacular.com/food-api">
+                                Link
+                            </a>
                         </div>
                     </div>
                     <div className="col-lg-3 col-md-6 footer-links d-flex">
@@ -18,12 +17,10 @@ function Footer() {
                         <div>
                             <h4>Contact</h4>
                             <p>
-                                <strong>Phone:</strong> +1(720) 615-0225<br />
-                                <strong>Email:</strong> admissions@hackreactor.com<br />
+                                <strong>Email:</strong> mail@spoonacular.com<br />
                             </p>
                         </div>
                     </div>
-
                     <div className="col-lg-3 col-md-6 footer-links d-flex">
                         <i className="bi bi-clock icon"></i>
                         <div>
@@ -33,14 +30,12 @@ function Footer() {
                             </p>
                         </div>
                     </div>
-
                     <div className="col-lg-3 col-md-6 footer-links">
                         <h4>Follow Us</h4>
                         <div className="social-links d-flex">
-                            <a href="https://twitter.com/hackreactor" className="twitter"><i className="bi bi-twitter"></i></a>
-                            <a href="https://www.facebook.com/hackreactor" className="facebook"><i className="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/hackreactor/" className="instagram"><i className="bi bi-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/hack-reactor" className="linkedin"><i className="bi bi-linkedin"></i></a>
+                            <a href="https://twitter.com/spoonacular" className="twitter"><i className="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/spoonacular" className="facebook"><i className="bi bi-facebook"></i></a>
+                            <a href="http://pinterest.com/spoonacular/" className="instagram"><i className="bi bi-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
