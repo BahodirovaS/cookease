@@ -85,7 +85,7 @@ section {
 
 .section-header p {
   margin: 0;
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 400;
   font-family: var(--font-primary);
 }
@@ -283,7 +283,7 @@ section {
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height: 70px;
   margin-right: 6px;
 }
 
@@ -327,6 +327,33 @@ section {
   .navbar {
     padding: 0;
   }
+
+  .navbar .d-flex .btn {
+    font-family: var(--font-primary);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .offcanvas .dropdown a {
+    font-family: var(--font-primary);
+    font-size: 50px;
+    font-weight: bold;
+    color: #7f7f90;
+    transition: 0.3s;
+  }
+
+  .offcanvas>div>div>div>a:before {
+    transition: all 0.3s ease-in-out 0s
+  }
+
+  .offcanvas .dropdown a:hover:before {
+    visibility: visible;
+  }
+
+  .offcanvas .dropdown a:hover {
+    color: #000;
+  }
+
 
   .navbar ul {
     margin: 0;
@@ -592,7 +619,7 @@ section {
 
 .about h3 {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 50px;
   margin-bottom: 30px;
   font-family: var(--font-secondary);
 }
@@ -614,10 +641,17 @@ section {
   font-family: var(--font-default);
 }
 
-.about .call-us p {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-primary);
+.about .call-us a {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: var(--color-primary);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);;
 }
 
 .about .content ul {
@@ -632,7 +666,7 @@ section {
 
 .about .content ul i {
   position: absolute;
-  font-size: 20px;
+  font-size: 25px;
   left: 0;
   top: -3px;
   color: var(--color-primary);
@@ -1119,7 +1153,7 @@ section {
 .chefs .chef-member {
   overflow: hidden;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 1px;
   background: #fff;
   box-shadow: 0px 0 30px rgba(55, 55, 63, 0.08);
   transition: 0.3s;
@@ -1146,10 +1180,10 @@ section {
   position: absolute;
   right: -100%;
   top: 30px;
-  opacity: 0;
+  opacity: 25;
   border-radius: 4px;
   transition: 0.5s;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.685);
   z-index: 2;
 }
 
@@ -1541,10 +1575,11 @@ section {
   position: relative;
   min-height: 60vh;
   padding: 160px 0 60px 0;
+  opacity: rgba(0, 0, 0, 0.6)
 }
 
 .hero h2 {
-  font-size: 64px;
+  font-size: 80px;
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--color-secondary);
@@ -1583,7 +1618,7 @@ section {
   font-size: 16px;
   transition: 0.5s;
   margin-left: 25px;
-  color: var(--font-secondary);
+  color: white;
   font-weight: 600;
 }
 

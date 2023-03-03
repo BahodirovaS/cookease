@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
 import RecipeCard from './RecipeCard';
 
+
 function RecipeSearch() {
     const [form, setForm] = useState({
         diet: '',
@@ -22,7 +23,7 @@ function RecipeSearch() {
     }
 
     const handleFavorite = async (id, title, image) => {
-        if (!id in lazyData) {
+        if (!(id in lazyData)) {
         await favoriteRecipe({id, title, image})
         } else {
             console.log("You have already favorited this")
@@ -31,7 +32,7 @@ function RecipeSearch() {
 
 
     return (
-        
+
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -91,8 +92,10 @@ function RecipeSearch() {
                 <ul>
                     {lazyData?.results?.map((recipe) => (
                         <>
+                        <div key={recipe.id}>
                             <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
                             <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                        </div>
                         </>
                     ))}
                 </ul>
