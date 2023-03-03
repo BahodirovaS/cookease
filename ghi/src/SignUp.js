@@ -4,7 +4,7 @@ import { useSignUpMutation } from "./auth/authApi";
 import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import { preventDefault } from "./auth/utils.js";
 import 'bootstrap/dist/css/bootstrap.css'
-import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
@@ -15,12 +15,26 @@ function SignUp() {
   );
   const modalClass = `my-modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
   const [signUp, { error, isLoading: signUpLoading, isSuccess: signUpSuccess }] = useSignUpMutation();
+  const [errorMessage, setErrorMessage] = useState("")
 
-  useEffect(() => {
-    if (signUpSuccess) {
-      navigate("/");
-    }
-  }, [signUpSuccess, navigate]);
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+    signUp({
+      username,
+      password,
+      first_name,
+      last_name,
+    }).then((response) => {
+      if (response.error) {
+        setErrorMessage(response.error);
+      }
+      else {
+        navigate("/")
+      }
+    })
+  },
+    [username, password, first_name, last_name, navigate, signUp]
+  )
 
   const field = useCallback(
     (e) =>
@@ -38,15 +52,8 @@ function SignUp() {
             <div className="card" style={{ borderRadius: "15px" }}>
               <div className="card-body p-5">
                 <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
-                <form
-                  method="POST"
-                  onSubmit={preventDefault(signUp, () => ({
-                    username: username,
-                    password,
-                    first_name,
-                    last_name,
-                  }))}
-                >
+                <form onSubmit={handleSubmit}>
+                  {error && <div className="alert alert-danger">{"Username already exists!"}</div>}
                   <div className="form-outline mb-4">
                     <label className="label" htmlFor="username">
                       Username
