@@ -989,6 +989,12 @@ section {
   color: var(--color-primary);
 }
 
+.menu .tab-content .section-header p {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
