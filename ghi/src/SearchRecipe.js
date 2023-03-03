@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
+import FavoriteRecipes from './FavoriteRecipes';
 import RecipeCard from './RecipeCard';
 
 
@@ -94,7 +95,7 @@ function RecipeSearch() {
                         <>
                         <div key={recipe.id}>
                             <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
-                            <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                                <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
                         </div>
                         </>
                     ))}
