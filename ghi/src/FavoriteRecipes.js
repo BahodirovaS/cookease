@@ -1,5 +1,5 @@
 import { useGetFavoriteQuery } from "./auth/api";
-import { useGetTokenQuery} from "./auth/authApi";
+import { useGetTokenQuery } from "./auth/authApi";
 import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 
