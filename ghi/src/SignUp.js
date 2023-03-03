@@ -51,7 +51,7 @@ function SignUp() {
           <div className="account-form-container">
             <div className="card" style={{ borderRadius: "15px" }}>
               <div className="card-body p-5">
-                <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
+                <h2 className="text-center mkb-5" style={{ fontFamily: "Amatic SC, sans-serif", fontSize: "60px" }} >Create An Account</h2>
                 <form onSubmit={handleSubmit}>
                   {error && <div className="alert alert-danger">{"Username already exists!"}</div>}
                   <div className="form-outline mb-4">

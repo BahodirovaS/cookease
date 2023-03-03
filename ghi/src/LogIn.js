@@ -6,6 +6,7 @@ import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
+
 function LogIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -46,11 +47,11 @@ function LogIn() {
           <div className="account-form-container" style={{ height: "573px", width: "442px" }}>
             <div className="card" style={{ borderRadius: "15px", height: "100%" }}>
               <div className="card-body p-5 h-100 d-flex flex-column justify-content-center">
-                <h2 className="text-uppercase text-center mkb-5">Log in</h2>
+                <h2 className="text-center mkb-5" style={{ fontFamily: "Amatic SC, sans-serif", fontSize: "60px" }}>Log in</h2>
                 {error && <div className="alert alert-danger">{error}</div>}
                 <form method="POST" onSubmit={handleLogIn}>
                   <div className="form-outline mb-4">
-                    <label className="label" htmlFor="username">Username</label>
+                    <label className="label" htmlFor="username" >Username</label>
                     <div className="control">
                       <input
                         required
