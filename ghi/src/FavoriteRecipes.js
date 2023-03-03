@@ -31,8 +31,7 @@ function FavoriteRecipes() {
         <section id="menu" className="menu">
             <div className="container" data-aos="fade-up">
                 <div class="section-header">
-                    <h2>Cookease</h2>
-                    <p>Your <span>Favorite Recipes</span></p>
+                        <p>My <span>Favorite </span> Recipes</p>
                 </div>
                 <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
                     <div className="tab-pane fade active show" id="menu-starters">
