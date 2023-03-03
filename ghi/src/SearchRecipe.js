@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation } from "./auth/api";
 import RecipeCard from './RecipeCard';
+import './assets/css/detail.css'
 
 
 function RecipeSearch() {
@@ -24,11 +25,7 @@ function RecipeSearch() {
 
     const handleFavorite = async (id, title, image) => {
         if (!(id in lazyData)) {
-<<<<<<< Updated upstream
-        await favoriteRecipe({id, title, image})
-=======
             await favoriteRecipe({ id, title, image })
->>>>>>> Stashed changes
         } else {
             console.log("You have already favorited this")
         }
@@ -96,10 +93,12 @@ function RecipeSearch() {
                 <ul>
                     {lazyData?.results?.map((recipe) => (
                         <>
-                        <div key={recipe.id}>
-                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
-                            <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
-                        </div>
+                            <div key={recipe.id}>
+                                <div className='circle-image'>
+                                    <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                                    <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                                </div>
+                            </div>
                         </>
                     ))}
                 </ul>

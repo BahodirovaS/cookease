@@ -20,14 +20,16 @@ function RecipeDetails() {
             <div className="row">
                 <div className="col-12 col-lg-8">
                     <h1>{data.title}</h1>
-                    <img src={data.image} alt={data.title} className="img-fluid mb-3" />
+                    <div className="circle-image">
+                        <img src={data.image} alt={data.title} className="img-fluid mb-3" />
+                    </div>
                     <h3>Instructions</h3>
                     <table className="table">
                         <tbody>
                             {data.analyzedInstructions.map((instruction) =>
                                 instruction.steps.map((step) => (
                                     <tr key={step.number}>
-                                        <td>Step {step.number}</td>
+                                        <td><strong>Step {step.number}</strong></td>
                                         <td>{step.step}</td>
                                     </tr>
                                 ))
