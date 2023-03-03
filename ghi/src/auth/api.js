@@ -84,9 +84,9 @@ export const apiSlice = createApi({
     //   },
     // }),
     deleteFavorite: builder.mutation({
-      query: (_id) => ({
+      query: (payload) => ({
         method: "delete",
-        url: '/favorites-recipes/{id}',
+        url: `/favorites-recipes/${payload.recipe_id}`,
       }),
       invalidatesTags: [{ type: "Recipes", id: "LIST" }],
     }),

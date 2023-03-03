@@ -37,7 +37,7 @@ function Nav() {
                                     <a className="dropdown-item" href="favorites-recipes">Users - Loved Recipes</a>
                                     <div>
                                         {currentUser ? (
-                                            <a className="dropdown-item" href="#" onClick={() => logOut()}>Log Out</a>
+                                            <a className="dropdown-item" onClick={() => logOut()}>Log Out</a>
                                         ) : (
                                             <>
                                                 <a className="dropdown-item" href="signup">Sign Up</a>

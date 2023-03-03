@@ -13,7 +13,7 @@ function FavoriteRecipes() {
             <progress className="progress is-primary" max="100"></progress>
         )
     }
-
+    console.log(favorites)
     return (
         <>
         <section id="menu" className="menu">
