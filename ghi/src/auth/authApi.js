@@ -17,12 +17,24 @@ export const authApiSlice = createApi({
   tagTypes: ["Account", "Recipes", "Token"],
   endpoints: (builder) => ({
     signUp: builder.mutation({
-      query: (data) => ({
-        url: "/queries/accounts",
-        method: "post",
-        body: data,
-        credentials: "include",
-      }),
+      query: async (data) => {
+        const response = await fetch('/queries/accounts', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        });
+        if (response.ok) {
+          return response.json();
+        } else {
+          const errorData = await response.json();
+          if (response.status === 409 && errorData.message === 'Username already exists') {
+            throw new Error('Username already exists!');
+          } else {
+            throw new Error('Sign up failed');
+          }
+        }
+      },
       providesTags: ["Account"],
       invalidatesTags: (result) => {
         return (result && ["Token"]) || [];
@@ -31,7 +43,8 @@ export const authApiSlice = createApi({
         try {
           await queryFulfilled;
           dispatch(clearForm());
-        } catch (err) {}
+        } catch (err) {
+        }
       },
     }),
     logIn: builder.mutation({
@@ -59,7 +72,7 @@ export const authApiSlice = createApi({
         try {
           await queryFulfilled;
           dispatch(clearForm());
-        } catch (err) {}
+        } catch (err) { }
       },
     }),
     logOut: builder.mutation({
