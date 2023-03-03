@@ -23,8 +23,8 @@ function SignUp() {
       style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
       <div className={modalClass} key="signup-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
-        <div className="container">
-          <div className="form-container">
+        <div className="account-container">
+          <div className="account-form-container">
             <div className="card" style={{ borderRadius: "15px" }}>
               <div className="card-body p-5">
                 <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
@@ -97,7 +97,7 @@ function SignUp() {
                   </div>
                   <div className="d-flex justify-content-center">
                     <div className="control">
-                      <button disabled={signUpLoading} className="btn1">
+                      <button disabled={signUpLoading} className="account-btn">
                         Sign up!
                       </button>
                     </div>

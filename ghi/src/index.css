@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.form-container {
+.account-form-container {
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -22,11 +22,11 @@ code {
   z-index: 9999;
 }
 
-.container {
+.account-container {
   position: fixed;
 }
 
-.btn1 {
+.account-btn {
   background-image: linear-gradient(to bottom right, #00a7ff, #0077cc);
   color: white;
   border: none;
@@ -35,7 +35,7 @@ code {
   transition: all 0.3s ease;
 }
 
-.btn1:hover {
+.account-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-image: linear-gradient(to bottom right, #0077cc, #00a7ff);
