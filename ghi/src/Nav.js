@@ -33,8 +33,8 @@ function Nav() {
                             <div className="dropdown mt-3" style={{ width: '100%', maxWidth: '100vw' }}>
                                 <div>
                                     <a className="dropdown-item" href="/">Home</a>
-                                    <a className="dropdown-item" href="search-recipes">Search Recipes</a>
-                                    <a className="dropdown-item" href="favorites-recipes">Users - Loved Recipes</a>
+                                    <a className="dropdown-item" href="/search-recipes">Search Recipes</a>
+                                    <a className="dropdown-item" href="/favorites-recipes">Users - Loved Recipes</a>
                                     <div>
                                         {currentUser ? (
                                             <a className="dropdown-item" href="#" onClick={() => logOut()}>Log Out</a>
