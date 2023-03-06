@@ -13,12 +13,7 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
-    const [favoriteRecipes, setFavoriteRecipes] = useState([]);
-    const { data: favorites, isLoading } = useGetFavoriteQuery({
-        onSuccess: (data) => {
-            setFavoriteRecipes(data?.favorites || []);
-        },
-    })
+    const { data: favorites, isLoading } = useGetFavoriteQuery()
     const [favoriteRecipe] = useAddFavoriteRecipeMutation()
     const [unFavoriteRecipe] = useDeleteFavoriteMutation()
 
@@ -55,7 +50,6 @@ function RecipeSearch() {
                 await favoriteRecipe({ id, title, image });
             }
     }
-
 
     return (
         <div>
