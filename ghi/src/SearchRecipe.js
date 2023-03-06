@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "./auth/api";
 import RecipeCard from './RecipeCard';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
-// import { CORSMiddleware } from
 
 
 function RecipeSearch() {
@@ -14,9 +13,15 @@ function RecipeSearch() {
         number: '',
     })
     const [LazyRecipe, { data: lazyData }] = useLazyGetRecipeQuery()
-    const { data: favorites, isLoading } = useGetFavoriteQuery()
+    const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+    const { data: favorites, isLoading } = useGetFavoriteQuery({
+        onSuccess: (data) => {
+            setFavoriteRecipes(data?.favorites || []);
+        },
+    })
     const [favoriteRecipe] = useAddFavoriteRecipeMutation()
     const [unFavoriteRecipe] = useDeleteFavoriteMutation()
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -33,18 +38,17 @@ function RecipeSearch() {
 
     const handleFavorite = async (id, title, image) => {
         let isFavorite = false;
-        let favoriteRecipeId;
+        let recipe_id;
             for (const recipe of favorites.favorites || []) {
                 if (recipe.id === id) {
                     isFavorite = true;
-
-                    favoriteRecipeId = recipe.recipe_id;
+                    recipe_id = recipe.recipe_id;
                     break;
                 }
             }
             if (isFavorite) {
                 // Remove the recipe from favorites
-                await unFavoriteRecipe({ favoriteRecipeId});
+                await unFavoriteRecipe({ recipe_id });
                 console.log("You deleted a recipe")
             } else {
                 // Add the recipe to favorites
@@ -54,7 +58,6 @@ function RecipeSearch() {
 
 
     return (
-
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -116,7 +119,12 @@ function RecipeSearch() {
                         <>
                         <div key={recipe.id}>
                             <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
-                                <button onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>Like</button>
+                                <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                    {favorites.favorites?.some(fav => fav.id === recipe.id) ?
+                                        <i className="bi bi-heart-fill heart-icon text-danger"></i> :
+                                        <i className="bi bi-heart heart-icon"></i>
+                                    }
+                                </button>
                         </div>
                         </>
                     ))}

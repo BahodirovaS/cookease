@@ -895,6 +895,12 @@ section {
   border: 0;
 }
 
+.carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  height: 50vh;
+  overflow: hidden;
+}
 .menu .nav-link {
   margin: 0 10px;
   padding: 10px 5px;
