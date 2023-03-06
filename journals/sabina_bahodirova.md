@@ -1,3 +1,7 @@
+## March 3, 2023
+
+## March 1, 2023
+
 ## February 28, 2023
     I am not able to get the ingredient widget in the back end because the content-type is text/html and I'm not sure if it's possible to convert it to application/json. Might attempt to make a call in the frontend in the future to test it out. Today, we all worked on the favorite recipe page and struggled with getting the favorites we made in the backend to populate the page. Our mistake was that we were populating the GET favorite endpoint with random ids that weren't from the api, so we weren't able to fetch our favorites and have it show in our favorites queries, therefore couldn't get the page to load without errors. We made a recipe card that held information on how a recipe shows and passed that as a prop after updating the favorites backend and were finally able to pull favorites from our backend and have them show up in our frontend. We also made a logout function so users can easily logout once logged in. We are now trying to make a like button that allows users to add recipes to their favorites page, but are getting errors saying our FormData doesn't accept certain parameters. We will continute to work on this tomorrow.
 
