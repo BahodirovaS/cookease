@@ -44,7 +44,7 @@ function LogIn() {
       <div className={modalClass} key="login-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
         <div className="account-container">
-          <div className="account-form-container" style={{ height: "573px", width: "442px" }}>
+          <div className="account-form-container">
             <div className="card" style={{ borderRadius: "15px", height: "100%" }}>
               <div className="card-body p-5 h-100 d-flex flex-column justify-content-center">
                 <h2 className="text-center mkb-5" style={{ fontFamily: "Amatic SC, sans-serif", fontSize: "60px" }}>Log in</h2>
