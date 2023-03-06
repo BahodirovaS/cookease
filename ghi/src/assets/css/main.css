@@ -1165,6 +1165,11 @@ section {
   transition: 0.3s;
 }
 
+.chefs .chef-member:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0 30px rgba(55, 55, 63, 0.15);
+}
+
 .chefs .chef-member .member-img {
   position: relative;
   overflow: hidden;
@@ -1236,10 +1241,7 @@ section {
   color: rgba(33, 37, 41, 0.7);
 }
 
-.chefs .chef-member:hover {
-  transform: scale(1.08);
-  box-shadow: 0px 0 30px rgba(55, 55, 63, 0.15);
-}
+
 
 .chefs .chef-member:hover .social {
   right: 8px;
