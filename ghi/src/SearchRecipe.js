@@ -148,11 +148,11 @@ function RecipeSearch() {
                         <button className='btn btn-outline-danger' type='submit'>Search</button>
                     </form>
                 </div>
-                <div className="search-results" style={{ paddingTop: 35 }}>
+                <div className="search-results">
                     {lazyData?.results?.length === 0 ? (
                         <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
                     ) : (
-                    <ul className="row justify-content-center">
+                        <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
                         {lazyData?.results?.map((recipe, pos) =>
                             <div className="col-md-3" key={pos}>
                                 <div key={recipe.id}>
