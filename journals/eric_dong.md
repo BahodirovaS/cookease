@@ -57,3 +57,25 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Started work on Recipe details page and currently have everything printing properly
 
 -> Jenn/Eric/Sabina driver
+
+# February 28th, 2023
+
+-Got kind of stuck on add favorite feature, so we split off and some people went to work on that and change the back end.
+-I worked on some bootstrap and CSS in the front end, did the Sign up page, also added logo into the navbar
+-Also worked on the logout function and button with Jenn
+
+# March 1st, 2023
+
+-Finished the rest of our features, got our like button to add recipes to favorites
+-Did some css for signup and login pages and overall css for project
+
+# March 2nd, 2023
+
+-More CSS stuff and decorating
+
+# March 3rd, 2023
+
+-Changed some class names so it doesn't interfere with my group members code
+-Added in some error messages for Login and Signup if you try to do it with incorrect credentials
+-Made them redirect to main page on succesful login/signup, and on unsuccesful you will get corresponding error messages
+-Ran into some trouble with my sign up function because in the back end once you sign up it automatically logs you in. It also works like this in the front end, so if you entered a username + password that was already created in signup it would still work and log you in instead of telling you that user already exists. Had to code some logic into my useSignUpMutation function to check response before logging in.
