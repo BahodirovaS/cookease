@@ -374,6 +374,38 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Account Info
+--------------------------------------------------------------*/
+.account-form-container {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.account-container {
+  position: fixed;
+}
+
+.account-btn {
+  background-image: linear-gradient(to bottom right, #00a7ff, #0077cc);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.account-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom right, #0077cc, #00a7ff);
+}
+
+/*--------------------------------------------------------------
 # Mobile Navigation
 --------------------------------------------------------------*/
 @media (max-width: 1279px) {
