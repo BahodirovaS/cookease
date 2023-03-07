@@ -20,6 +20,6 @@ def test_get_favorite():
     app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
 
     res = client.get('/favorites-recipes')
-    # data = res.json()
-    # assert data["favorites"] == []
+    data = res.json()
+    assert data["favorites"] == []
     assert res.status_code == 200
