@@ -70,24 +70,24 @@ function FavoriteRecipes() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            <section id="menu" className="menu">
+            <section id="favorite-foods" className="favorite-foods">
             <div className="container" data-aos="fade-up">
                 <div className="section-header">
                         <p>My <span>Favorite </span> Recipes</p>
                 </div>
                 <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
-                    <div className="tab-pane fade active show" id="menu-starters">
+                    <div className="tab-pane fade active show" id="favorite-foods-starters">
                         <div className="tab-header text-center">
                             {tokenData ? (
                             <div className="row gy-5">
                                 {favorites && favorites.favorites.map((recipe) => (
                                 <>
-                                    <div className="col-lg-4 menu-item">
+                                    <div className="col-lg-4 favorite-foods-item">
                                             <button className="btn btn-link" onClick={() => handleFavorite(recipe.id)}>
                                                 <i className="bi bi-heart-fill heart-icon" style={{ color: 'red' }}></i>
                                             </button>
                                         <a href={"recipe-details/" + recipe.id} className="glightbox">
-                                                    <img src={recipe.image} className="menu-img img-fluid rounded-circle" alt={recipe.title}/>
+                                                    <img src={recipe.image} className="favorite-foods-img img-fluid rounded-circle" alt={recipe.title}/>
                                         </a>
                                         <h4>{recipe.title}</h4>
                                             <ul className="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">

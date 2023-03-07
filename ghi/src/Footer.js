@@ -1,5 +1,8 @@
 function Footer() {
+
+
     return (
+        <>
         <footer id="footer" className="footer">
             <div className="container">
                 <div className="row gy">
@@ -40,7 +43,6 @@ function Footer() {
                     </div>
                 </div>
             </div>
-
             <div className="container">
                 <div className="copyright">
                     &copy; {new Date().getFullYear()} Copyright
@@ -55,6 +57,7 @@ function Footer() {
                 </div>
             </div>
         </footer>
+        </>
     )
 }
 
