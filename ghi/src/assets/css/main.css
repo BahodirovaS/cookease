@@ -570,6 +570,15 @@ section {
 .search-label button {
   font-size: 20px;
 }
+.search-results p {
+  font-size: 50px;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  text-align: center;
+}
+.search-results .bi-emoji-frown-fill:hover {
+  color: rgba(206, 18, 18, 0.8);
+}
 
 /*--------------------------------------------------------------
 # About Section

@@ -85,7 +85,7 @@ function RecipeSearch() {
                             </select>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="intolerances">Intolerance List:</label>
+                            <label htmlFor="intolerances">Intolerances:</label>
                             <select
                                 className="form-select form-control-lg"
                                 aria-label="Intolerance List:"
@@ -122,7 +122,7 @@ function RecipeSearch() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="maxReadyTime">Max Ready Time:</label>
+                            <label htmlFor="maxReadyTime">Max Ready Time in Minutes:</label>
                             <input
                                 className="form-control form-control-lg"
                                 type="text"
@@ -149,6 +149,9 @@ function RecipeSearch() {
                     </form>
                 </div>
                 <div className="search-results" style={{ paddingTop: 35 }}>
+                    {lazyData?.results?.length === 0 ? (
+                        <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
+                    ) : (
                     <ul className="row justify-content-center">
                         {lazyData?.results?.map((recipe, pos) =>
                             <div className="col-md-3" key={pos}>
@@ -168,6 +171,7 @@ function RecipeSearch() {
                             </div>
                         )}
                     </ul>
+                    )}
                 </div>
             </div>
         </div>
