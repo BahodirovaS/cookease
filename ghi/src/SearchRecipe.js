@@ -53,11 +53,11 @@ function RecipeSearch() {
     }
 
     return (
-        <div className="row justify-content-center my-5">
+        <div className="search-title row justify-content-center my-5">
             <div className="text-center">
                 <h2>Find a Recipe that's right for you!</h2>
             </div>
-            <div className="row justify-content-center my-5">
+            <div className="search-label row justify-content-center my-5">
                 <div className="col-sm-6">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -87,7 +87,7 @@ function RecipeSearch() {
                         <div className="mb-3">
                             <label htmlFor="intolerances">Intolerance List:</label>
                             <select
-                                className="form-control form-control-lg"
+                                className="form-select form-control-lg"
                                 aria-label="Intolerance List:"
                                 value={form.intolerances}
                                 id="intolerances"

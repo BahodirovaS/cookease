@@ -13,8 +13,8 @@
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Amatic SC", sans-serif;
-  --font-secondary: "Inter", sans-serif;
-  --font-tertiary: 'Raleway', sans-serif;
+  --font-secondary: 'Poiret One', cursive;
+  --font-tertiary: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 /* Colors */
@@ -539,13 +539,37 @@ section {
   padding-top: 20px;
   padding-right: 20px;
   text-align: start;
-  font-family: var(--font-tertiary);
+  font-family: var(--font-secondary);
+}
+
+.recipe-card h4 {
+  font-weight: bold;
+  color: #000;
+}
+
+.recipe-card h4:hover {
+  color: #666666;
 }
 
 /*--------------------------------------------------------------
 # Search Recipe
 --------------------------------------------------------------*/
-
+.search-title h2{
+  font-size: 50px;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+}
+.search-label label {
+  font-family: var(--font-tertiary);
+  font-size: 20px;
+}
+.search-label select {
+  font-family: var(--font-tertiary);
+  font-size: 20px;
+}
+.search-label button {
+  font-size: 20px;
+}
 
 /*--------------------------------------------------------------
 # About Section
@@ -645,7 +669,7 @@ section {
   padding: 0;
   margin: 0;
   font-family: var(--font-secondary);
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
 }
