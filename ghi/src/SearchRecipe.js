@@ -4,7 +4,6 @@ import { useGetTokenQuery } from './auth/authApi';
 import RecipeCard from './RecipeCard';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import './assets/css/main.css';
-import './assets/img/hero-img.png';
 
 function RecipeSearch() {
     const [form, setForm] = useState({
@@ -146,17 +145,16 @@ function RecipeSearch() {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <button className='btn btn-outline-success' type='submit'>Search</button>
+                        <button className='btn btn-outline-danger' type='submit'>Search</button>
                     </form>
                 </div>
-                <div className="text-center">
-                    <ul>
+                <div className="search-results" style={{ paddingTop: 35 }}>
+                    <ul className="row justify-content-center">
                         {lazyData?.results?.map((recipe, pos) =>
-                            <div key={pos}>
+                            <div className="col-md-3" key={pos}>
                                 <div key={recipe.id}>
-                                    <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
                                     {currentUser ? (
-                                    <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                        <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
                                             {favorites.favorites?.some(fav => fav.id === recipe.id) ?
                                                 <i className="bi bi-heart-fill heart-icon text-danger"></i> :
                                                 <i className="bi bi-heart heart-icon"></i>
@@ -165,6 +163,7 @@ function RecipeSearch() {
                                     ) : (
                                         <div></div>
                                     )}
+                                    <RecipeCard className ="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
                                 </div>
                             </div>
                         )}

@@ -14,6 +14,7 @@
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Amatic SC", sans-serif;
   --font-secondary: "Inter", sans-serif;
+  --font-tertiary: 'Raleway', sans-serif;
 }
 
 /* Colors */
@@ -518,6 +519,33 @@ section {
     z-index: 9996;
   }
 }
+/*--------------------------------------------------------------
+# Recipe Card
+--------------------------------------------------------------*/
+.recipe-card {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.recipe-card img {
+  height: 200px;
+  transition: transform 0.2s ease;
+}
+
+.recipe-card img:hover {
+  transform: scale(1.02);
+}
+
+.recipe-card .recipe-title {
+  padding-top: 20px;
+  padding-right: 20px;
+  text-align: start;
+  font-family: var(--font-tertiary);
+}
+
+/*--------------------------------------------------------------
+# Search Recipe
+--------------------------------------------------------------*/
+
 
 /*--------------------------------------------------------------
 # About Section
