@@ -44,6 +44,35 @@ function FavoriteRecipes() {
 
     return (
         <>
+<<<<<<< HEAD
+            <section id="menu" className="menu">
+                <div className="container" data-aos="fade-up">
+                    <div class="section-header">
+                        <p>My <span>Favorite </span> Recipes</p>
+                    </div>
+                    <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
+                        <div className="tab-pane fade active show" id="menu-starters">
+                            <div className="tab-header text-center">
+                                {tokenData ? (
+                                    <div className="row gy-5">
+                                        {favorites && favorites.favorites.map((recipe) => (
+                                            <>
+                                                <div className="col-lg-4 menu-item">
+                                                    <a href={"recipe-details/" + recipe.id} className="glightbox">
+                                                        <img src={recipe.image} className="menu-img img-fluid rounded-circle" alt={recipe.title} />
+                                                    </a>
+                                                    <h4>{recipe.title}</h4>
+                                                    <ul className="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                                                        <li className="nav-item">
+                                                            <a href={"recipe-details/" + recipe.id} className="nav-link active show">
+                                                                Read More
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </>
+                                        ))}
+=======
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -97,10 +126,8 @@ function FavoriteRecipes() {
                                                 </a>
                                                 </li>
                                             </ul>
+>>>>>>> 4ce35c83b4c8eb571f32bbe05db0de7b4ac9fe8f
                                     </div>
-                                </>
-                                ))}
-                            </div>
                                 ) : (
                                     <div className="section-header">
                                         <h4>You must be logged in to see your favorites!</h4>
