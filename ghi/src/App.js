@@ -9,6 +9,7 @@ import RecipeSearch from "./SearchRecipe";
 import RecipeDetails from "./RecipeDetail";
 import FavoriteRecipes from "./FavoriteRecipes";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();

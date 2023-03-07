@@ -4,14 +4,38 @@ import { useSignUpMutation } from "./auth/authApi";
 import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import { preventDefault } from "./auth/utils.js";
 import 'bootstrap/dist/css/bootstrap.css'
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { show, username, password, first_name, last_name } = useSelector(
     (state) => state.account
   );
   const modalClass = `my-modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
-  const [signUp, { error, isLoading: signUpLoading }] = useSignUpMutation();
+  const [signUp, { error, isLoading: signUpLoading, isSuccess: signUpSuccess }] = useSignUpMutation();
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+    signUp({
+      username,
+      password,
+      first_name,
+      last_name,
+    }).then((response) => {
+      if (response.error) {
+        setErrorMessage(response.error);
+      }
+      else {
+        navigate("/")
+      }
+    })
+  },
+    [username, password, first_name, last_name, navigate, signUp]
+  )
+
   const field = useCallback(
     (e) =>
       dispatch(updateField({ field: e.target.name, value: e.target.value })),
@@ -20,23 +44,16 @@ function SignUp() {
 
   return (
     <section className="vh-100 bg-image"
-      style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
+      style={{ backgroundImage: "url('https://i.imgur.com/NBJdjVd.jpeg')" }}>
       <div className={modalClass} key="signup-modal">
         <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
         <div className="account-container">
           <div className="account-form-container">
             <div className="card" style={{ borderRadius: "15px" }}>
               <div className="card-body p-5">
-                <h2 className="text-uppercase text-center mkb-5">Create An Account</h2>
-                <form
-                  method="POST"
-                  onSubmit={preventDefault(signUp, () => ({
-                    username: username,
-                    password,
-                    first_name,
-                    last_name,
-                  }))}
-                >
+                <h2 className="text-center mkb-5" style={{ fontFamily: "Amatic SC, sans-serif", fontSize: "60px" }} >Create An Account</h2>
+                <form onSubmit={handleSubmit}>
+                  {error && <div className="alert alert-danger">{"Username already exists!"}</div>}
                   <div className="form-outline mb-4">
                     <label className="label" htmlFor="username">
                       Username
