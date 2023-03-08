@@ -15,6 +15,7 @@
   --font-primary: 'Amatic SC', cursive;
   --font-secondary: 'Poiret One', cursive;
   --font-tertiary: 'IBM Plex Sans Condensed', sans-serif;
+  --font-quarternary: 'DM Serif Display', serif;
 }
 
 /* Colors */
@@ -65,7 +66,7 @@ section {
 }
 
 .section-bg {
-  background-color: #eee;
+  background: linear-gradient(to bottom, #fff, hsl(33deg 100% 98%));
 }
 
 .section-header {
@@ -146,7 +147,7 @@ section {
   transition: all 0.5s;
   z-index: 997;
   height: 90px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #6d6c6c;
 }
 
 @media (max-width: 575px) {
@@ -636,16 +637,20 @@ section {
 /*--------------------------------------------------------------
 # Recipe Detail
 --------------------------------------------------------------*/
+.detail {
+  padding-top: 2%;
+}
+
 .ingredient-image {
-  max-height: 50px;
-  max-width: 50px;
+  max-height: 60px;
+  max-width: 60px;
   object-fit: contain;
 }
 
 .card-header {
   background-color: rgba(206, 18, 18, 0.7);
   border-color: rgba(206, 18, 18, 0.7);
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   font-size: 35px;
 }
 .card-header table td {
@@ -653,14 +658,12 @@ section {
 }
 
 .card-header2 {
-  background-color: rgba(206, 18, 18, 0.7);
-  border-color: rgba(206, 18, 18, 0.7);
-  text-align: center;
-  font-family: var(--font-primary);
-  font-size: 50px;
-  border-radius: 25px;
-  border: 2px solid rgba(206, 18, 18, 0.7);
+  text-align: start;
+  font-family: var(--font-secondary);
+  font-size: 60px;
+  font-weight: bold;
   padding: 20px;
+  color: #000;
 }
 
 .bg-danger {
@@ -668,33 +671,54 @@ section {
 }
 
 .bg-danger2 {
-  background-color: rgb(180, 177, 177)!important;
   font-family: var(--font-tertiary);
-  overflow: scroll;
+  overflow: auto;
   height: 300px;
+  scrollbar-width: thin;
+  scrollbar-color: black;
 }
+
+.bg-danger2::-webkit-scrollbar {
+  width: 5px;
+  scrollbar-color: rgb(99, 98, 98)
+}
+
+.bg-danger2::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+.bg-danger2::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: 3px solid rgb(83, 83, 83);
+}
+
 .bg-danger3 {
-  background-color: rgb(180, 177, 177)!important;
   font-family: var(--font-tertiary);
+  overflow: auto;
+  height: 300px;
+  scrollbar-width: thin;
+}
+.bg-danger3::-webkit-scrollbar {
+  width: 5px;
+  scrollbar-color: rgb(99, 98, 98)
+}
+
+.bg-danger3::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+.bg-danger3::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: 3px solid rgb(83, 83, 83);
 }
 .bg-danger4 {
-  background-color: rgb(180, 177, 177)!important;
-  font-family: var(--font-secondary);
+  font-family: var(--font-tertiary);
 }
 
 .text-danger {
   color: rgba(206, 18, 18, 0.7)!important;
-}
-
-.summary {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.circle-image img {
-  border-radius: 65%;
-  box-shadow: 10px 10px 5px grey;
 }
 
 .information{
@@ -707,11 +731,12 @@ body .card-title {
 }
 body .summary {
   font-size: 18px;
-  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 body .info {
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
 }
 
 strong {
@@ -723,7 +748,6 @@ em {
 }
 
 table {
-  background: #f5f5f5;
   border-collapse: separate;
   box-shadow: inset 0 1px 0 #fff;
   font-size: 20px;
@@ -732,19 +756,22 @@ table {
   text-align: left;
   width: 800px;
 }
+.image-parent {
+  background-color: transparent;
+}
+.image-parent img {
+  border-radius: 30%;
+}
+.ingredient-image {
+  background-color: hsl(33deg 100% 98%);
+}
 
 th {
-  background: linear-gradient(#777, #444);
-  border-left: 1px solid #555;
-  border-right: 1px solid #777;
-  border-top: 1px solid #555;
-  border-bottom: 1px solid #333;
-  box-shadow: inset 0 1px 0 #999;
-  color: #fff;
   font-weight: bold;
   padding: 10px 15px;
   position: relative;
-  text-shadow: 0 1px 0 #000;
+  text-shadow: 0 1px 0 #000000;
+  border: none;
 }
 
 th:after {
@@ -760,7 +787,6 @@ th:after {
 }
 
 th:first-child {
-  border-left: 1px solid #777;
   box-shadow: inset 1px 1px 0 #999;
 }
 
@@ -769,10 +795,6 @@ th:last-child {
 }
 
 td {
-  border-right: 1px solid #fff;
-  border-left: 1px solid #e8e8e8;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #e8e8e8;
   padding: 10px 15px;
   position: relative;
   transition: all 300ms;
@@ -783,12 +805,7 @@ td:first-child {
 }
 
 td:last-child {
-  border-right: 1px solid #e8e8e8;
   box-shadow: inset -1px 0 0 #fff;
-}
-
-tr:nth-child(odd) td {
-  background: #f1f1f1;
 }
 
 tr:last-of-type td {
