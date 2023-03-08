@@ -644,17 +644,17 @@ section {
 }
 
 .bg-danger2 {
-  background-color: grey!important;
+  background-color: rgb(180, 177, 177)!important;
   font-family: var(--font-tertiary);
   overflow: scroll;
   height: 300px;
 }
 .bg-danger3 {
-  background-color: grey!important;
+  background-color: rgb(180, 177, 177)!important;
   font-family: var(--font-tertiary);
 }
 .bg-danger4 {
-  background-color: grey!important;
+  background-color: rgb(180, 177, 177)!important;
   font-family: var(--font-secondary);
 }
 
@@ -673,8 +673,7 @@ section {
   box-shadow: 10px 10px 5px grey;
 }
 
-body {
-  background: #ffffff;
+.information{
   color: #ffffff;
   font: 100%/50px;
 }

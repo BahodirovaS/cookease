@@ -64,7 +64,7 @@ function RecipeDetails() {
                 <div className="col-12 col-lg-4">
                     <div className="card bg-danger text-white mb-3">
                         <div className="card-header">Recipe Information</div>
-                        <div className="card-body">
+                        <div className="card-body information">
                             <h5 className="card-title">Cooking Time</h5>
                             <p className="card-text info">{data.readyInMinutes} minutes</p>
                             <h5 className="card-title">Dietary Information</h5>
