@@ -79,3 +79,9 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 -Added in some error messages for Login and Signup if you try to do it with incorrect credentials
 -Made them redirect to main page on succesful login/signup, and on unsuccesful you will get corresponding error messages
 -Ran into some trouble with my sign up function because in the back end once you sign up it automatically logs you in. It also works like this in the front end, so if you entered a username + password that was already created in signup it would still work and log you in instead of telling you that user already exists. Had to code some logic into my useSignUpMutation function to check response before logging in.
+
+# March 6th, 2023
+
+# March 7th, 2023
+
+# March 8th, 2023
