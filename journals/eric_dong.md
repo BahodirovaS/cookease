@@ -85,3 +85,7 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 # March 7th, 2023
 
 # March 8th, 2023
+
+-Started work on my specific unit test, create favorite
+-Was confused if my test was accurate or not, even though it was passing because I was just hard coding values.
+-I think it should be correct though after i watched the lectures
