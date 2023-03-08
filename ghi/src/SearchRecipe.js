@@ -122,7 +122,9 @@ function RecipeSearch() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="maxReadyTime">Max Ready Time in Minutes:</label>
+                            <label htmlFor="maxReadyTime">
+                                <span style={{ color: 'red' }}> *</span>
+                                Max Ready Time in Minutes:</label>
                             <input
                                 className="form-control form-control-lg"
                                 type="text"
