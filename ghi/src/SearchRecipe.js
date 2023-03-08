@@ -53,7 +53,8 @@ function RecipeSearch() {
     }
 
     return (
-        <div className="search-title row justify-content-center my-5">
+        <>
+        <div className="search-title row justify-content-center">
             <div className="text-center">
                 <h2>Find a Recipe that's right for you!</h2>
             </div>
@@ -150,33 +151,36 @@ function RecipeSearch() {
                         <button className='btn btn-outline-danger' type='submit'>Search</button>
                     </form>
                 </div>
-                <div className="search-results">
-                    {lazyData?.results?.length === 0 ? (
-                        <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
-                    ) : (
-                        <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
-                        {lazyData?.results?.map((recipe, pos) =>
-                            <div className="col-md-3" key={pos}>
-                                <div key={recipe.id}>
-                                    {currentUser ? (
-                                        <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
-                                            {favorites.favorites?.some(fav => fav.id === recipe.id) ?
-                                                <i className="bi bi-heart-fill heart-icon text-danger"></i> :
-                                                <i className="bi bi-heart heart-icon"></i>
-                                            }
-                                        </button>
-                                    ) : (
-                                        <div></div>
-                                    )}
-                                    <RecipeCard className ="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
-                                </div>
-                            </div>
-                        )}
-                    </ul>
-                    )}
-                </div>
             </div>
         </div>
+        <div className="search-results">
+            {lazyData?.results?.length === 0 ? (
+                <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
+            ) : (
+                <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
+                {lazyData?.results?.map((recipe, pos) =>
+                    <div className="col-md-3" key={pos}>
+                        <div key={recipe.id}>
+                            {currentUser ? (
+                                <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                    {favorites.favorites?.some(fav => fav.id === recipe.id) ?
+                                        <i className="bi bi-heart-fill heart-icon text-danger"></i> :
+                                        <i className="bi bi-heart heart-icon"></i>
+                                    }
+                                </button>
+                            ) : (
+                                <div></div>
+                            )}
+                            <RecipeCard className ="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                        </div>
+                    </div>
+                )}
+                </ul>
+            )}
+        </div>
+    </>
+
+
     );
 };
 export default RecipeSearch;

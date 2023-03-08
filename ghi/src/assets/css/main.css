@@ -556,24 +556,48 @@ section {
 /*--------------------------------------------------------------
 # Search Recipe
 --------------------------------------------------------------*/
-.search-results {
-  padding-top: 35px;
+.search-title {
+  padding-top: 30px;
+  background: linear-gradient(rgba(105, 105, 105, 0.5), rgba(105, 105, 105, 0.5)), url("https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/04/AnastasiiaT3-1-e1555999856567.jpg") center center;
+  background-size: cover;
+  padding-top: 30px;
 }
 .search-title h2{
   font-size: 50px;
   font-family: var(--font-tertiary);
   font-weight: bold;
+  color: white;
 }
 .search-label label {
   font-family: var(--font-tertiary);
-  font-size: 20px;
+  font-size: 25px;
+  color: white;
 }
 .search-label select {
   font-family: var(--font-tertiary);
   font-size: 20px;
+  background-color: #e7e6e6;
+}
+.search-label input {
+  background-color: #e7e6e6;
 }
 .search-label button {
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: var(--color-primary);
+}
+.search-label button:hover {
+  background: rgba(206, 18, 18, 0.8);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);
+}
+.search-results {
+  margin-top: 35px;
 }
 .search-results p {
   font-size: 50px;
