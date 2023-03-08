@@ -3,7 +3,6 @@ from authenticator import authenticator
 from queries.favorites import (
     FavoritesQueries,
     FavoriteIn,
-    FavoriteOut,
     FavoriteList
 )
 
@@ -28,7 +27,6 @@ async def create_favorite(
     repo: FavoritesQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    print(favorite)
     if favorite is None:
         response.status_code = 400
     return repo.create_favorite(favorite=favorite, user_id=account_data["id"])

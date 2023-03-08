@@ -18,10 +18,10 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     addFavoriteRecipe: builder.mutation({
       query: (id) => ({
-          method: "post",
-          url: "/favorites-recipes",
-          credentials: "include",
-          body: {...id},
+        method: "post",
+        url: "/favorites-recipes",
+        credentials: "include",
+        body: { ...id },
       }),
       invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
@@ -84,11 +84,11 @@ export const apiSlice = createApi({
     //   },
     // }),
     deleteFavorite: builder.mutation({
-      query: (id) => ({
+      query: (payload) => ({
         method: "delete",
-        url: `/favorites-recipes/{id}`,
+        url: `/favorites-recipes/${payload.recipe_id}`,
       }),
-      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
+      invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
   }),
 });

@@ -1,18 +1,34 @@
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import { useEffect } from 'react';
 
 
 function MainPage() {
+    useEffect(() => {
+        const scrollTop = document.querySelector('.scroll-top');
+        if (scrollTop) {
+            const togglescrollTop = function () {
+                window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+            }
+            window.addEventListener('load', togglescrollTop);
+            document.addEventListener('scroll', togglescrollTop);
+            scrollTop.addEventListener('click', window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            }));
+        }
+    })
+
     return (
         <>
-            <section id="hero" className="hero d-flex align-items-center section-bg" style={{ backgroundImage: "url(https://heartstrokeprod.azureedge.net/-/media/images/articles/getty_1047798504_1920x1080.ashx?rev=10f9ef9ef9794e998b5cfe1bd3d60d85)" }}>
+            <section id="welcome" className="welcome d-flex align-items-center section-bg" style={{ backgroundImage: "url(https://heartstrokeprod.azureedge.net/-/media/images/articles/getty_1047798504_1920x1080.ashx?rev=10f9ef9ef9794e998b5cfe1bd3d60d85)" }}>
                 <div className="container" >
                     <div className="row justify-content-between gy-5">
                         <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
                             <h2 className="text-white" data-aos="fade-up">Cook easily with<br />CookEase!</h2>
                             <p className="text-white" data-aos="fade-up" data-aos-delay="100" >No more wondering "What can I make with this!?"</p>
                             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                <a href="search-recipes" className="btn-book-a-table">Search for Recipes!</a>
+                                <a href="search-recipes" className="btn-search-for-recipes">Search for Recipes!</a>
                             </div>
                         </div>
                     </div>
@@ -28,7 +44,7 @@ function MainPage() {
                     </div>
                     <div className="row gy-4">
                         <div className="col-lg-7 position-relative about-img" style={{ backgroundImage: 'url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about-2.jpg)' }} data-aos="fade-up" data-aos-delay="150">
-                            <div className="call-us position-absolute">
+                            <div className="join-us position-absolute">
                                 <h4>Join to save hundreds of recipes!</h4>
                                 <a href="signup">Create an Account</a>
                             </div>
@@ -59,7 +75,7 @@ function MainPage() {
                                 <span
                                     className="purecounter"
                                     data-purecounter-start="0"
-                                    data-purecounter-end="232"
+                                    data-purecounter-end="2600"
                                     data-purecounter-duration="1"
                                 >2,600+</span>
                                 <p>Ingredients</p>
@@ -70,7 +86,7 @@ function MainPage() {
                                 <span
                                     className="purecounter"
                                     data-purecounter-start="0"
-                                    data-purecounter-end="521"
+                                    data-purecounter-end="5000"
                                     data-purecounter-duration="1"
                                 >5,000+</span>
                                 <p>Recipes</p>
@@ -81,7 +97,7 @@ function MainPage() {
                                 <span
                                     className="purecounter"
                                     data-purecounter-start="0"
-                                    data-purecounter-end="1453"
+                                    data-purecounter-end="600"
                                     data-purecounter-duration="1"
                                 >600K+</span>
                                 <p>Products</p>
@@ -92,7 +108,7 @@ function MainPage() {
                                 <span
                                     className="purecounter"
                                     data-purecounter-start="0"
-                                    data-purecounter-end="32"
+                                    data-purecounter-end="115"
                                     data-purecounter-duration="1"
                                 >115K+</span>
                                 <p>Menu Items</p>
@@ -101,7 +117,7 @@ function MainPage() {
                     </div>
                 </div>
             </section>
-            <section id="chefs" className="chefs section-bg">
+            <section id="developers" className="developers section-bg">
                 <div className="container"data-aos="fade-up">
                     <div className="section-header">
                         <h2>Developers</h2>
@@ -109,7 +125,7 @@ function MainPage() {
                     </div>
                     <div className="row gy-4 justify-content-center">
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                            <div className="chef-member">
+                            <div className="developer-member">
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D5603AQEroIqWTEaRcA/profile-displayphoto-shrink_800_800/0/1665683162033?e=1683158400&v=beta&t=Gy71-N8tyzeVgCV_Wt4A85cUOwVOtB4lPP6cqrLxFY0" className="img-fluid" alt="" />
                                     <div className="social">
@@ -123,7 +139,7 @@ function MainPage() {
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                            <div className="chef-member">
+                            <div className="developer-member">
                                 <div className="member-img">
                                     <img src="https://ca.slack-edge.com/T040E31DKM2-U0477JWLGBT-865f48ebb996-512" className="img-fluid" alt="" />
                                     <div className="social">
@@ -137,7 +153,7 @@ function MainPage() {
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="chef-member">
+                            <div className="developer-member">
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_800_800/0/1664378159408?e=1683158400&v=beta&t=nrpptTTor0xPpkB0C5Y7924iuJK0WhGIEV9cqN5CiWU" className="img-fluid" alt="" />
                                     <div className="social">
@@ -151,7 +167,7 @@ function MainPage() {
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="chef-member">
+                            <div className="developer-member">
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D4E03AQFUEPkARwkTDg/profile-displayphoto-shrink_800_800/0/1671496174672?e=1683158400&v=beta&t=l6Eo7fNbrSDxpqZGZcrLlPOZ3qBFEaDkc0qpYdlBokM" className="img-fluid" alt="" />
                                     <div className="social">
@@ -165,7 +181,7 @@ function MainPage() {
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="chef-member">
+                            <div className="developer-member">
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/C5603AQGJ1n_GtbbxgQ/profile-displayphoto-shrink_800_800/0/1664238671994?e=1683158400&v=beta&t=g92XLu-xklVD3bZQVHvW3vasQ15WeivuGVmQkOGYAMw" className="img-fluid" alt="" />
                                     <div className="social">
@@ -181,6 +197,7 @@ function MainPage() {
                     </div>
                 </div>
             </section>
+            <a href="#" className="scroll-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
         </>
     );
 }

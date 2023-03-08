@@ -21,7 +21,7 @@ function Nav() {
                     <a href="/" className="logo d-flex align-items-center me-auto me-lg-0">
                         <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '100%' }} />
                     </a>
-                    <a className="btn-book-a-table" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <a className="btn-search-for-recipes" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         Menu
                     </a>
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -37,7 +37,7 @@ function Nav() {
                                     <a className="dropdown-item" href="/favorites-recipes">Users - Loved Recipes</a>
                                     <div>
                                         {currentUser ? (
-                                            <a className="dropdown-item" href="#" onClick={() => logOut()}>Log Out</a>
+                                            <a className="dropdown-item" onClick={() => logOut()}>Log Out</a>
                                         ) : (
                                             <>
                                                 <a className="dropdown-item" href="signup">Sign Up</a>
