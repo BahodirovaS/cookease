@@ -2,7 +2,6 @@ import requests
 import os
 import json
 
-
 SPOONACULAR_API_KEY = os.environ["SPOONACULAR_API_KEY"]
 
 
