@@ -88,7 +88,7 @@ export const apiSlice = createApi({
         method: "delete",
         url: `/favorites-recipes/${payload.recipe_id}`,
       }),
-      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
+      invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
   }),
 });

@@ -1,6 +1,6 @@
 import { useGetRecipeDetailsQuery } from "./auth/api";
 import { useParams } from 'react-router-dom'
-import './assets/css/detail.css'
+import './assets/css/main.css'
 
 function RecipeDetails() {
     const { id } = useParams();
@@ -29,7 +29,7 @@ function RecipeDetails() {
                         <div className="card-header">Instructions</div>
                     </div>
                     <div className="card bg-danger3 text-white mb-3">
-                        <table className="table">
+                        <table className="table instructions">
                             <tbody>
                                 {data.analyzedInstructions.map((instruction) =>
                                     instruction.steps.map((step) => (
@@ -66,9 +66,9 @@ function RecipeDetails() {
                         <div className="card-header">Recipe Information</div>
                         <div className="card-body">
                             <h5 className="card-title">Cooking Time</h5>
-                            <p className="card-text">{data.readyInMinutes} minutes</p>
+                            <p className="card-text info">{data.readyInMinutes} minutes</p>
                             <h5 className="card-title">Dietary Information</h5>
-                            <p className="card-text">
+                            <p className="card-text info">
                                 Dairy Free: {data.dairyFree ? "Yes" : "No"}<br />
                                 Gluten Free: {data.glutenFree ? "Yes" : "No"}<br />
                                 Very Healthy: {data.veryHealthy ? "Yes" : "No"}
@@ -78,8 +78,8 @@ function RecipeDetails() {
                     <div className="card mb-3 text-white mb-3">
                         <div className="card-header">Summary</div>
                     </div>
-                    <div className="card bg-danger3 text-white mb-3">
-                        <div className="card-body">
+                    <div className="card bg-danger4 mb-3">
+                        <div className="card-body summary">
                             <p className="card-text">{replace}</p>
                         </div>
                     </div>
