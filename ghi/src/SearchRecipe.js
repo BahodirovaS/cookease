@@ -52,6 +52,8 @@ function RecipeSearch() {
         }
     }
 
+    
+
     return (
         <>
             <div className="search-title row justify-content-center">
