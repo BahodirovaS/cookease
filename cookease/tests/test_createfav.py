@@ -13,11 +13,9 @@ def fake_get_current_account_data():
 
 class FakeFavoritesQueries:
     def create_favorite(self, favorite, user_id):
-        return {
-            'id': 1,
-            'title': "test_title",
-            'image': "test_image",
-        }
+        favorite = favorite.dict()
+        favorite['user_id'] = user_id
+        return favorite
 
 def test_create_favorite():
     app.dependency_overrides[FavoritesQueries] = FakeFavoritesQueries
@@ -34,5 +32,6 @@ def test_create_favorite():
         'id': 1,
         'title': "test_title",
         'image': "test_image",
+        'user_id': "id",
     }
     assert res.status_code == 200
