@@ -22,11 +22,6 @@ class FakeFavoritesQueries:
         favorite = favorite.dict()
         favorite['user_id'] = user_id
         return favorite
-    def delete_favorite(self, id: str, user_id: str):
-        return {
-            "id": "6408f6c1084d0b6336943830",
-            'user_id': "99",
-        }
 
 
 def test_delete_favorite():
@@ -42,14 +37,3 @@ def test_delete_favorite():
 
     assert res.status_code == 200
     assert res.json() == True
-
-    res = client.delete('/favorites-recipes/6408f6c1084d0b6336943830')
-    data = res.json()
-
-    # assert data == {
-    #     'id': "6408f6c1084d0b6336943830",
-    #     'user_id': "99",
-    # }
-    assert isinstance(data, bool)
-    assert True
-    assert res.status_code == 200
