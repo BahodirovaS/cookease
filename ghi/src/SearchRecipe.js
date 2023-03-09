@@ -53,108 +53,111 @@ function RecipeSearch() {
     }
 
     return (
-        <div className="search-title row justify-content-center my-5">
-            <div className="text-center">
-                <h2>Find a Recipe that's right for you!</h2>
-            </div>
-            <div className="search-label row justify-content-center my-5">
-                <div className="col-sm-6">
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="diet">Diet Options:</label>
-                            <select
-                                className="form-select form-control-lg"
-                                aria-label="Diet Options:"
-                                value={form.diet}
-                                id="diet"
-                                name='diet'
-                                onChange={handleInputChange}
-                            >
-                                <option defaultValue="null">None</option>
-                                <option value="Gluten Free">Gluten Free</option>
-                                <option value="Ketogenic">Ketogenic</option>
-                                <option value="Vegetarian">Vegetarian</option>
-                                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
-                                <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-                                <option value="Vegan">Vegan</option>
-                                <option value="Pescetarian">Pescetarian</option>
-                                <option value="Paleo">Paleo</option>
-                                <option value="Primal">Primal</option>
-                                <option value="Low FODMAP">Low FODMAP</option>
-                                <option value="Whole30">Whole30</option>
-                            </select>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="intolerances">Intolerances:</label>
-                            <select
-                                className="form-select form-control-lg"
-                                aria-label="Intolerance List:"
-                                value={form.intolerances}
-                                id="intolerances"
-                                name='intolerances'
-                                onChange={handleInputChange}
-                            >
-                                <option defaultValue="null">None</option>
-                                <option value="Dairy">Dairy</option>
-                                <option value="Egg">Egg</option>
-                                <option value="Gluten">Gluten</option>
-                                <option value="Grain">Grain</option>
-                                <option value="Peanut">Peanut</option>
-                                <option value="Seafood">Seafood</option>
-                                <option value="Sesame">Sesame</option>
-                                <option value="Shellfish">Shellfish</option>
-                                <option value="Soy">Soy</option>
-                                <option value="Sulfite">Sulfite</option>
-                                <option value="Tree Nut">Tree Nut</option>
-                                <option value="Wheat">Wheat</option>
-                            </select>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="includeIngredients">Include Ingredients:</label>
-                            <input
-                                className="form-control form-control-lg"
-                                type="text"
-                                placeholder="apple, flour, sugar, egg, potato, tomato, etc"
-                                value={form.includeIngredients}
-                                name='includeIngredients'
-                                id="includeIngredients"
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="maxReadyTime">
-                                <span style={{ color: 'red' }}> *</span>
-                                Max Ready Time in Minutes:</label>
-                            <input
-                                className="form-control form-control-lg"
-                                type="text"
-                                placeholder="15, 30, 45, 60, etc"
-                                value={form.maxReadyTime}
-                                id="maxReadyTime"
-                                name='maxReadyTime'
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="number">Number of Results:</label>
-                            <input
-                                className="form-control form-control-lg"
-                                type="text"
-                                placeholder="1, 3, 5, 10, etc"
-                                value={form.number}
-                                id="number"
-                                name='number'
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <button className='btn btn-outline-danger' type='submit'>Search</button>
-                    </form>
+        <>
+            <div className="search-title row justify-content-center">
+                <div className="text-center">
+                    <h2>Find a Recipe that's right for you!</h2>
                 </div>
-                <div className="search-results">
-                    {lazyData?.results?.length === 0 ? (
-                        <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
-                    ) : (
-                        <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
+                <div className="search-label row justify-content-center my-5">
+                    <div className="col-sm-6">
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-3">
+                                <label htmlFor="diet">Diet Options:</label>
+                                <select
+                                    className="form-select form-control-lg"
+                                    aria-label="Diet Options:"
+                                    value={form.diet}
+                                    id="diet"
+                                    name='diet'
+                                    onChange={handleInputChange}
+                                >
+                                    <option defaultValue="null">None</option>
+                                    <option value="Gluten Free">Gluten Free</option>
+                                    <option value="Ketogenic">Ketogenic</option>
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                                    <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                                    <option value="Vegan">Vegan</option>
+                                    <option value="Pescetarian">Pescetarian</option>
+                                    <option value="Paleo">Paleo</option>
+                                    <option value="Primal">Primal</option>
+                                    <option value="Low FODMAP">Low FODMAP</option>
+                                    <option value="Whole30">Whole30</option>
+                                </select>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="intolerances">Intolerances:</label>
+                                <select
+                                    className="form-select form-control-lg"
+                                    aria-label="Intolerance List:"
+                                    value={form.intolerances}
+                                    id="intolerances"
+                                    name='intolerances'
+                                    onChange={handleInputChange}
+                                >
+                                    <option defaultValue="null">None</option>
+                                    <option value="Dairy">Dairy</option>
+                                    <option value="Egg">Egg</option>
+                                    <option value="Gluten">Gluten</option>
+                                    <option value="Grain">Grain</option>
+                                    <option value="Peanut">Peanut</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Sesame">Sesame</option>
+                                    <option value="Shellfish">Shellfish</option>
+                                    <option value="Soy">Soy</option>
+                                    <option value="Sulfite">Sulfite</option>
+                                    <option value="Tree Nut">Tree Nut</option>
+                                    <option value="Wheat">Wheat</option>
+                                </select>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="includeIngredients">Include Ingredients:</label>
+                                <input
+                                    className="form-control form-control-lg"
+                                    type="text"
+                                    placeholder="apple, flour, sugar, egg, potato, tomato, etc"
+                                    value={form.includeIngredients}
+                                    name='includeIngredients'
+                                    id="includeIngredients"
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="maxReadyTime">
+                                    <span style={{ color: 'red' }}> *</span>
+                                    Max Ready Time in Minutes:</label>
+                                <input
+                                    className="form-control form-control-lg"
+                                    type="text"
+                                    placeholder="15, 30, 45, 60, etc"
+                                    value={form.maxReadyTime}
+                                    id="maxReadyTime"
+                                    name='maxReadyTime'
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="number">Number of Results:</label>
+                                <input
+                                    className="form-control form-control-lg"
+                                    type="text"
+                                    placeholder="1, 3, 5, 10, etc"
+                                    value={form.number}
+                                    id="number"
+                                    name='number'
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <button className='btn btn-outline-danger' type='submit'>Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div className="search-results">
+                {lazyData?.results?.length === 0 ? (
+                    <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
+                ) : (
+                    <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
                         {lazyData?.results?.map((recipe, pos) =>
                             <div className="col-md-3" key={pos}>
                                 <div key={recipe.id}>
@@ -168,15 +171,16 @@ function RecipeSearch() {
                                     ) : (
                                         <div></div>
                                     )}
-                                    <RecipeCard className ="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
+                                    <RecipeCard className="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
                                 </div>
                             </div>
                         )}
                     </ul>
-                    )}
-                </div>
+                )}
             </div>
-        </div>
+        </>
+
+
     );
 };
 export default RecipeSearch;

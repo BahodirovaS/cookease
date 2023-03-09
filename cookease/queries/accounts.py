@@ -46,7 +46,11 @@ class AccountQueries(Queries):
         props = info.dict()
         props["hashed_password"] = hashed_password
         del props["password"]
+<<<<<<< HEAD
         self.collection.create_index([("username", ASCENDING)], unique = True)
+=======
+        self.collection.create_index([("username", ASCENDING)], unique=True)
+>>>>>>> main
         try:
             self.collection.insert_one(props)
         except DuplicateKeyError:

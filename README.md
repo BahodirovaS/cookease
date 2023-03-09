@@ -1,147 +1,59 @@
-# Module3 Project Gamma
+## What is CookEase?
 
-## Getting started
+CookEase is a recipe search application that allows users to search for recipes based on their dietary preferences and be able to view their details. Said dietary preferences include the user's diet, allergies or intolerances, ingredients they want to use, the amount of time they want to spend on the recipe, and how many searches they want to populate the search page. Some additional features users are able to see when viewing a recipe include health scores, price per serving, and nutritional information. In addition to searching for recipes, authenticated users are able to favorite recipes and save them to their account.
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+Using a NoSQL database, MongoDB, the backend was built using PyMongo and the FastAPI web framework. This application includes a user authentication feature which is built using JWTDown for FASTAPI, and uses a third-party api service, Spoonacular API, to search for recipes. In order to create a responsive and interactive interface, the frontend was built using Javascript and RTK Query. In terms of frontend design, Bootstrap and Bootstrap Icons were used with CSS to create a pleasant and friendly user experience.
 
-## Install Extensions
+## Intended Market
 
-* Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-* Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+CookEase is built for those who struggle to find new recipes to fit their specific diets or intolerances. It's also useful for users who are new to cooking and have ingredients but are unsure about what to make with them. This application will make it easier for users to find what's right for them. The favorite feature allows users to favorite recipes that they enjoy and would want to make again.
+
+## Approach
+
+A wireframe was used as a guide to create the initial layout of this application. User authentication was implemented first in the backend using JWTdown. We then went into creating endpoints to filter and provide the search data coming from the third-party API, requiring users to have a token when necessary. Once the backend was running smoothly, we started building the frontend and their components to test. Unit tests were created to ensure that the endpoints were working.
+
+## M.V.P
+
+We created a:
+
+-Login/logout/signup page
+-Main page to welcome users
+-Search page to search for recipes by integrating the Spoonacular API
+-Recipe-detail page to view a recipe
+-Favorite page for logged in users to save their recipes
+-> If users are logged in, a heart button allows them to save their recipes to their favorites.
+
+## Test
+
+Sabina - Test Favorites (cookease\tests\test_favorites.py)
+Eric - Test Create Favorite (cookease\tests\test_createfav.py)
+Jennifer - Test Recipe Details (cookease\tests\test_recipe_detail.py)
+Braeden - Test Delete Favorite (cookease\tests\test_deletefav.py)
+Benjamin - Test Search Recipe (cookease\tests\get_recipe.py)
+
+## Stretch Goals
+
+-Allows logged in users to create a recipe and save it to their own database
+-Users will be able to edit their account information
+-Users will be able to add a profile picture of their choice
+-Can organize the recipes in their favorites based on their preferences
+-> For example, a folder for drinks, mexican food, breakfast recipes, etc
+
+## Set up
+
+1. Fork and Clone repo [https://gitlab.com/guardians-of-the-repository/cookease]
+2. Create a .env file in the outer most directory
+3. Set SPOONACULAR_API_KEY to your Spoonacular API key in the .env file
+4. Set SIGNING_KEY to your signing key in the .env file
+5. Set REACT_APP_cookease_API_HOST to "http://localhost:8000"
+6. Set REACT_APP_SPOONACULAR_HOST to "https://api.spoonacular.com/recipes/complexSearch??"
+7. run -npm install
+8. run -docker volume create mongo-data
+9. run -docker compose build
+10. run -docker compose up
 
 ## Deliverables
 
-* [ ] Wire-frame diagrams
-* [ ] API documentation
-* [ ] Project is deployed to Render.com/GitLab-pages
-* [ ] GitLab issue board is setup and in use
-* [ ] Journals
+![Alt text](<image%20(3).png>)
 
-## Project layout
-
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
-
-### Directories
-
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
-
-The other directories, `ghi` and `sample_service`, are
-sample services, that you can start building off of or use
-as a reference point.
-
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
-
-Inside of `sample_service` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
-
-Also in `sample_service` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
-
-The sample Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
-
-### Other files
-
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
-
-* `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-* `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to Render.com. We will learn much more about this file.
-* `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-
-## How to complete the initial deploy
-
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
-
-### Setup GitLab repo/project
-
-* make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-* remove the fork relationship: In GitLab go to:
-  
-  Settings -> General -> Advanced -> Remove fork relationship
-
-* add these GitLab CI/CD variables:
-  * PUBLIC_URL : this is your gitlab pages URL
-  * SAMPLE_SERVICE_API_HOST: enter "blank" for now
-
-#### Your GitLab pages URL
-
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
-
-If this is your project URL
-
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
-
-then your GitLab pages URL will be
-
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
-
-### Create render.com account and application
-
-* create account on render.com
-* one person create a group and invite all other members
-* create a new "Web Service"
-  * authenticate with GitLab and choose your project
-  * Enter fields:
-    * Name: name of your service
-    * Root Directory: the directory of your service in your git repo.
-      For this example use "sample_service".
-    * Environment: Docker
-    * Plan Type: Free
-  * click the "Create Web Service" button to create it
-  * the build will succeed and it will look like the server is running,
-    most likely, in 6-10 minutes, it will fail.
-  * click "Manual Deploy" -> "Deploy latest commit" and the service
-    should deploy successfully.
-
-### Update GitLab CI/CD variables
-
-Copy the service URL for your new render.com service and then paste
-that into the value for the SAMPLE_SERVICE_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
+-[API documentation] (docs\api-design.md) -[Project is deployed to render.com/GitLab-pages] (https://GuardiansOfTheRepository.gitlab.io/cookease) -[GitLab issue board is setup and in use] -[Sabina Journal] (journals\sabina_bahodirova.md) -[Eric Journal] (journals\eric_dong.md) -[Jennifer Journal] (journals\Jennifer_Tovar.md) -[Braeden Journal] (journals\braeden_sizemore.md) -[Benjamin Journal] (journals\benjamin_hoag.md)

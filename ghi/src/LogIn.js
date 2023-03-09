@@ -1,9 +1,8 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogInMutation } from "./auth/authApi";
-import { eventTargetSelector as target, preventDefault } from "./auth/utils";
 import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 
@@ -80,7 +79,7 @@ function LogIn() {
                   </div>
                   <div className="d-flex justify-content-center">
                     <div className="control">
-                      <button disabled={logInLoading} className="account-btn">Submit</button>
+                      <button disabled={logInLoading} className="account-btn">Log In</button>
                     </div>
                   </div>
                 </form>
