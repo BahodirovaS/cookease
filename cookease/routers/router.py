@@ -15,7 +15,7 @@ from queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,
-    DuplicateAccountError
+    DuplicateAccountError,
 )
 
 
@@ -32,10 +32,6 @@ class HttpError(BaseModel):
     detail: str
 
 
-class AccountToken(Token):
-    account: AccountOut
-
-
 router = APIRouter()
 
 
@@ -50,6 +46,7 @@ async def create_account(
     hashed_password = authenticator.hash_password(info.password)
     try:
         account = repo.create(info, hashed_password)
+        print(account)
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
