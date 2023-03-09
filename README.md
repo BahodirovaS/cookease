@@ -54,4 +54,6 @@ Benjamin - Test Search Recipe (cookease\tests\get_recipe.py)
 
 ## Deliverables
 
-![Alt text](<image%20(3).png>) -[API documentation] (docs\api-design.md) -[Project is deployed to render.com/GitLab-pages] (https://GuardiansOfTheRepository.gitlab.io/cookease) -[GitLab issue board is setup and in use] -[Sabina Journal] (journals\sabina_bahodirova.md) -[Eric Journal] (journals\eric_dong.md) -[Jennifer Journal] (journals\Jennifer_Tovar.md) -[Braeden Journal] (journals\braeden_sizemore.md) -[Benjamin Journal] (journals\benjamin_hoag.md)
+![Alt text](<image%20(3).png>)
+
+-[API documentation] (docs\api-design.md) -[Project is deployed to render.com/GitLab-pages] (https://GuardiansOfTheRepository.gitlab.io/cookease) -[GitLab issue board is setup and in use] -[Sabina Journal] (journals\sabina_bahodirova.md) -[Eric Journal] (journals\eric_dong.md) -[Jennifer Journal] (journals\Jennifer_Tovar.md) -[Braeden Journal] (journals\braeden_sizemore.md) -[Benjamin Journal] (journals\benjamin_hoag.md)
