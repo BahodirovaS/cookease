@@ -1,3 +1,5 @@
+## March 9, 2023
+    Today we started the day with some blockers that we encounted yesterday at the end of the day with the signup page. It was giving us an error when you tried to sign up. 
 ## March 8, 2023
     Today we focused on finishing up the test endpoints that we each had. I worked on the recipe-details test. I created a test to test the recipe-details endpoints and made sure that it passed the test. I followed along with the recording that Riley made and it was pretty simple to follow along. I did have some issues that I encountered with the test not passing but I was able to get it to pass with Sabina's help. The Act res needed to pass in an integer instead of the {id} like we had on our function. The function get_details needed to pass in id:int just like the function from the queries. I was passing in just the id without the :int option. Another issue that I had with the test not passing was that I needed to pass in a dictionary along with data in the Assert. I was passing in data only and the test was not passing. After I figured out those issues, the test passed.
 ## March 1, 2023
