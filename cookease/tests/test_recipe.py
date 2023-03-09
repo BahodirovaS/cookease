@@ -21,3 +21,4 @@ def test_get_recipe_details():
     # Assert
     assert res.status_code == 200
     assert isinstance(data, dict)
+    
