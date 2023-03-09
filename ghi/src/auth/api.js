@@ -67,22 +67,6 @@ export const apiSlice = createApi({
         return tags;
       },
     }),
-    // getMultipleRecipeDetails: builder.query({
-    //   query: (recipe_ids) => {
-    //     const promises = recipe_ids.map((recipe_id) => `/recipe-details/${recipe_id}`);
-    //     return Promise.all(promises);
-    //   },
-    //   providesTags: (data) => {
-    //     const tags = [{ type: "Recipe-Detail", id: "LIST" }];
-    //     if (!data || !data.recipes) return tags;
-
-    //     const { recipes } = data;
-    //     if (recipes) {
-    //       tags.concat(...recipes.map(({ id }) => ({ type: "Recipe-Detail", id })));
-    //     }
-    //     return tags;
-    //   },
-    // }),
     deleteFavorite: builder.mutation({
       query: (payload) => ({
         method: "delete",
@@ -98,8 +82,6 @@ export const {
   useGetFavoriteQuery,
   useDeleteFavoriteMutation,
   useGetRecipeDetailsQuery,
-  useGetIngredientWidgetQuery,
   useGetRecipeQuery,
   useLazyGetRecipeQuery,
-  // useGetMultipleRecipeDetailsQuery,
 } = apiSlice;
