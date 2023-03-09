@@ -15,7 +15,7 @@ from queries.accounts import (
     AccountIn,
     AccountOut,
     AccountQueries,
-    DuplicateAccountError
+    DuplicateAccountError,
 )
 
 
@@ -30,10 +30,6 @@ class AccountToken(Token):
 
 class HttpError(BaseModel):
     detail: str
-
-
-class AccountToken(Token):
-    account: AccountOut
 
 
 router = APIRouter()
