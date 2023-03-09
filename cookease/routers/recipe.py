@@ -15,9 +15,10 @@ def get_recipe(
     repo: RecipeQueries = Depends(),
 ):
 
-    return repo.get_recipe(
+    return {"recipe": repo.get_recipe(
         diet, intolerances, includeIngredients, maxReadyTime, number
-    )
+    )}
+
 
 @router.get('/recipe-details/{id}')
 def get_recipe_details(
