@@ -33,7 +33,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Favorites", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Favorites", id })));
@@ -46,7 +45,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Recipes", id })));
@@ -59,7 +57,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Recipe-Detail", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Recipe-Detail", id })));

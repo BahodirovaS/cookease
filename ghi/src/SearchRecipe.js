@@ -52,7 +52,7 @@ function RecipeSearch() {
         }
     }
 
-    
+
 
     return (
         <>
@@ -165,7 +165,7 @@ function RecipeSearch() {
                             <div className="col-md-3" key={pos}>
                                 <div key={recipe.id}>
                                     {currentUser ? (
-                                        <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                        <button className="btn heart btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
                                             {favorites.favorites?.some(fav => fav.id === recipe.id) ?
                                                 <i className="bi bi-heart-fill heart-icon text-danger"></i> :
                                                 <i className="bi bi-heart heart-icon"></i>

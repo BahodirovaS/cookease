@@ -1,11 +1,17 @@
-import { useGetRecipeDetailsQuery } from "./auth/api";
+import { useGetRecipeDetailsQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "./auth/api";
+import { useGetTokenQuery } from "./auth/authApi";
 import { useParams } from 'react-router-dom'
 import './assets/css/main.css'
+import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
 function RecipeDetails() {
     const { id } = useParams();
 
     const { data, isLoading } = useGetRecipeDetailsQuery(id);
+    const { data: favorites } = useGetFavoriteQuery()
+    const [favoriteRecipe] = useAddFavoriteRecipeMutation()
+    const [unFavoriteRecipe] = useDeleteFavoriteMutation()
+    const { data: currentUser } = useGetTokenQuery()
 
     if (isLoading) {
         return (
@@ -14,12 +20,39 @@ function RecipeDetails() {
     }
     let replace = data.summary.replaceAll(/<\/?[^>]+(>|$)/gi, "");
 
+    const handleFavorite = async (id, title, image) => {
+        let isFavorite = false;
+        let recipe_id;
+        for (const recipe of favorites.favorites || []) {
+            if (recipe.id === id) {
+                isFavorite = true;
+                recipe_id = recipe.recipe_id;
+                break;
+            }
+        }
+        if (isFavorite) {
+            await unFavoriteRecipe({ recipe_id });
+            console.log("You deleted a recipe")
+        } else {
+            await favoriteRecipe({ id, title, image });
+        }
+    }
 
     return (
         <section id="recipe-detail" className="detail section-bg">
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-lg-5">
+                        {currentUser ? (
+                            <button className="btn btn-link" onClick={() => handleFavorite(data.id, data.title, data.image)}>
+                                {favorites.favorites?.some(fav => fav.id === data.id) ?
+                                    <i className="bi bi-heart-fill bi-3x heart-icon text-danger"></i> :
+                                    <i className="bi bi-heart bi-3x heart-icon"></i>
+                                }
+                            </button>
+                        ) : (
+                            <div></div>
+                        )}
                         <div className="rectangle-image">
                             <img src={data.image} alt={data.title} className="img-fluid mb-3" />
                         </div>
