@@ -40,8 +40,8 @@ function Nav() {
                                             <a className="dropdown-item" onClick={() => logOut()}>Log Out</a>
                                         ) : (
                                             <>
-                                                <a className="dropdown-item" href="signup" >Sign Up</a>
-                                                <a className="dropdown-item" href="login">Log In</a>
+                                                <a className="dropdown-item" href="/signup" >Sign Up</a>
+                                                <a className="dropdown-item" href="/login">Log In</a>
                                             </>
                                         )}
                                     </div>

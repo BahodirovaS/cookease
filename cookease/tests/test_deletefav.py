@@ -20,7 +20,9 @@ class FakeFavoritesQueries:
 
 def test_delete_favorite():
     app.dependency_overrides[FavoritesQueries] = FakeFavoritesQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+        ] = fake_get_current_account_data
     res = client.delete('/favorites-recipes/6408f6c1084d0b6336943830')
     data = res.json()
     assert isinstance(data, bool)

@@ -46,7 +46,11 @@ class FavoritesQueries(Queries):
             result["recipe_id"] = str(result["_id"])
             return FavoriteOut(**result)
 
-    def create_favorite(self, favorite: FavoriteIn, user_id: str) -> FavoriteOut:
+    def create_favorite(
+            self,
+            favorite: FavoriteIn,
+            user_id: str,
+            ) -> FavoriteOut:
         favorite = favorite.dict()
         favorite["user_id"] = user_id
         self.collection.create_index(
@@ -60,7 +64,10 @@ class FavoritesQueries(Queries):
         try:
             result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
-            raise HTTPException(status_code=400, detail="favorite already exists")
+            raise HTTPException(
+                status_code=400,
+                detail="favorite already exists",
+                )
         if result.inserted_id:
             result = self.get_favorite(result.inserted_id)
             return result
