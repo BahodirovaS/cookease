@@ -23,7 +23,6 @@ export const authApiSlice = createApi({
         body: data,
         credentials: "include",
       }),
-
       providesTags: ["Account"],
       invalidatesTags: (result) => {
         return (result && ["Token"]) || [];

@@ -14,7 +14,6 @@ def get_recipe(
     number: str,
     repo: RecipeQueries = Depends(),
 ):
-
     return repo.get_recipe(
         diet, intolerances, includeIngredients, maxReadyTime, number
     )
