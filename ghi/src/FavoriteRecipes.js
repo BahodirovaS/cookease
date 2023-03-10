@@ -1,7 +1,6 @@
 import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "./auth/api";
 import { useGetTokenQuery } from "./auth/authApi";
 import { useState, useEffect } from "react";
-import RecipeCard from "./RecipeCard";
 import './assets/css/main.css';
 
 

@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSignUpMutation } from "./auth/authApi";
-import { showModal, updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
-import { preventDefault } from "./auth/utils.js";
+import { updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
 import { useEffect } from "react";
 
