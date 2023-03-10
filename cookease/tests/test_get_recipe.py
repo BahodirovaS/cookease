@@ -23,19 +23,11 @@ def test_get_recipe():
 
     # Act
     res = client.get(
-<<<<<<< Updated upstream
         "http://localhost:8000/search-recipes?diet={self.diet}&"
         + "intolerances={self.intolerances}&includeIngredients="
         + "{self.includeIngredients}&maxReadyTime="
         + "{self.maxReadyTime}&number={self.number}"
     )
-=======
-        'http://localhost:8000/search-recipes?diet={self.diet}\
-            &intolerances={self.intolerances}\
-                &includeIngredients={self.includeIngredients}\
-                    &maxReadyTime={self.maxReadyTime}\
-                        &number={self.number}')
->>>>>>> Stashed changes
     data = res.json()
 
     # Assert
