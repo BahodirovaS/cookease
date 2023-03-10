@@ -4,7 +4,7 @@ stages:
   - deploy
 
 variables:
-  DATABASE_URL: ""
+  DATABASE_URL: "mongodb://root:password@mongo/admin"
 # Run flake8 to check for code quality
 lint-test-job:
   image: python:3-bullseye
