@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
+  console.log(process.env.REACT_APP_COOKEASE_API_HOST)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { show, username, password, first_name, last_name } = useSelector(

@@ -46,7 +46,6 @@ function RecipeSearch() {
         }
         if (isFavorite) {
             await unFavoriteRecipe({ recipe_id });
-            console.log("You deleted a recipe")
         } else {
             await favoriteRecipe({ id, title, image });
         }
