@@ -70,7 +70,7 @@ section {
 }
 
 .section-bg {
-  background: linear-gradient(to bottom, #fff 5%, hsl(33deg 100% 98%));
+  background: linear-gradient(to bottom, #fff 20%, hsl(27, 73%, 97%));
 }
 
 .section-header {
@@ -236,7 +236,6 @@ section {
   .offcanvas .dropdown a:hover {
     color: #000;
   }
-
 
   .navbar ul {
     margin: 0;

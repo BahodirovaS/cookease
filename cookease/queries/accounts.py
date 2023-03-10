@@ -26,14 +26,9 @@ class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
 
-class AccountOutWithPassword(AccountOut):
-    hashed_password: str
-
-
 class AccountQueries(Queries):
     DB_NAME = "db-name"
     COLLECTION = "accounts"
-
 
     def get(self, username: str) -> AccountOutWithPassword:
         props = self.collection.find_one({"username": username})
