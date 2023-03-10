@@ -3,7 +3,6 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { apiSlice } from "./api";
 import { authApiSlice } from "./authApi";
 import { accountSlice } from "./accountSlice";
-import { testSlice } from "./test";
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -15,7 +14,6 @@ export const store = configureStore({
     return getDefaultMiddleware()
       .concat(apiSlice.middleware)
       .concat(authApiSlice.middleware)
-      .concat(testSlice.middleware);
   },
 });
 
