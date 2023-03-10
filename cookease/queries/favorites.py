@@ -34,7 +34,7 @@ class FavoritesQueries(Queries):
         results = self.collection.find({"user_id": user_id})
         favorites = []
         for recipe in results:
-            recipe['recipe_id'] = str(recipe['_id'])
+            recipe["recipe_id"] = str(recipe["_id"])
             favorite = FavoriteOut(**recipe)
             favorites.append(favorite)
         return favorites
@@ -47,10 +47,10 @@ class FavoritesQueries(Queries):
             return FavoriteOut(**result)
 
     def create_favorite(
-            self,
-            favorite: FavoriteIn,
-            user_id: str,
-            ) -> FavoriteOut:
+        self,
+        favorite: FavoriteIn,
+        user_id: str,
+    ) -> FavoriteOut:
         favorite = favorite.dict()
         favorite["user_id"] = user_id
         self.collection.create_index(
@@ -58,24 +58,20 @@ class FavoritesQueries(Queries):
                 ("user_id", ASCENDING),
                 ("id", ASCENDING),
                 ("title", ASCENDING),
-                ("image", ASCENDING)
+                ("image", ASCENDING),
             ],
-            unique=True)
+            unique=True,
+        )
         try:
             result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
             raise HTTPException(
                 status_code=400,
                 detail="favorite already exists",
-                )
+            )
         if result.inserted_id:
             result = self.get_favorite(result.inserted_id)
             return result
 
     def delete_favorite(self, id: str, user_id: str):
-        self.collection.delete_one(
-            {
-                "_id": ObjectId(id),
-                "user_id": user_id
-            }
-        )
+        self.collection.delete_one({"_id": ObjectId(id), "user_id": user_id})

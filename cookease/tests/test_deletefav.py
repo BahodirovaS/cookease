@@ -8,8 +8,8 @@ client = TestClient(app)
 
 def fake_get_current_account_data():
     return {
-        'id': "id",
-        'username': "test_username",
+        "id": "id",
+        "username": "test_username",
     }
 
 
@@ -22,8 +22,8 @@ def test_delete_favorite():
     app.dependency_overrides[FavoritesQueries] = FakeFavoritesQueries
     app.dependency_overrides[
         authenticator.get_current_account_data
-        ] = fake_get_current_account_data
-    res = client.delete('/favorites-recipes/6408f6c1084d0b6336943830')
+    ] = fake_get_current_account_data
+    res = client.delete("/favorites-recipes/6408f6c1084d0b6336943830")
     data = res.json()
     assert isinstance(data, bool)
     assert True
