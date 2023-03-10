@@ -26,4 +26,3 @@ def get_recipe_details(
     repo: RecipeDetails = Depends(),
 ):
     return repo.get_details(id)
-

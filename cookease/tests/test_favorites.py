@@ -5,15 +5,18 @@ from authenticator import authenticator
 
 client = TestClient(app)
 
+
 def fake_get_current_account_data():
     return {
         'id': "id",
         'username': "test_username",
     }
 
+
 class FakeFavoritesQueries:
     def get_favorites(self, user_id):
         return []
+
 
 def test_get_favorite():
     app.dependency_overrides[FavoritesQueries] = FakeFavoritesQueries
