@@ -178,8 +178,6 @@ function RecipeSearch() {
                 )}
             </div>
         </>
-
-
     );
 };
 export default RecipeSearch;
