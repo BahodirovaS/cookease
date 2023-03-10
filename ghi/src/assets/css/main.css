@@ -236,6 +236,25 @@ section {
   .offcanvas .dropdown a:hover {
     color: #000;
   }
+  .offcanvas .dropdown button {
+    font-family: var(--font-primary);
+    font-size: 50px;
+    font-weight: bold;
+    color: #7f7f90;
+    transition: 0.3s;
+  }
+
+  .offcanvas>div>div>div>button:before {
+    transition: all 0.3s ease-in-out 0s
+  }
+
+  .offcanvas .dropdown button:hover:before {
+    visibility: visible;
+  }
+
+  .offcanvas .dropdown button:hover {
+    color: #000;
+  }
 
   .navbar ul {
     margin: 0;
