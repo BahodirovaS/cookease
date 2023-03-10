@@ -37,12 +37,7 @@ router = APIRouter()
 
 # create an account (sign up)
 @router.post("/queries/accounts", response_model=AccountToken | HttpError)
-async def create_account(
-    info: AccountIn,
-    request: Request,
-    response: Response,
-    repo: AccountQueries = Depends(),
-):
+async def create_account(info: AccountIn, request: Request, response: Response, repo: AccountQueries = Depends()):
     hashed_password = authenticator.hash_password(info.password)
     try:
         account = repo.create(info, hashed_password)

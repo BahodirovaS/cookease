@@ -22,12 +22,7 @@ def test_get_recipe():
     app.dependency_overrides[RecipeQueries] = FakeRecipeQueries
 
     # Act
-    res = client.get(
-        "http://localhost:8000/search-recipes?diet={self.diet}&\
-            intolerances={self.intolerances}&includeIngredients=\
-                {self.includeIngredients}&maxReadyTime=\
-                    {self.maxReadyTime}&number={self.number}"
-    )
+    res = client.get("http://localhost:8000/search-recipes?diet={self.diet}&intolerances={self.intolerances}&includeIngredients={self.includeIngredients}&maxReadyTime={self.maxReadyTime}&number={self.number}")
     data = res.json()
 
     # Assert

@@ -22,9 +22,7 @@ class FakeFavoritesQueries:
 
 def test_create_favorite():
     app.dependency_overrides[FavoritesQueries] = FakeFavoritesQueries
-    app.dependency_overrides[
-        authenticator.get_current_account_data,
-    ] = fake_get_current_account_data
+    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
 
     res = client.post(
         "/favorites-recipes",
