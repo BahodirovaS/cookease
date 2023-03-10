@@ -50,7 +50,13 @@ class FavoritesQueries(Queries):
         favorite = favorite.dict()
         favorite["user_id"] = user_id
         self.collection.create_index(
-            [("user_id", ASCENDING), ("id", ASCENDING), ("title", ASCENDING), ("image", ASCENDING)], unique=True)
+            [
+                ("user_id", ASCENDING),
+                ("id", ASCENDING),
+                ("title", ASCENDING),
+                ("image", ASCENDING)
+            ],
+            unique=True)
         try:
             result = self.collection.insert_one(favorite)
         except DuplicateKeyError:
