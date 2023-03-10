@@ -124,7 +124,6 @@ function SignUp() {
           </div>
         </div>
       </div>
-
     </section >
   );
 }
