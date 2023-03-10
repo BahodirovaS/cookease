@@ -36,7 +36,6 @@ function FavoriteRecipes() {
         }
         if (isFavorite) {
             await unFavoriteRecipe({ recipe_id });
-            console.log("You deleted a recipe")
             setDeletedRecipeId(id);
         }
     }
