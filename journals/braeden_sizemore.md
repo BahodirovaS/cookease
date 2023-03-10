@@ -61,3 +61,7 @@ but I think it ended up being mostly syntax experimenting
 but adding this made all the tests pass!
 - Sabina was also helping me and added different stuff on her end by creating a favorite first in the test case to delete it
 and it worked for her. We both could be right, but just to be safe, I think we'll talk to an instructor tommorow for clarification
+
+# March 10th 2023
+- Started messing around with deployment, but we ran into some pipeline issues so I think we'll continue next week
+- Finished our project! Everything works and we ran all the spell and code checkers to get to work
