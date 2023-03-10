@@ -14,8 +14,10 @@ function App() {
   const { data: tokenData } = useGetTokenQuery();
   const accountId = tokenData && tokenData.account && tokenData.account.id;
   useGetTokenQuery();
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, '');
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Nav />
       <div>
         <Routes>

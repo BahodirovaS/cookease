@@ -82,7 +82,7 @@ function FavoriteRecipes() {
                                 <div className="row gy-5">
                                     {favorites && favorites.favorites.map((recipe) => (
                                     <>
-                                        <div className="col-lg-4 favorite-foods-item">
+                                            <div key={recipe.id} className="col-lg-4 favorite-foods-item">
                                                 <button className="btn btn-link" onClick={() => handleFavorite(recipe.id)}>
                                                     <i className="bi bi-heart-fill heart-icon" style={{ color: 'red' }}></i>
                                                 </button>
