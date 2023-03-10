@@ -82,10 +82,25 @@ but we don't know how to grab the string id with a variable. Tried to change it 
 
 # March 6th, 2023
 
+-Got rid of superfluous code (console.log statements, print statements etc)
+-Somehow the login and signup broke from some commit, so had to start work on fixing it again, not really sure how it broke
+
 # March 7th, 2023
+
+-Same from yesterday, code looks exactly the same, not sure what's different if anything at all.
+-Candance helped and we had some redundant code, had an await fetch in our queries which is redundant, but also it worked with it before so unsure why it stopped working and now works again after moving it.
 
 # March 8th, 2023
 
 -Started work on my specific unit test, create favorite
 -Was confused if my test was accurate or not, even though it was passing because I was just hard coding values.
 -I think it should be correct though after i watched the lectures
+
+# March 9th, 2023
+
+-Started on deployment and did various edits to tidy up code and make sure everything is working for the final demo.
+-The signup broke again, not only in the front end but also the back end. Again not really sure how, but we had to include a line in our backend when creating an account to create a unique index for every username. That then fixed out backend, which in turn also fixed our front end after.
+
+# March 10th, 2023
+
+-Lots of code broke again after our demo when we started working on deployment. Again unsure of what went wrong if anything at all, but we had to revert various commits, also did final black and flake8 formatting and got rid of any other superfluous code we had added to troubleshoot our application breakdown.
