@@ -41,7 +41,7 @@ async def create_account(
     info: AccountIn,
     request: Request,
     response: Response,
-    repo: AccountQueries = Depends(),
+    repo: AccountQueries = Depends()
 ):
     hashed_password = authenticator.hash_password(info.password)
     try:
