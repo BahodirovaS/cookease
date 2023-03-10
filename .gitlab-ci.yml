@@ -3,6 +3,8 @@ stages:
   - build
   - deploy
 
+variables:
+  - DATABASE_URL: ""
 # Run flake8 to check for code quality
 lint-test-job:
   image: python:3-bullseye
@@ -59,7 +61,7 @@ pages:
     paths:
       - public
 
-build-docker-cookease:  # RENAME THIS <this name is arbitrary and will be associated with this build step> we can include the default image, stage and service
+build-docker-cookease: # RENAME THIS <this name is arbitrary and will be associated with this build step> we can include the default image, stage and service
   image: docker:20-dind
   stage: build
   services:
@@ -71,7 +73,6 @@ build-docker-cookease:  # RENAME THIS <this name is arbitrary and will be associ
     - export COMMIT_HASH=$CI_COMMIT_SHA # Your current commit sha
     - export IMAGE_NAME_WITH_REGISTRY_PREFIX=$CI_REGISTRY_IMAGE # Your repository prefixed with GitLab Registry URL
     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" $DOCKER_REGISTRY_URL # Instructs GitLab to login to its registry
-
 
   script:
     # CHANGE THIS TO THE DIRECTORY THAT HAS YOUR Dockerfile
