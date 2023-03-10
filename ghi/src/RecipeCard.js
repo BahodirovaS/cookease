@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { useAddFavoriteRecipeMutation } from "./auth/api"
 
 
 const RecipeCard = (props) => {

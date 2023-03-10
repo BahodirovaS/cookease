@@ -7,8 +7,9 @@ client = TestClient(app)
 
 
 class FakeRecipeDetails:
-    def get_details(self, id:int):
+    def get_details(self, id: int):
         return {}
+
 
 def test_get_recipe_details():
     # Arrange
@@ -21,4 +22,3 @@ def test_get_recipe_details():
     # Assert
     assert res.status_code == 200
     assert isinstance(data, dict)
-    

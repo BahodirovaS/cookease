@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
 import { useEffect } from "react";
 
@@ -37,11 +37,11 @@ function Nav() {
                                     <a className="dropdown-item" href="/favorites-recipes">Users - Loved Recipes</a>
                                     <div>
                                         {currentUser ? (
-                                            <a className="dropdown-item" onClick={() => logOut()}>Log Out</a>
+                                            <button className="dropdown-item" onClick={() => logOut()}>Log Out</button>
                                         ) : (
                                             <>
-                                                <a className="dropdown-item" href="signup" >Sign Up</a>
-                                                <a className="dropdown-item" href="login">Log In</a>
+                                                <a className="dropdown-item" href="/signup" >Sign Up</a>
+                                                <a className="dropdown-item" href="/login">Log In</a>
                                             </>
                                         )}
                                     </div>

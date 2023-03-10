@@ -1,7 +1,6 @@
 import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "./auth/api";
 import { useGetTokenQuery } from "./auth/authApi";
 import { useState, useEffect } from "react";
-import RecipeCard from "./RecipeCard";
 import './assets/css/main.css';
 
 
@@ -37,7 +36,6 @@ function FavoriteRecipes() {
         }
         if (isFavorite) {
             await unFavoriteRecipe({ recipe_id });
-            console.log("You deleted a recipe")
             setDeletedRecipeId(id);
         }
     }
@@ -73,34 +71,32 @@ function FavoriteRecipes() {
             <section id="favorite-foods" className="favorite-foods section-bg">
                 <div className="container" data-aos="fade-up">
                     <div className="section-header">
-                            <p>My <span>Favorite </span> Recipes</p>
+                        <p>My <span>Favorite </span> Recipes</p>
                     </div>
                     <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
                         <div className="tab-pane fade active show" id="favorite-foods-starters">
                             <div className="tab-header text-center">
                                 {tokenData ? (
-                                <div className="row gy-5">
-                                    {favorites && favorites.favorites.map((recipe) => (
-                                    <>
-                                        <div className="col-lg-4 favorite-foods-item">
+                                    <div className="row gy-5">
+                                        {favorites && favorites.favorites.map((recipe) => (
+                                            <div key={recipe.id} className="col-lg-4 favorite-foods-item">
                                                 <button className="btn btn-link" onClick={() => handleFavorite(recipe.id)}>
                                                     <i className="bi bi-heart-fill heart-icon" style={{ color: 'red' }}></i>
                                                 </button>
-                                            <a href={"recipe-details/" + recipe.id} className="glightbox">
-                                                        <img src={recipe.image} className="favorite-foods-img img-fluid rounded-circle" alt={recipe.title}/>
-                                            </a>
-                                            <h4>{recipe.title}</h4>
+                                                <a href={"recipe-details/" + recipe.id} className="glightbox">
+                                                    <img src={recipe.image} className="favorite-foods-img img-fluid rounded-circle" alt={recipe.title} />
+                                                </a>
+                                                <h4>{recipe.title}</h4>
                                                 <ul className="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
                                                     <li className="nav-item">
-                                                    <a href={"recipe-details/" + recipe.id} className="nav-link active show">
-                                                        Read More
-                                                    </a>
+                                                        <a href={"recipe-details/" + recipe.id} className="nav-link active show">
+                                                            Read More
+                                                        </a>
                                                     </li>
                                                 </ul>
-                                        </div>
-                                    </>
-                                    ))}
-                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
                                 ) : (
                                     <div className="section-header">
                                         <h4>You must be logged in to see your favorites!</h4>
@@ -114,7 +110,7 @@ function FavoriteRecipes() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
         </>
     )
 }
