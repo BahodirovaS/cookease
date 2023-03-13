@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="login" element={<LogIn />} />
+          <Route path="login" element={<LogIn accountId={accountId} />} />
           <Route path="search-recipes" element={<RecipeSearch />} />
           <Route path="recipe-details/:id" element={<RecipeDetails />} />
           <Route path="favorites-recipes" element={<FavoriteRecipes />} />

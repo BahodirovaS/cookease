@@ -118,6 +118,8 @@ function SignUp() {
                       </button>
                     </div>
                   </div>
+                    {errorMessage && <div className="error">{errorMessage}
+                  </div>}
                 </form>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogInMutation } from "./auth/authApi";
-import { showModal, updateField, LOG_IN_MODAL } from "./auth/accountSlice";
+import { showModal, updateField, LOG_IN_MODAL, updateToken } from "./auth/accountSlice";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ function LogIn() {
   const [error, setError] = useState(null)
   const { show, username, password } = useSelector((state) => state.account);
   const modalClass = `my-modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
-  const [logIn, { isLoading: logInLoading, isSuccess: logInSuccess }] = useLogInMutation();
+  const [logIn, { isLoading: logInLoading }] = useLogInMutation();
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ function LogIn() {
     }
     else {
       dispatch(showModal(null));
+      dispatch(updateToken(data.token));
       navigate("/")
     }
   }
