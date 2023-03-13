@@ -12,7 +12,7 @@ function LogIn() {
   const [error, setError] = useState(null)
   const { show, username, password } = useSelector((state) => state.account);
   const modalClass = `my-modal ${show === LOG_IN_MODAL ? "is-active" : ""}`;
-  const [logIn, { isLoading: logInLoading, isSuccess: logInSuccess }] = useLogInMutation();
+  const [logIn, { isLoading: logInLoading }] = useLogInMutation();
 
   const handleLogIn = async (e) => {
     e.preventDefault();
