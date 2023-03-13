@@ -47,7 +47,7 @@ function MainPage() {
                         <div className="col-lg-7 position-relative about-img" style={{ backgroundImage: 'url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about-2.jpg)' }} data-aos="fade-up" data-aos-delay="150">
                             <div className="join-us position-absolute">
                                 <h4>Join to save hundreds of recipes!</h4>
-                                <a href="signup">Create an Account</a>
+                                <NavLink to="signup">Create an Account</NavLink>
                             </div>
                         </div>
                         <div className="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
@@ -130,8 +130,8 @@ function MainPage() {
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D5603AQEroIqWTEaRcA/profile-displayphoto-shrink_800_800/0/1665683162033?e=1683158400&v=beta&t=Gy71-N8tyzeVgCV_Wt4A85cUOwVOtB4lPP6cqrLxFY0" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></a>
-                                        <a href="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></a>
+                                        <NavLink to="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></NavLink>
+                                        <NavLink to="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></NavLink>
                                     </div>
                                 </div>
                                 <div className="member-info">
