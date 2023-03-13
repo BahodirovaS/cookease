@@ -1,6 +1,7 @@
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 function MainPage() {
@@ -28,7 +29,7 @@ function MainPage() {
                             <h2 className="text-white" data-aos="fade-up">Cook easily with<br />CookEase!</h2>
                             <p className="text-white" data-aos="fade-up" data-aos-delay="100" >No more wondering "What can I make with this!?"</p>
                             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                <a href="search-recipes" className="btn-search-for-recipes">Search for Recipes!</a>
+                                <NavLink to="search-recipes" className="btn-search-for-recipes">Search for Recipes!</NavLink>
                             </div>
                         </div>
                     </div>
@@ -143,8 +144,8 @@ function MainPage() {
                                 <div className="member-img">
                                     <img src="https://ca.slack-edge.com/T040E31DKM2-U0477JWLGBT-865f48ebb996-512" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href="https://gitlab.com/ericd214"><i className="bi bi-github"></i></a>
-                                        <a href="https://www.linkedin.com/in/ericdong214/"><i className="bi bi-linkedin"></i></a>
+                                        <NavLink to="https://gitlab.com/ericd214"><i className="bi bi-github"></i></NavLink>
+                                        <NavLink to="https://www.linkedin.com/in/ericdong214/"><i className="bi bi-linkedin"></i></NavLink>
                                     </div>
                                 </div>
                                 <div className="member-info">
@@ -157,8 +158,8 @@ function MainPage() {
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_800_800/0/1664378159408?e=1683158400&v=beta&t=nrpptTTor0xPpkB0C5Y7924iuJK0WhGIEV9cqN5CiWU" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href="https://gitlab.com/ben_hoag"><i className="bi bi-github"></i></a>
-                                        <a href="https://www.linkedin.com/in/benjamin-hoag/"><i className="bi bi-linkedin"></i></a>
+                                        <NavLink to="https://gitlab.com/ben_hoag"><i className="bi bi-github"></i></NavLink>
+                                        <NavLink to="https://www.linkedin.com/in/benjamin-hoag/"><i className="bi bi-linkedin"></i></NavLink>
                                     </div>
                                 </div>
                                 <div className="member-info">
@@ -171,8 +172,8 @@ function MainPage() {
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/D4E03AQFUEPkARwkTDg/profile-displayphoto-shrink_800_800/0/1671496174672?e=1683158400&v=beta&t=l6Eo7fNbrSDxpqZGZcrLlPOZ3qBFEaDkc0qpYdlBokM" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></a>
-                                        <a href="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></a>
+                                        <NavLink to="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></NavLink>
+                                        <NavLink to="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></NavLink>
                                     </div>
                                 </div>
                                 <div className="member-info">
@@ -185,8 +186,8 @@ function MainPage() {
                                 <div className="member-img">
                                     <img src="https://media.licdn.com/dms/image/C5603AQGJ1n_GtbbxgQ/profile-displayphoto-shrink_800_800/0/1664238671994?e=1683158400&v=beta&t=g92XLu-xklVD3bZQVHvW3vasQ15WeivuGVmQkOGYAMw" className="img-fluid" alt="" />
                                     <div className="social">
-                                        <a href="https://gitlab.com/jennifertovar2010"><i className="bi bi-github"></i></a>
-                                        <a href="https://www.linkedin.com/in/jennifermtovar/"><i className="bi bi-linkedin"></i></a>
+                                        <NavLink to="https://gitlab.com/jennifertovar2010"><i className="bi bi-github"></i></NavLink>
+                                        <NavLink to="https://www.linkedin.com/in/jennifermtovar/"><i className="bi bi-linkedin"></i></NavLink>
                                     </div>
                                 </div>
                                 <div className="member-info">
