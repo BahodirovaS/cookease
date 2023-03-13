@@ -21,9 +21,9 @@ function Nav() {
                     <NavLink to="/" className="logo d-flex align-items-center me-auto me-lg-0">
                         <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ width: '100%' }} />
                     </NavLink>
-                    <a className="btn-search-for-recipes" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <NavLink className="btn-search-for-recipes" data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         Menu
-                    </a>
+                    </NavLink>
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                         <div className="offcanvas-header">
                             <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '75%' }} />
