@@ -198,7 +198,7 @@ function MainPage() {
                     </div>
                 </div>
             </section>
-            <button class="scroll-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></button>
+            <button class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></button>
         </>
     );
 }
