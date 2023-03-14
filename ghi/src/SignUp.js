@@ -5,6 +5,8 @@ import { updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import './assets/css/main.css'
+
 
 function SignUp() {
   const dispatch = useDispatch();
