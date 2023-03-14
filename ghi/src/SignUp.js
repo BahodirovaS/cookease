@@ -113,7 +113,7 @@ function SignUp() {
                   </div>
                   <div className="d-flex justify-content-center">
                     <div className="control">
-                      <button disabled={signUpLoading} className="account-btn">
+                      <button disabled={signUpLoading} className="btn btn-link">
                         Sign up!
                       </button>
                     </div>
