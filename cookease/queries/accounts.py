@@ -39,7 +39,7 @@ class AccountQueries(Queries):
 
     def create(
             self, info: AccountIn, hashed_password: str
-            ) -> AccountOutWithPassword:
+    ) -> AccountOutWithPassword:
         props = info.dict()
         props["hashed_password"] = hashed_password
         del props["password"]
