@@ -4,7 +4,7 @@ import { useSignUpMutation } from "./auth/authApi";
 import { updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -113,11 +113,9 @@ function SignUp() {
                   </div>
                   <div className="d-flex justify-content-center">
                     <div className="control">
-                      <NavLink to="/">
                       <button disabled={signUpLoading} className="account-btn">
                         Sign up!
                       </button>
-                      </NavLink>
                     </div>
                   </div>
                     {errorMessage && <div className="error">{errorMessage}

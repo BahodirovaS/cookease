@@ -29,7 +29,7 @@ function MainPage() {
                             <h2 className="text-white" data-aos="fade-up">Cook easily with<br />CookEase!</h2>
                             <p className="text-white" data-aos="fade-up" data-aos-delay="100" >No more wondering "What can I make with this!?"</p>
                             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                <a href="search-recipes" className="btn-search-for-recipes">Search for Recipes!</a>
+                                <a href="/search-recipes" className="btn-search-for-recipes">Search for Recipes!</a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ function MainPage() {
                         <div className="col-lg-7 position-relative about-img" style={{ backgroundImage: 'url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about-2.jpg)' }} data-aos="fade-up" data-aos-delay="150">
                             <div className="join-us position-absolute">
                                 <h4>Join to save hundreds of recipes!</h4>
-                                <a href="signup">Create an Account</a>
+                                <a href="/signup">Create an Account</a>
                             </div>
                         </div>
                         <div className="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
