@@ -13,10 +13,12 @@ function MainPage() {
             }
             window.addEventListener('load', togglescrollTop);
             document.addEventListener('scroll', togglescrollTop);
-            scrollTop.addEventListener('click', window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            }));
+            scrollTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            });
         }
     })
 
