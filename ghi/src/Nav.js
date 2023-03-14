@@ -11,6 +11,7 @@ function Nav() {
     useEffect(() => {
         if (data) {
             navigate("/");
+            window.location.reload();
         }
     }, [data, navigate]);
 
