@@ -5,6 +5,8 @@ import { updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import './assets/css/main.css'
+
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -13,7 +15,7 @@ function SignUp() {
     (state) => state.account
   );
   const modalClass = `my-modal ${show === SIGN_UP_MODAL ? "is-active" : ""}`;
-  const [signUp, { error, isLoading: signUpLoading, isSuccess: signUpSuccess }] = useSignUpMutation();
+  const [signUp, { error, isLoading: signUpLoading }] = useSignUpMutation();
   const [errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = useCallback((e) => {
@@ -118,13 +120,14 @@ function SignUp() {
                       </button>
                     </div>
                   </div>
+                    {errorMessage && <div className="error">{errorMessage}
+                  </div>}
                 </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </section >
   );
 }

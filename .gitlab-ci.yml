@@ -36,8 +36,7 @@ build-front-end-job:
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://guardians-of-the-repository.gitlab.io/cookease
-    REACT_APP_COOKEASE_HOST: https://cookease.nov-ct-3.mod3projects.com
-    REACT_APP_SPOONACULAR_HOST: https://api.spoonacular.com/recipes/complexSearch?
+    REACT_APP_COOKEASE_API_HOST: ${REACT_APP_COOKEASE_API_HOST}
   script:
     - cd ghi
     - npm install
@@ -82,9 +81,9 @@ build-docker-cookease: # RENAME THIS <this name is arbitrary and will be associa
     # EVERYWHERE IT SHOWS my-build-image (1 place) && built-image-name (2 places)BELOW, CHANGE THOSE
     # TO A MORE MEANINGFUL SERVICE NAME
     - echo "Building..." # MAKE SURE NO SPACE ON EITHER SIDE OF = IN THE FOLLOWING LINE
-    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/my-cookease-image:$COMMIT_HASH
-    - docker build -f ./Dockerfile --pull -t built-image-cookease .
-    - docker tag built-image-cookease "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
+    - export CONTAINER_FULL_IMAGE_NAME_WITH_TAG=$IMAGE_NAME_WITH_REGISTRY_PREFIX/cookease:$COMMIT_HASH
+    - docker build -f ./Dockerfile --pull -t cookease .
+    - docker tag cookease "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - echo $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
     - echo "Deploying on CapRover..."

@@ -1,16 +1,32 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 
 function Nav() {
     const navigate = useNavigate();
     const [logOut, { data }] = useLogOutMutation();
     const { data: currentUser } = useGetTokenQuery()
+    const offcanvasRef = useRef(null);
+
+    useEffect(() => {
+        const handleClick = (event) => {
+            if (offcanvasRef.current && !offcanvasRef.current.contains(event.target)) {
+                offcanvasRef.current.classList.remove('show');
+            }
+        };
+
+        document.addEventListener('click', handleClick);
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+        };
+    }, [offcanvasRef]);
 
     useEffect(() => {
         if (data) {
             navigate("/");
+            window.location.reload();
         }
     }, [data, navigate]);
 
@@ -18,12 +34,12 @@ function Nav() {
         <>
             <header id="header" className="header navigation d-flex align-items-center">
                 <div className="container d-flex align-items-center justify-content-between">
-                    <a href="/" className="logo d-flex align-items-center me-auto me-lg-0">
+                    <NavLink to="/" className="logo d-flex align-items-center me-auto me-lg-0">
                         <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ width: '100%' }} />
-                    </a>
-                    <a className="btn-search-for-recipes" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    </NavLink>
+                    <NavLink className="btn-search-for-recipes" data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         Menu
-                    </a>
+                    </NavLink>
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                         <div className="offcanvas-header">
                             <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '75%' }} />
@@ -32,16 +48,16 @@ function Nav() {
                         <div className="offcanvas-body" style={{ width: '100%', maxWidth: '100vw' }}>
                             <div className="dropdown mt-3" style={{ width: '100%', maxWidth: '100vw' }}>
                                 <div>
-                                    <a className="dropdown-item" href="/">Home</a>
-                                    <a className="dropdown-item" href="/search-recipes">Search Recipes</a>
-                                    <a className="dropdown-item" href="/favorites-recipes">Users - Loved Recipes</a>
+                                    <NavLink className="dropdown-item" to="/" onClick={() => offcanvasRef.current.classList.remove('show')}>Home</NavLink>
+                                    <NavLink className="dropdown-item" to="search-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Search Recipes</NavLink>
+                                    <NavLink className="dropdown-item" to="favorites-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Users - Loved Recipes</NavLink>
                                     <div>
                                         {currentUser ? (
                                             <button className="dropdown-item" onClick={() => logOut()}>Log Out</button>
                                         ) : (
                                             <>
-                                                <a className="dropdown-item" href="/signup" >Sign Up</a>
-                                                <a className="dropdown-item" href="/login">Log In</a>
+                                                    <NavLink className="dropdown-item" to="signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
+                                                    <NavLink className="dropdown-item" to="login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
                                             </>
                                         )}
                                     </div>
@@ -53,8 +69,6 @@ function Nav() {
             </header>
         </>
     )
-
-
 }
 
 export default Nav;
