@@ -4,7 +4,7 @@ import { useSignUpMutation } from "./auth/authApi";
 import { updateField, SIGN_UP_MODAL } from "./auth/accountSlice";
 import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from "react";
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
   const dispatch = useDispatch();
