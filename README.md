@@ -1,6 +1,6 @@
 ## What is CookEase?
 
-guardians-of-the-repository.gitlab.io/cookease
+Visit [Guardians of the Repository](https://guardians-of-the-repository.gitlab.io/cookease) website.
 
 CookEase is a recipe search application that allows users to search for recipes based on their dietary preferences and be able to view their details. Said dietary preferences include the user's diet, allergies or intolerances, ingredients they want to use, the amount of time they want to spend on the recipe, and how many searches they want to populate the search page. Some additional features users are able to see when viewing a recipe include health scores, price per serving, and nutritional information. In addition to searching for recipes, authenticated users are able to favorite recipes and save them to their account.
 
