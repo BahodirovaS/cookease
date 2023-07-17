@@ -856,6 +856,7 @@ tbody:hover tr:hover td {
 --------------------------------------------------------------*/
 .about .about-img {
   min-height: 500px;
+  background-image: url('./../img/about-2.jpg');
 }
 
 .about h3 {
@@ -1122,6 +1123,7 @@ tbody:hover tr:hover td {
   background-size: contain;
   z-index: 1;
 }
+
 
 .developers .developer-member .social {
   position: absolute;
@@ -1471,6 +1473,7 @@ tbody:hover tr:hover td {
 --------------------------------------------------------------*/
 .welcome {
   width: 100%;
+  background-image: url('./../img/main-page.png');
   background-size: cover;
   position: relative;
   min-height: 60vh;

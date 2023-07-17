@@ -22,14 +22,14 @@ function MainPage() {
         }
     })
 
+
     return (
         <>
-            <section id="welcome" className="welcome d-flex align-items-center section-bg" style={{ backgroundImage: "url(https://heartstrokeprod.azureedge.net/-/media/images/articles/getty_1047798504_1920x1080.ashx?rev=10f9ef9ef9794e998b5cfe1bd3d60d85)" }}>
+            <section id="welcome" className="welcome d-flex align-items-center section-bg">
                 <div className="container" >
                     <div className="row justify-content-between gy-5">
                         <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
                             <h2 className="text-white" data-aos="fade-up">Cook easily with<br />CookEase!</h2>
-                            <p className="text-white" data-aos="fade-up" data-aos-delay="100" >No more wondering "What can I make with this!?"</p>
                             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
                                 <NavLink to="search-recipes" className="btn-search-for-recipes">Search for Recipes!</NavLink>
                             </div>
@@ -46,7 +46,7 @@ function MainPage() {
                         </p>
                     </div>
                     <div className="row gy-4">
-                        <div className="col-lg-7 position-relative about-img" style={{ backgroundImage: 'url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about-2.jpg)' }} data-aos="fade-up" data-aos-delay="150">
+                        <div className="col-lg-7 position-relative about-img" data-aos="fade-up" data-aos-delay="150">
                             <div className="join-us position-absolute">
                                 <h4>Join to save hundreds of recipes!</h4>
                                 <NavLink to="signup">Create an Account</NavLink>
@@ -130,7 +130,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5603AQEroIqWTEaRcA/profile-displayphoto-shrink_800_800/0/1665683162033?e=1683158400&v=beta&t=Gy71-N8tyzeVgCV_Wt4A85cUOwVOtB4lPP6cqrLxFY0" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5635AQH6D7SEMXtlsg/profile-framedphoto-shrink_400_400/0/1679349438729?e=1690228800&v=beta&t=OeJLGJPa2ZWKqr9toDMZi5kDppWq8xtC8oCsxjy_5_U" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></NavLink>
@@ -158,7 +158,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_800_800/0/1664378159408?e=1683158400&v=beta&t=nrpptTTor0xPpkB0C5Y7924iuJK0WhGIEV9cqN5CiWU" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_400_400/0/1664378159408?e=1695254400&v=beta&t=eU2uqroGaaN8X9Z4vVju-1ssND030hnyQkFEp9G53z0" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/ben_hoag"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/benjamin-hoag/"><i className="bi bi-linkedin"></i></NavLink>
@@ -172,7 +172,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D4E03AQFUEPkARwkTDg/profile-displayphoto-shrink_800_800/0/1671496174672?e=1683158400&v=beta&t=l6Eo7fNbrSDxpqZGZcrLlPOZ3qBFEaDkc0qpYdlBokM" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5635AQG4PrdcLLy79A/profile-framedphoto-shrink_400_400/0/1679358962273?e=1690228800&v=beta&t=QmHcmB1Ws7Io942VgopMbATWYpF8mh4Ajc6CRUlrNPQ" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></NavLink>
@@ -186,7 +186,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/C5603AQGJ1n_GtbbxgQ/profile-displayphoto-shrink_800_800/0/1664238671994?e=1683158400&v=beta&t=g92XLu-xklVD3bZQVHvW3vasQ15WeivuGVmQkOGYAMw" className="img-fluid" alt="" />
+                                    <img src="https://media.licdn.com/dms/image/D5603AQFBj0u-Hz4OtA/profile-displayphoto-shrink_400_400/0/1685724990927?e=1695254400&v=beta&t=-O0TdAzR8cl9Oy1HoRZMAoPsYKtQD9G0Nu-Y4iYhECs" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/jennifertovar2010"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/jennifermtovar/"><i className="bi bi-linkedin"></i></NavLink>
