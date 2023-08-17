@@ -130,7 +130,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="assets/img/Sabina.jpg" className="img-fluid" alt="" />
+                                    <img src="https://ca.slack-edge.com/T051Q8UTRQC-U05MHPQED1R-3f9cd0c02f1a-512" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></NavLink>
@@ -172,7 +172,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="assets/img/Braeden.jpg" className="img-fluid" alt="" />
+                                    <img src="" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></NavLink>
