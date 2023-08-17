@@ -130,7 +130,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5635AQH6D7SEMXtlsg/profile-framedphoto-shrink_400_400/0/1679349438729?e=1690228800&v=beta&t=OeJLGJPa2ZWKqr9toDMZi5kDppWq8xtC8oCsxjy_5_U" className="img-fluid" alt="" />
+                                    <img src="assets/img/Sabina.jpg" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></NavLink>
@@ -172,7 +172,7 @@ function MainPage() {
                         <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                             <div className="developer-member">
                                 <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5635AQG4PrdcLLy79A/profile-framedphoto-shrink_400_400/0/1679358962273?e=1690228800&v=beta&t=QmHcmB1Ws7Io942VgopMbATWYpF8mh4Ajc6CRUlrNPQ" className="img-fluid" alt="" />
+                                    <img src="assets/img/Braeden.jpg" className="img-fluid" alt="" />
                                     <div className="social">
                                         <NavLink to="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></NavLink>
                                         <NavLink to="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></NavLink>
