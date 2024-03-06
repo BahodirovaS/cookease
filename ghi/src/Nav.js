@@ -1,3 +1,4 @@
+import './assets/css/main.css'
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
 import { useEffect, useRef } from "react";
@@ -35,14 +36,14 @@ function Nav() {
             <header id="header" className="header navigation d-flex align-items-center">
                 <div className="container d-flex align-items-center justify-content-between">
                     <NavLink to="/" className="logo d-flex align-items-center me-auto me-lg-0">
-                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ width: '60%' }} />
+                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ maxWidth: '130px' }} />
                     </NavLink>
                     <NavLink className="btn-search-for-recipes" data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         Menu
                     </NavLink>
-                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style={{ width: '300px' }}>
                         <div className="offcanvas-header">
-                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '50%' }} />
+                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ maxWidth: '150px' }} />
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body" style={{ width: '100%', maxWidth: '100vw' }}>
@@ -56,8 +57,8 @@ function Nav() {
                                             <button className="dropdown-item" onClick={() => logOut()}>Log Out</button>
                                         ) : (
                                             <>
-                                                    <NavLink className="dropdown-item" to="signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
-                                                    <NavLink className="dropdown-item" to="login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
+                                                <NavLink className="dropdown-item" to="signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
+                                                <NavLink className="dropdown-item" to="login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
                                             </>
                                         )}
                                     </div>

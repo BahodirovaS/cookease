@@ -164,6 +164,11 @@ section {
   border-color: #eee;
 }
 
+.header .logo {
+    display: inline-flex;
+    align-items: center;
+}
+
 .header .logo img {
   max-height: 70px;
   margin-right: 6px;
@@ -217,7 +222,11 @@ section {
     font-weight: bold;
   }
 
-  .offcanvas .dropdown a {
+  .offcanvas .offcanvas-header {
+    padding-left: 0px;
+  }
+
+  .offcanvas .offcanvas-body .dropdown a {
     font-family: var(--font-primary);
     font-size: 50px;
     font-weight: bold;
