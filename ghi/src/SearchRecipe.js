@@ -4,6 +4,8 @@ import { useGetTokenQuery } from './auth/authApi';
 import RecipeCard from './RecipeCard';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import './assets/css/main.css';
+import { useRef, useEffect } from 'react';
+
 
 function RecipeSearch() {
     const [form, setForm] = useState({
@@ -19,6 +21,24 @@ function RecipeSearch() {
     const [unFavoriteRecipe] = useDeleteFavoriteMutation()
     const { data: currentUser } = useGetTokenQuery()
 
+    const firstColumnRef = useRef(null);
+    const secondColumnRef = useRef(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (firstColumnRef.current && secondColumnRef.current) {
+                const scrollY = window.scrollY;
+                firstColumnRef.current.style.transform = `translateY(${-scrollY * 0.25}px)`;
+                secondColumnRef.current.style.transform = `translateY(${scrollY * 0.15}px)`;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -51,19 +71,34 @@ function RecipeSearch() {
         }
     }
 
+
+
     return (
         <>
-            <div className="search-title row justify-content-center">
-                <div className="text-center">
-                    <h2>Find a Recipe that's right for you!</h2>
+            <div className="page-container">
+                <div className="main-container">
+                    <div className="words-container">
+                        <h2>Words on the Left</h2>
+                    </div>
+                    <div className="images-container">
+                        <div className="image-grid">
+                            <div className="image-column" ref={firstColumnRef}>
+                                <div className="image1"></div>
+                                <div className="image2"></div>
+                            </div>
+                            <div className="image-column" ref={secondColumnRef}>
+                                <div className="image3"></div>
+                                <div className="image4"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="search-label row justify-content-center my-5">
-                    <div className="col-sm-6">
-                        <form onSubmit={handleSubmit}>
+                <div className="form-container">
+                            <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="diet">Diet Options:</label>
                                 <select
-                                    className="form-select form-control-lg"
+                                    className="form-select form-control-sm"
                                     aria-label="Diet Options:"
                                     value={form.diet}
                                     id="diet"
@@ -87,7 +122,7 @@ function RecipeSearch() {
                             <div className="mb-3">
                                 <label htmlFor="intolerances">Intolerances:</label>
                                 <select
-                                    className="form-select form-control-lg"
+                                    className="form-select form-control-sm"
                                     aria-label="Intolerance List:"
                                     value={form.intolerances}
                                     id="intolerances"
@@ -148,11 +183,11 @@ function RecipeSearch() {
                                 />
                             </div>
                             <button className='btn btn-outline-danger' type='submit'>Search</button>
-                        </form>
-                    </div>
+                            </form>
                 </div>
             </div>
-            <div className="search-results">
+            <div className="search-results-container">
+                <div className="search-results">
                 {lazyData?.results?.length === 0 ? (
                     <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
                 ) : (
@@ -176,6 +211,7 @@ function RecipeSearch() {
                         )}
                     </ul>
                 )}
+            </div>
             </div>
         </>
     );

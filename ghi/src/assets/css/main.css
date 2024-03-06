@@ -151,7 +151,6 @@ section {
   transition: all 0.5s;
   z-index: 997;
   height: 60px;
-  border-bottom: 1px solid #6d6c6c;
 }
 @media (max-width: 575px) {
   .header {
@@ -588,58 +587,21 @@ section {
 /*--------------------------------------------------------------
 # Search Recipe
 --------------------------------------------------------------*/
-.search-title {
-  padding-top: 30px;
-  background: linear-gradient(rgba(105, 105, 105, 0.5), rgba(105, 105, 105, 0.5)), url("https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/04/AnastasiiaT3-1-e1555999856567.jpg") center center;
-  background-size: cover;
-  padding-top: 30px;
-}
-.search-title h2{
-  font-size: 50px;
-  font-family: var(--font-tertiary);
-  font-weight: bold;
-  color: white;
-}
-.search-label label {
-  font-family: var(--font-tertiary);
-  font-size: 25px;
-  color: white;
-}
-.search-label select {
-  font-family: var(--font-tertiary);
-  font-size: 20px;
-  background-color: #e7e6e6;
-}
-.search-label input {
-  background-color: #e7e6e6;
-}
-.search-label button {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 12px 36px;
-  border-radius: 50px;
-  transition: 0.5s;
-  color: #fff;
-  background: var(--color-primary);
-}
-.search-label button:hover {
-  background: rgba(206, 18, 18, 0.8);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);
-}
-.search-results {
+.search-results-container {
   margin-top: 35px;
 }
+
 .search-results p {
   font-size: 50px;
   font-family: var(--font-secondary);
   font-weight: bold;
   text-align: center;
 }
+
 .search-results .bi-emoji-frown-fill:hover {
   color: rgba(206, 18, 18, 0.8);
 }
+
 .col-md-3 {
   width: 250px;
   margin-bottom: 20px;
@@ -665,6 +627,109 @@ section {
     margin-right: 30px;
   }
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  /* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('./../img/search-bg.png'); */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.words-container {
+  width: 30%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.words-container h2 {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: var(--font-primary);
+  color: var(--color-secondary);
+  margin-top: 40px;
+}
+
+
+.images-container {
+  width: 65%;
+  position: relative;
+  margin-left: auto;
+}
+
+.image-column {
+  transition: transform 0.3s ease-out;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.image-column:last-child .image3,
+.image-column:last-child .image4 {
+  margin-top: 50px;
+}
+
+.image1 {
+  width: 90%;
+  height: 250px;
+  background-image: url('./../img/search1.png'); /* Replace with your image path */
+  background-size: cover;
+}
+
+.image2 {
+  width: 90%;
+  height: 250px;
+  background-image: url('./../img/search2.png'); /* Replace with your image path */
+  background-size: cover;
+}
+
+.image3 {
+  width: 90%;
+  height: 250px;
+  background-image: url('./../img/search4.png'); /* Replace with your image path */
+  background-size: cover;
+}
+
+.image4 {
+  width: 90%;
+  height: 250px;
+  background-image: url('./../img/search3.png'); /* Replace with your image path */
+  background-size: cover;
+}
+
+.image1,
+.image2,
+.image3,
+.image4 {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  width: 100%; /* Adjust as needed */
+  padding: 20px; /* Add padding as needed */
+}
+
+/* Adjustments for scrolling effect */
+.images-container {
+  overflow: hidden;
+}
+
+.image-grid {
+  position: relative;
+  top: 0;
+  transition: top 0.5s ease-in-out;
+}
+
 /*--------------------------------------------------------------
 # Recipe Detail
 --------------------------------------------------------------*/
@@ -1106,100 +1171,6 @@ tbody:hover tr:hover td {
   font-size: 30px;
   font-weight: 700;
   color: var(--color-primary);
-}
-
-/*--------------------------------------------------------------
-# developers Section
---------------------------------------------------------------*/
-.developers .developer-member {
-  overflow: hidden;
-  text-align: center;
-  border-radius: 1px;
-  background: #fff;
-  box-shadow: 0px 0 30px rgba(55, 55, 63, 0.08);
-  transition: 0.3s;
-}
-
-.developers .developer-member:hover {
-  transform: scale(1.08);
-  box-shadow: 0px 0 30px rgba(55, 55, 63, 0.15);
-}
-
-.developers .developer-member .member-img {
-  position: relative;
-  overflow: hidden;
-}
-
-.developers .developer-member .member-img:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background: url(../img/team-shape.svg) no-repeat center bottom;
-  background-size: contain;
-  z-index: 1;
-}
-
-
-.developers .developer-member .social {
-  position: absolute;
-  right: -100%;
-  top: 30px;
-  opacity: 25;
-  border-radius: 4px;
-  transition: 0.5s;
-  background: rgba(255, 255, 255, 0.685);
-  z-index: 2;
-}
-
-.developers .developer-member .social a {
-  transition: color 0.3s;
-  color: rgba(55, 55, 63, 0.4);
-  margin: 15px 12px;
-  display: block;
-  line-height: 0;
-  text-align: center;
-}
-
-.developers .developer-member .social a:hover {
-  color: rgba(55, 55, 63, 0.9);
-}
-
-.developers .developer-member .social i {
-  font-size: 18px;
-}
-
-.developers .developer-member .member-info {
-  padding: 10px 15px 20px 15px;
-}
-
-.developers .developer-member .member-info h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 20px;
-  color: var(--color-secondary);
-}
-
-.developers .developer-member .member-info span {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(33, 37, 41, 0.4);
-}
-
-.developers .developer-member .member-info p {
-  font-style: italic;
-  font-size: 14px;
-  padding-top: 15px;
-  line-height: 26px;
-  color: rgba(33, 37, 41, 0.7);
-}
-
-.developers .developer-member:hover .social {
-  right: 8px;
-  opacity: 1;
 }
 
 /*--------------------------------------------------------------
