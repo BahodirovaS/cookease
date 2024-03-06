@@ -54,15 +54,27 @@ function MainPage() {
                         </div>
                         <div className="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
                             <div className="content ps-0 ps-lg-5">
-                                <p >
-                                    Welcome to our little corner of the culinary world! We're the app that's dedicated to making your cooking adventures more exciting, more delicious, and definitely more stress-free.
-                                </p>
-                                <ul>
-                                    <li><i ></i> We know that sometimes, finding the perfect recipe can be a bit of a puzzle. You've got a fridge full of ingredients, a rumbling tummy, and a hankering for something tasty. But where do you even begin?</li>
-                                    <li><i ></i> That's where we come in. With our nifty search function, you can easily find recipes that fit your exact needs. Want to make something vegan? No problem. Got a gluten intolerance? We've got you covered. Just type in your ingredients, select your preferences, and voila! You've got a whole bunch of recipes at your fingertips.</li>
-                                </ul>
                                 <p>
-                                    So go ahead, explore, experiment, and enjoy. And if you create something truly amazing, don't forget to share it with us! We love seeing what our users cook up.
+                                    Welcome to our little corner of the culinary world! We're the app
+                                    that's dedicated to making your cooking adventures more exciting,
+                                    more delicious, and definitely more stress-free.
+                                </p>
+                                <p>
+                                    We know that sometimes, finding the perfect recipe can be a bit of
+                                    a puzzle. You've got a fridge full of ingredients, a rumbling tummy,
+                                    and a hankering for something tasty. But where do you even begin?
+                                </p>
+                                <p>
+                                    That's where we come in. With our nifty search function, you can
+                                    easily find recipes that fit your exact needs. Want to make something
+                                    vegan? No problem. Got a gluten intolerance? We've got you covered.
+                                    Just type in your ingredients, select your preferences, and voila!
+                                    You've got a whole bunch of recipes at your fingertips.
+                                </p>
+                                <p>
+                                    So go ahead, explore, experiment, and enjoy. And if you create
+                                    something truly amazing, don't forget to share it with us! We love
+                                    seeing what our users cook up.
                                     Happy cooking!
                                 </p>
                             </div>
@@ -121,84 +133,7 @@ function MainPage() {
                 </div>
             </section>
             <section id="developers" className="developers section-bg">
-                <div className="container"data-aos="fade-up">
-                    <div className="section-header">
-                        <h2>Developers</h2>
-                        <p>Our <span>Developers</span></p>
-                    </div>
-                    <div className="row gy-4 justify-content-center">
-                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                            <div className="developer-member">
-                                <div className="member-img">
-                                    <img src="https://ca.slack-edge.com/T051Q8UTRQC-U05MHPQED1R-3f9cd0c02f1a-512" className="img-fluid" alt="" />
-                                    <div className="social">
-                                        <NavLink to="https://gitlab.com/sbahodirova"><i className="bi bi-github"></i></NavLink>
-                                        <NavLink to="https://www.linkedin.com/in/sabinabahodirova/"><i className="bi bi-linkedin"></i></NavLink>
-                                    </div>
-                                </div>
-                                <div className="member-info">
-                                    <h4>Sabina Bahodirova</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                            <div className="developer-member">
-                                <div className="member-img">
-                                    <img src="https://ca.slack-edge.com/T040E31DKM2-U0477JWLGBT-865f48ebb996-512" className="img-fluid" alt="" />
-                                    <div className="social">
-                                        <NavLink to="https://gitlab.com/ericd214"><i className="bi bi-github"></i></NavLink>
-                                        <NavLink to="https://www.linkedin.com/in/ericdong214/"><i className="bi bi-linkedin"></i></NavLink>
-                                    </div>
-                                </div>
-                                <div className="member-info">
-                                    <h4>Eric Dong</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="developer-member">
-                                <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5603AQFDpVKxYRTGUg/profile-displayphoto-shrink_400_400/0/1664378159408?e=1695254400&v=beta&t=eU2uqroGaaN8X9Z4vVju-1ssND030hnyQkFEp9G53z0" className="img-fluid" alt="" />
-                                    <div className="social">
-                                        <NavLink to="https://gitlab.com/ben_hoag"><i className="bi bi-github"></i></NavLink>
-                                        <NavLink to="https://www.linkedin.com/in/benjamin-hoag/"><i className="bi bi-linkedin"></i></NavLink>
-                                    </div>
-                                </div>
-                                <div className="member-info">
-                                    <h4>Benjamin Hoag</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="developer-member">
-                                <div className="member-img">
-                                    <img src="" className="img-fluid" alt="" />
-                                    <div className="social">
-                                        <NavLink to="https://gitlab.com/braedensizemore"><i className="bi bi-github"></i></NavLink>
-                                        <NavLink to="https://www.linkedin.com/in/braedensizemore/"><i className="bi bi-linkedin"></i></NavLink>
-                                    </div>
-                                </div>
-                                <div className="member-info">
-                                    <h4>Braeden Sizemore</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div className="developer-member">
-                                <div className="member-img">
-                                    <img src="https://media.licdn.com/dms/image/D5603AQFBj0u-Hz4OtA/profile-displayphoto-shrink_400_400/0/1685724990927?e=1695254400&v=beta&t=-O0TdAzR8cl9Oy1HoRZMAoPsYKtQD9G0Nu-Y4iYhECs" className="img-fluid" alt="" />
-                                    <div className="social">
-                                        <NavLink to="https://gitlab.com/jennifertovar2010"><i className="bi bi-github"></i></NavLink>
-                                        <NavLink to="https://www.linkedin.com/in/jennifermtovar/"><i className="bi bi-linkedin"></i></NavLink>
-                                    </div>
-                                </div>
-                                <div className="member-info">
-                                    <h4>Jennifer Tovar</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </section>
             <button className="scroll-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></button>
         </>

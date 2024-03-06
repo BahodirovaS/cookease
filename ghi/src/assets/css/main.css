@@ -12,7 +12,7 @@
 /* Fonts */
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-primary: 'Amatic SC', cursive;
+  --font-primary: "Montserrat", sans-serif;
   --font-secondary: 'Poiret One', cursive;
   --font-tertiary: 'IBM Plex Sans Condensed', sans-serif;
   --font-quarternary: 'DM Serif Display', serif;
@@ -66,7 +66,7 @@ h6 {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 .section-bg {
@@ -79,7 +79,7 @@ section {
 }
 
 .section-header h2 {
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 1px;
   font-weight: 400;
   margin: 0;
@@ -91,7 +91,7 @@ section {
 
 .section-header p {
   margin: 0;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 400;
   font-family: var(--font-primary);
 }
@@ -150,7 +150,7 @@ section {
   background: #fff;
   transition: all 0.5s;
   z-index: 997;
-  height: 90px;
+  height: 60px;
   border-bottom: 1px solid #6d6c6c;
 }
 @media (max-width: 575px) {
@@ -183,11 +183,11 @@ section {
 
 .header .btn-search-for-recipes,
 .header .btn-search-for-recipes:focus {
-  font-size: 16px;
+  font-size: 15px;
   font-family: var(--font-tertiary);
   color: #fff;
   background: var(--color-primary);
-  padding: 8px 20px;
+  padding: 8px 15px;
   margin-left: 30px;
   border-radius: 50px;
   transition: 0.3s;
@@ -854,9 +854,11 @@ tbody:hover tr:hover td {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+
 .about .about-img {
-  min-height: 500px;
   background-image: url('./../img/about-2.jpg');
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .about h3 {
@@ -886,6 +888,7 @@ tbody:hover tr:hover td {
 .about .join-us a {
   font-weight: 500;
   font-size: 14px;
+  font-family: var(--font-tertiary);;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 36px;
@@ -897,7 +900,7 @@ tbody:hover tr:hover td {
 }
 .about .content {
   font-family: var(--font-tertiary);
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .about .content ul {
@@ -953,9 +956,9 @@ tbody:hover tr:hover td {
 .stats-counter .stats-item p {
   padding: 0;
   margin: 0;
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -1482,11 +1485,13 @@ tbody:hover tr:hover td {
 }
 
 .welcome h2 {
-  font-size: 80px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 200;
   margin-bottom: 20px;
   color: var(--color-secondary);
   font-family: var(--font-primary);
+  white-space: nowrap;
+  margin-top: -40px;
 }
 
 .welcome h2 span {
@@ -1504,6 +1509,7 @@ tbody:hover tr:hover td {
 .welcome .btn-search-for-recipes {
   font-weight: 500;
   font-size: 14px;
+  font-family: var(--font-tertiary);
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 36px;
@@ -1548,10 +1554,11 @@ tbody:hover tr:hover td {
 
 .footer h4 {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 100px;
   position: relative;
   padding-bottom: 5px;
   color: #fff;
+  font-family: var(--font-tertiary);;
 }
 
 .footer .footer-links {

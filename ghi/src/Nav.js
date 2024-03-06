@@ -35,14 +35,14 @@ function Nav() {
             <header id="header" className="header navigation d-flex align-items-center">
                 <div className="container d-flex align-items-center justify-content-between">
                     <NavLink to="/" className="logo d-flex align-items-center me-auto me-lg-0">
-                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ width: '100%' }} />
+                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ width: '60%' }} />
                     </NavLink>
                     <NavLink className="btn-search-for-recipes" data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         Menu
                     </NavLink>
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                         <div className="offcanvas-header">
-                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '75%' }} />
+                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ width: '50%' }} />
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body" style={{ width: '100%', maxWidth: '100vw' }}>
