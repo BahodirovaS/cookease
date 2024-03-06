@@ -13,7 +13,7 @@ function MainPage() {
             }
             window.addEventListener('load', togglescrollTop);
             document.addEventListener('scroll', togglescrollTop);
-            scrollTop.addEventListener('click', function() {
+            scrollTop.addEventListener('click', function () {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -29,7 +29,7 @@ function MainPage() {
                 <div className="container" >
                     <div className="row justify-content-between gy-5">
                         <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                            <h2 className="text-white" data-aos="fade-up">Cook easily with<br />CookEase!</h2>
+                            <h2 data-aos="fade-up">Cook easily with<br />CookEase!</h2>
                             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
                                 <NavLink to="search-recipes" className="btn-search-for-recipes">Search for Recipes!</NavLink>
                             </div>

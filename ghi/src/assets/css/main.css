@@ -21,7 +21,7 @@
 /* Colors */
 :root {
   --color-default: #212529;
-  --color-primary: #ce1212;
+  --color-primary: #b90f0f;
   --color-secondary: #37373f;
 }
 
@@ -196,6 +196,7 @@ section {
   margin-left: 30px;
   border-radius: 50px;
   transition: 0.3s;
+  letter-spacing: 1px;
 }
 
 .header .btn-search-for-recipes:hover,
@@ -900,13 +901,18 @@ tbody:hover tr:hover td {
   font-family: var(--font-tertiary);;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 12px 36px;
+  padding: 10px 20px;
   border-radius: 50px;
   transition: 0.5s;
-  color: #fff;
+  color: #FFFFFF;
   background: var(--color-primary);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);;
 }
+
+.about .join-us a:hover {
+    background: rgba(206, 18, 18, 0.8);
+}
+
+
 .about .content {
   font-family: var(--font-tertiary);
   font-size: 15px;
@@ -1485,7 +1491,7 @@ tbody:hover tr:hover td {
 --------------------------------------------------------------*/
 .welcome {
   width: 100%;
-  background-image: url('./../img/main-page.png');
+  background-image: url('./../img/main-page3.png');
   background-size: cover;
   position: relative;
   min-height: 60vh;
@@ -1495,12 +1501,12 @@ tbody:hover tr:hover td {
 
 .welcome h2 {
   font-size: 60px;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 20px;
   color: var(--color-secondary);
   font-family: var(--font-primary);
   white-space: nowrap;
-  margin-top: -40px;
+  margin-top: -20px;
 }
 
 .welcome h2 span {
@@ -1521,17 +1527,15 @@ tbody:hover tr:hover td {
   font-family: var(--font-tertiary);
   letter-spacing: 1px;
   display: inline-block;
-  padding: 12px 36px;
+  padding: 12px 25px;
   border-radius: 50px;
   transition: 0.5s;
   color: #fff;
   background: var(--color-primary);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.2);
 }
 
 .welcome .btn-search-for-recipes:hover {
   background: rgba(206, 18, 18, 0.8);
-  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);
 }
 
 @media (max-width: 640px) {
