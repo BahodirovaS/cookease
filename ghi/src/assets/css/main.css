@@ -560,6 +560,7 @@ section {
     overflow: hidden;
     transition: transform 0.3s ease;
     height: 400px;
+    border-radius: 0%;
 }
 
 .recipe-card:hover {
@@ -575,15 +576,18 @@ section {
     height: auto;
     transition: transform 0.3s ease;
     transform-origin: center center;
+    border-radius: 0%;
 }
 
-.card-title {
-    padding-top: 20px;
+.card .card-body .card-title {
+    padding-top: 15px;
     padding-right: 20px;
     text-align: start;
+    font-size: 20px;
     font-family: var(--font-primary);
-    font-size: 35px;
-    color: #000;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-secondary);
 }
 
 
