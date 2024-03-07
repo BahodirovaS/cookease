@@ -56,6 +56,7 @@ function RecipeSearch() {
         )
     }
 
+
     const handleFavorite = async (id, title, image) => {
         let isFavorite = false;
         let recipe_id;
@@ -85,8 +86,8 @@ function RecipeSearch() {
                             Create an account now or log in to save them!
                         </p>
                         <div className="button-container">
-                            <NavLink to="signup" className="btn-signup">Create Account</NavLink>
-                            <NavLink to="login" className="btn-login">Log In</NavLink>
+                            <NavLink to="/signup" className="btn-signup">Create Account</NavLink>
+                            <NavLink to="/login" className="btn-login">Log In</NavLink>
                         </div>
                     </div>
                     <div className="images-container">
@@ -184,7 +185,7 @@ function RecipeSearch() {
                             <input
                                 className="form-control form-control-md"
                                 type="text"
-                                placeholder="1, 3, 5, 10, etc"
+                                placeholder="defaults to 9"
                                 value={form.number}
                                 id="number"
                                 name='number'
@@ -195,31 +196,33 @@ function RecipeSearch() {
                     </form>
                 </div>
             </div>
-            <div className="search-results-container">
-                <div className="search-results">
-                    {lazyData?.results?.length === 0 ? (
-                        <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
-                    ) : (
-                        <ul className="row g-4 justify-content-center mx-sm-3 mx-md-4 mx-lg-5 mx-xl-5">
-                            {lazyData?.results?.map((recipe, pos) =>
-                                <div className="col-md-3" key={pos}>
-                                    <div key={recipe.id}>
-                                        {currentUser ? (
-                                            <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
-                                                {favorites.favorites?.some(fav => fav.id === recipe.id) ?
-                                                    <i className="bi bi-heart-fill heart-icon text-danger"></i> :
-                                                    <i className="bi bi-heart heart-icon"></i>
-                                                }
-                                            </button>
-                                        ) : (
-                                            <div></div>
-                                        )}
-                                        <RecipeCard className="recipe-card" id={recipe.id} title={recipe.title} image={recipe.image} key={recipe.id} />
-                                    </div>
-                                </div>
-                            )}
-                        </ul>
-                    )}
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <div className="search-results-container">
+                            <div className="row row-cols-1 row-cols-md-3 g-4">
+                                {lazyData?.results?.length === 0 ? (
+                                    <p>Uh Oh! Looks like we don't have recipes with those preferences <i className="bi-emoji-frown-fill"></i></p>
+                                ) : (
+                                    lazyData?.results?.map((recipe, pos) => (
+                                        <div className="col" key={pos}>
+                                            {currentUser ? (
+                                                <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                                    {favorites.favorites?.some(fav => fav.id === recipe.id) ?
+                                                        <i className="bi bi-heart-fill heart-icon text-danger"></i> :
+                                                        <i className="bi bi-heart heart-icon"></i>
+                                                    }
+                                                </button>
+                                            ) : (
+                                                <div></div>
+                                            )}
+                                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

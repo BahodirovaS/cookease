@@ -555,34 +555,37 @@ section {
 # Recipe Card
 --------------------------------------------------------------*/
 .recipe-card {
-  margin-right: 25px;
-  margin-bottom: 20px;
-}
-.recipe-card img {
-  height: 200px;
-  transition: transform 0.2s ease;
-}
-
-.recipe-card img:hover {
-  transform: scale(1.02);
+    margin-right: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 400px;
 }
 
-.recipe-card .recipe-title {
-  padding-top: 20px;
-  padding-right: 20px;
-  text-align: start;
-  font-family: var(--font-secondary);
+.recipe-card:hover {
+    transform: scale(0.95);
 }
 
-.recipe-card h4 {
-  font-size: 35px;
-  font-weight: bold;
-  color: #000;
+.recipe-card:hover .recipe-image {
+    transform: scale(1.1);
 }
 
-.recipe-card h4:hover {
-  color: #666666;
+.recipe-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
 }
+
+.card-title {
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: start;
+    font-family: var(--font-primary);
+    font-size: 35px;
+    color: #000;
+}
+
 
 /*--------------------------------------------------------------
 # Search Recipe
@@ -591,16 +594,16 @@ section {
   margin-top: 35px;
 }
 
-.search-results p {
+.search-results-container p {
   font-size: 50px;
   font-family: var(--font-secondary);
-  font-weight: bold;
   text-align: center;
 }
 
-.search-results .bi-emoji-frown-fill:hover {
+.search-results-container .bi-emoji-frown-fill:hover {
   color: rgba(206, 18, 18, 0.8);
 }
+
 
 .col-md-3 {
   width: 250px;
