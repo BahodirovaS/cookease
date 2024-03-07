@@ -185,7 +185,7 @@ function RecipeSearch() {
                             <input
                                 className="form-control form-control-md"
                                 type="text"
-                                placeholder="defaults to 9"
+                                placeholder="defaults to 10"
                                 value={form.number}
                                 id="number"
                                 name='number'
