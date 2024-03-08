@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
+
 function RecipeDetails() {
     const { id } = useParams();
 

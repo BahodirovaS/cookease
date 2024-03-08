@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { useLazyGetRecipeQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "./auth/api";
+import {
+    useLazyGetRecipeQuery,
+    useAddFavoriteRecipeMutation,
+    useDeleteFavoriteMutation,
+    useGetFavoriteQuery
+} from "./auth/api";
 import { useGetTokenQuery } from './auth/authApi';
 import RecipeCard from './RecipeCard';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import './assets/css/main.css';
 import { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-
 
 
 function RecipeSearch() {
@@ -25,6 +29,7 @@ function RecipeSearch() {
 
     const firstColumnRef = useRef(null);
     const secondColumnRef = useRef(null);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,7 +78,6 @@ function RecipeSearch() {
             await favoriteRecipe({ id, title, image });
         }
     }
-
 
 
     return (
@@ -168,7 +172,7 @@ function RecipeSearch() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="maxReadyTime">
-                                <span style={{ color: 'red' }}> *</span>
+                                <span> *</span>
                                 How much time do we have...in minutes?</label>
                             <input
                                 className="form-control form-control-md"
@@ -193,6 +197,7 @@ function RecipeSearch() {
                             />
                         </div>
                         <button className='btn btn-outline-danger' type='submit'>Search</button>
+                        <p>Fields marked with * are required</p>
                     </form>
                 </div>
             </div>
@@ -206,17 +211,19 @@ function RecipeSearch() {
                                 ) : (
                                     lazyData?.results?.map((recipe, pos) => (
                                         <div className="col" key={pos}>
-                                            {currentUser ? (
-                                                <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
-                                                    {favorites.favorites?.some(fav => fav.id === recipe.id) ?
-                                                        <i className="bi bi-heart-fill heart-icon text-danger"></i> :
-                                                        <i className="bi bi-heart heart-icon"></i>
-                                                    }
-                                                </button>
-                                            ) : (
-                                                <div></div>
-                                            )}
-                                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
+                                            <div className="recipe-card">
+                                                <div className="heart-icon-wrapper">
+                                                    {currentUser && (
+                                                        <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                                            {favorites.favorites?.some(fav => fav.id === recipe.id) ?
+                                                                <i className="bi bi-heart-fill heart-icon text-danger"></i> :
+                                                                <i className="bi bi-heart heart-icon"></i>
+                                                            }
+                                                        </button>
+                                                    )}
+                                                </div>
+                                                <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
+                                            </div>
                                         </div>
                                     ))
                                 )}
