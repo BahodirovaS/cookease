@@ -1169,82 +1169,53 @@ tbody:hover tr:hover td {
   overflow: hidden;
 }
 .favorite-foods .nav-link {
-  margin: 0 10px;
-  padding: 10px 5px;
-  transition: 0.3s;
-  color: var(--color-secondary);
-  border-radius: 0;
-  cursor: pointer;
-  height: 100%;
-  border: 0;
-  border-bottom: 2px solid #b6b6bf;
-}
-
-@media (max-width: 575px) {
-  .favorite-foods .nav-link {
     margin: 0 10px;
-    padding: 10px 0;
-  }
+    padding: 10px 5px;
+    transition: 0.3s;
+    color: var(--color-secondary);
+    border-radius: 0;
+    cursor: pointer;
+    height: 100%;
+    border: 0;
+    border-bottom: 2px solid #b6b6bf;
 }
 
 .favorite-foods .nav-link i {
-  padding-right: 15px;
-  font-size: 48px;
+    padding-right: 15px;
+    font-size: 48px;
 }
 
 .favorite-foods .nav-link h4 {
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-  font-family: var(--font-secondary);
-}
-
-@media (max-width: 575px) {
-  .favorite-foods .nav-link h4 {
-    font-size: 16px;
-  }
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    font-family: var(--font-secondary);
 }
 
 .favorite-foods .nav-link:hover {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .favorite-foods .nav-link.active {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
-.favorite-foods .tab-content .tab-header {
-  padding: 30px 0;
+.favorite-foods .section-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
-.favorite-foods .tab-content .tab-header p {
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #676775;
-  margin-bottom: 0;
-}
+@media (max-width: 575px) {
+    .favorite-foods .nav-link {
+        margin: 0 10px;
+        padding: 10px 0;
+    }
 
-.favorite-foods .tab-content .tab-header h3 {
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.favorite-foods .tab-content .favorite-foods-item {
-  -moz-text-align-last: center;
-  text-align-last: center;
-}
-
-.favorite-foods .tab-content .favorite-foods-item .favorite-foods-img {
-  padding: 0 60px;
-  margin-bottom: 15px;
-  transition: transform 0.2s ease;
-}
-.favorite-foods .tab-content .favorite-foods-item .favorite-foods-img:hover {
-  padding: 0 60px;
-  margin-bottom: 15px;
-  transform: scale(1.02);
+    .favorite-foods .nav-link h4 {
+        font-size: 16px;
+    }
 }
 
 .menu .tab-content .menu-item .menu-img:hover {

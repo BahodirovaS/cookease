@@ -2,6 +2,7 @@ import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "./auth/api";
 import { useGetTokenQuery } from "./auth/authApi";
 import { useState, useEffect } from "react";
 import './assets/css/main.css';
+import RecipeCard from './RecipeCard';
 
 
 function FavoriteRecipes() {
@@ -75,42 +76,42 @@ function FavoriteRecipes() {
                     </div>
                     <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
                         <div className="tab-pane fade active show" id="favorite-foods-starters">
-                            <div className="tab-header text-center">
-                                {tokenData ? (
-                                    <div className="row gy-5">
-                                        {favorites && favorites.favorites.map((recipe) => (
-                                            <div key={recipe.id} className="col-lg-4 favorite-foods-item">
-                                                <button className="btn btn-link" onClick={() => handleFavorite(recipe.id)}>
-                                                    <i className="bi bi-heart-fill heart-icon" style={{ color: 'red' }}></i>
-                                                </button>
-                                                <a href={"recipe-details/" + recipe.id} className="glightbox">
-                                                    <img src={recipe.image} className="favorite-foods-img img-fluid rounded-circle" alt={recipe.title} />
-                                                </a>
-                                                <h4>{recipe.title}</h4>
-                                                <ul className="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                                                    <li className="nav-item">
-                                                        <a href={"recipe-details/" + recipe.id} className="nav-link active show">
-                                                            Read More
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                            <div className="search-results-container">
+                                <div className="row row-cols-1 row-cols-md-3 g-4">
+                                    {tokenData ? (
+                                        favorites && favorites.favorites.map((recipe) => (
+                                            <div key={recipe.id} className="col">
+                                                <div className="recipe-card">
+                                                    <div className="heart-icon-wrapper">
+                                                        {tokenData && (
+                                                            <button className="btn btn-link" onClick={() => handleFavorite(recipe.id, recipe.title, recipe.image)}>
+                                                                {favorites.favorites?.some(fav => fav.id === recipe.id) ?
+                                                                    <i className="bi bi-heart-fill heart-icon text-danger"></i> :
+                                                                    <i className="bi bi-heart heart-icon"></i>
+                                                                }
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                    <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
+                                                </div>
                                             </div>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <div className="section-header">
-                                        <h4>You must be logged in to see your favorites!</h4>
-                                        <p>Create an account now or sign in!
-                                            <a className="dropdown-item" href="signup">Sign Up</a>
-                                            <a className="dropdown-item" href="login">Log In</a>
-                                        </p>
-                                    </div>
-                                )}
+                                        ))
+                                    ) : (
+                                        <div className="section-header">
+                                            <h4>You must be logged in to see your favorites!</h4>
+                                            <p>Create an account now or sign in!
+                                                <a className="dropdown-item" href="signup">Sign Up</a>
+                                                <a className="dropdown-item" href="login">Log In</a>
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section >
+            </section>
+
         </>
     )
 }
