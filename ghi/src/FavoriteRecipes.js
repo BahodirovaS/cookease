@@ -69,14 +69,14 @@ function FavoriteRecipes() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            <section id="favorite-foods" className="favorite-foods section-bg">
-                <div className="container" data-aos="fade-up">
+            <div className="favorite-foods">
+                <div className="favorites-container" data-aos="fade-up">
                     <div className="section-header">
                         <p>My <span>Favorite </span> Recipes</p>
                     </div>
-                    <div className="tab-content" data-aos="fade-up" data-aos-delay="300">
-                        <div className="tab-pane fade active show" id="favorite-foods-starters">
-                            <div className="search-results-container">
+                    <div className="row">
+                        <div className="col">
+                            <div className="favorite-foods-container">
                                 <div className="row row-cols-1 row-cols-md-3 g-4">
                                     {tokenData ? (
                                         favorites && favorites.favorites.map((recipe) => (
@@ -110,7 +110,7 @@ function FavoriteRecipes() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
         </>
     )
