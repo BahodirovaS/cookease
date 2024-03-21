@@ -40,5 +40,7 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_cookease_API_HOST: http://localhost:8000
-      REACT_APP_SPOONACULAR_HOST: https://api.spoonacular.com/recipes/complexSearch??
+      REACT_APP_COOKEASE_API_HOST: http://localhost:8000
+      REACT_APP_SPOONACULAR_HOST: https://api.spoonacular.com/recipes/complexSearch?
+
+# changed line 43 from REACT_API_COOKEASE_API_HOST

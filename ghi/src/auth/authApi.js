@@ -4,7 +4,7 @@ import { clearForm } from "./accountSlice";
 export const authApiSlice = createApi({
   reducerPath: "authentication",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_cookease_API_HOST,
+    baseUrl: process.env.REACT_APP_COOKEASE_API_HOST,
     prepareHeaders: (headers, { getState }) => {
       const selector = authApiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
@@ -31,7 +31,8 @@ export const authApiSlice = createApi({
         try {
           await queryFulfilled;
           dispatch(clearForm());
-        } catch (err) {}
+        } catch (err) {
+        }
       },
     }),
     logIn: builder.mutation({
@@ -59,7 +60,7 @@ export const authApiSlice = createApi({
         try {
           await queryFulfilled;
           dispatch(clearForm());
-        } catch (err) {}
+        } catch (err) { }
       },
     }),
     logOut: builder.mutation({

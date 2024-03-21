@@ -4,7 +4,7 @@ import { authApiSlice } from "./authApi";
 export const apiSlice = createApi({
   reducerPath: "recipes",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_cookease_API_HOST,
+    baseUrl: process.env.REACT_APP_COOKEASE_API_HOST,
     prepareHeaders: (headers, { getState }) => {
       const selector = authApiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
@@ -17,21 +17,13 @@ export const apiSlice = createApi({
   tagTypes: ["Account", "Recipes", "Favorites", "Recipe-Detail", "Token"],
   endpoints: (builder) => ({
     addFavoriteRecipe: builder.mutation({
-      query: (form) => {
-        const formData = new FormData(form);
-        const entries = Array.from(formData.entries());
-        const data = entries.reduce((acc, [key, value]) => {
-          acc[key] = Number.parseInt(value) || value;
-          return acc;
-        }, {});
-        return {
-          method: "post",
-          url: "/favorites-recipes",
-          credentials: "include",
-          body: data,
-        };
-      },
-      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
+      query: (id) => ({
+        method: "post",
+        url: "/favorites-recipes",
+        credentials: "include",
+        body: { ...id },
+      }),
+      invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
     getFavorite: builder.query({
       query: () => ({
@@ -41,7 +33,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Favorites", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Favorites", id })));
@@ -54,7 +45,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Recipes", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Recipes", id })));
@@ -67,7 +57,6 @@ export const apiSlice = createApi({
       providesTags: (data) => {
         const tags = [{ type: "Recipe-Detail", id: "LIST" }];
         if (!data || !data.recipes) return tags;
-
         const { recipes } = data;
         if (recipes) {
           tags.concat(...recipes.map(({ id }) => ({ type: "Recipe-Detail", id })));
@@ -76,11 +65,11 @@ export const apiSlice = createApi({
       },
     }),
     deleteFavorite: builder.mutation({
-      query: (id) => ({
+      query: (payload) => ({
         method: "delete",
-        url: `/favorites-recipes/{id}`,
+        url: `/favorites-recipes/${payload.recipe_id}`,
       }),
-      invalidatesTags: [{ type: "Recipes", id: "LIST" }],
+      invalidatesTags: [{ type: "Favorites", id: "LIST" }],
     }),
   }),
 });

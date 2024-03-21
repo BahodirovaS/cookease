@@ -1,10 +1,8 @@
 import requests
 import os
-import json
 
-from keys.keys import SPOONACULAR_API_KEY
 
-# SPOONACULAR_API_KEY = os.environ["SPOONACULAR_API_KEY"]
+SPOONACULAR_API_KEY = os.environ["SPOONACULAR_API_KEY"]
 
 
 class RecipeQueries:
