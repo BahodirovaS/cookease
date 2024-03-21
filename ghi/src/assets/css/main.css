@@ -152,6 +152,10 @@ section {
   z-index: 997;
   height: 60px;
 }
+
+.header .container {
+  display: flex;
+}
 @media (max-width: 575px) {
   .header {
     height: 70px;
@@ -554,6 +558,11 @@ section {
 /*--------------------------------------------------------------
 # Recipe Card
 --------------------------------------------------------------*/
+.search-container {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 .recipe-card {
     margin-right: 25px;
     margin-bottom: 20px;
@@ -583,8 +592,8 @@ section {
 
 .heart-icon-wrapper {
     position: absolute;
-    top: 225px;
-    left: 15px;
+    top: 10px;
+    right: 10px;
     z-index: 1;
 }
 
@@ -609,6 +618,11 @@ section {
 }
 
 
+@media (min-width: 992px) {
+    .search-container {
+        padding: 0;
+    }
+}
 
 /*--------------------------------------------------------------
 # Search Recipe
@@ -657,10 +671,10 @@ section {
 .page-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .main-container {
-  /* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('./../img/search-bg.png'); */
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -673,6 +687,13 @@ section {
   flex-direction: column;
   margin-left: 30px;
   align-items: start;
+}
+
+@media (min-width: 1400px) {
+    .page-container {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
 }
 
 .words-container h2 {
@@ -787,6 +808,8 @@ section {
   background-color: #fbf2ee;
   margin-top: 15px;
 }
+
+
 .form-container form {
   display: flex;
   flex-direction: column;

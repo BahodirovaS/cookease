@@ -201,7 +201,7 @@ function RecipeSearch() {
                     </form>
                 </div>
             </div>
-            <div className="container">
+            <div className="search-container">
                 <div className="row">
                     <div className="col">
                         <div className="search-results-container">
