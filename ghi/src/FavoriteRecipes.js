@@ -67,6 +67,7 @@ function FavoriteRecipes() {
                 <div className="favorites-container" data-aos="fade-up">
                     <div className="section-header">
                         <p>My <span>Favorite </span> Recipes</p>
+                        <h2>Click on the heart to remove a recipe from your favorites</h2>
                     </div>
                     <div className="row">
                         <div className="col">

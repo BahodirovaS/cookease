@@ -86,7 +86,7 @@ section {
   padding: 0;
   color: #7f7f90;
   text-transform: uppercase;
-  font-family: var(--font-default);
+  font-family: var(--font-tertiary);
 }
 
 .section-header p {
@@ -1206,6 +1206,10 @@ tbody:hover tr:hover td {
     padding: 0 20px;
 }
 
+.favorites-container .section-header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
 
 
