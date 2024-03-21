@@ -50,15 +50,9 @@ function FavoriteRecipes() {
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src="https://images.pexels.com/photos/1660037/pexels-photo-1660037.jpeg?auto=compress&crop=focalpoint&cs=tinysrgb&dpr=1&fit=crop&h=700&w=1200" className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://expertphotography.b-cdn.net/wp-content/uploads/2019/01/brooke-lark-158017-unsplash-1500-1.jpg" className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://static.showit.co/1600/6uiiOA2dSXyYkIga_0XM7Q/86938/fall_tablescape_-_food_photography_-_frenchly_photography-7575.jpg" className="d-block w-100" alt="..." />
-                    </div>
+                    <div className="carousel-item active"></div>
+                    <div className="carousel-item"></div>
+                    <div className="carousel-item"></div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>

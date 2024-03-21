@@ -1181,9 +1181,21 @@ tbody:hover tr:hover td {
 /*--------------------------------------------------------------
 # favorite-foods Section
 --------------------------------------------------------------*/
-.carousel-item img {
-  object-fit: cover;
-  object-position: center;
+.carousel-item:nth-of-type(1) {
+  background-image: url('./../img/favorites-1.webp');
+}
+
+.carousel-item:nth-of-type(2) {
+  background-image: url('./../img/favorites-2.jpeg');
+}
+
+.carousel-item:nth-of-type(3) {
+  background-image: url('./../img/favorites-3.jpg');
+}
+
+.carousel-item {
+  background-size: cover;
+  background-position: center;
   height: 50vh;
   overflow: hidden;
 }
