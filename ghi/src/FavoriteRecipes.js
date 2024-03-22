@@ -3,6 +3,7 @@ import { useGetTokenQuery } from "./auth/authApi";
 import { useState, useEffect } from "react";
 import './assets/css/main.css';
 import RecipeCard from './RecipeCard';
+import { NavLink } from "react-router-dom";
 
 
 function FavoriteRecipes() {
@@ -64,17 +65,21 @@ function FavoriteRecipes() {
                 </button>
             </div>
             <div className="favorite-foods">
-                <div className="favorites-container" data-aos="fade-up">
-                    <div className="section-header">
+                <div className="favorites-container">
+                    <div className="favorites-header">
                         <p>My <span>Favorite </span> Recipes</p>
+                        {tokenData ? (
                         <h2>Click on the heart to remove a recipe from your favorites</h2>
+                        ):(
+                            <div></div>
+                        )}
                     </div>
                     <div className="row">
                         <div className="col">
                             <div className="favorite-foods-container">
-                                <div className="row row-cols-1 row-cols-md-3 g-4">
-                                    {tokenData ? (
-                                        favorites && favorites.favorites.map((recipe) => (
+                                {tokenData ? (
+                                    <div className="row row-cols-1 row-cols-md-3 g-4">
+                                        {favorites && favorites.favorites.map((recipe) => (
                                             <div key={recipe.id} className="col">
                                                 <div className="recipe-card">
                                                     <div className="heart-icon-wrapper">
@@ -90,21 +95,21 @@ function FavoriteRecipes() {
                                                     <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
                                                 </div>
                                             </div>
-                                        ))
-                                    ) : (
-                                        <div className="section-header">
-                                            <h4>You must be logged in to see your favorites!</h4>
-                                            <p>Create an account now or sign in!
-                                                <a className="dropdown-item" href="signup">Sign Up</a>
-                                                <a className="dropdown-item" href="login">Log In</a>
-                                            </p>
-                                        </div>
-                                    )}
-                                </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="login-message">
+                                        <h4>You must be logged in to see your favorites!</h4>
+                                        <p>Create an account now or sign in!</p>
+                                        <NavLink className="favorites-navlink" to="/signup">Sign Up</NavLink>
+                                        <NavLink className="favorites-navlink" to="/login">Log In</NavLink>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </>
