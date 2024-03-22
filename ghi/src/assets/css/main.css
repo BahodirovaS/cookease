@@ -1246,8 +1246,9 @@ tbody:hover tr:hover td {
   display: flex;
   justify-content: center;
   align-items: top;
-  height: 100vh;
+  /* height: 100vh; */
   text-align: center;
+  padding-bottom: 100px;
 }
 
 .favorites-navlink {
