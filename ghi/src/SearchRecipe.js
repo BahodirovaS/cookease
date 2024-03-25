@@ -54,9 +54,6 @@ function RecipeSearch() {
     const handleInputChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-    // const handleAddFavorite = (recipe) => {
-    //     setFavorites([...favorites, recipe])
-    // }
 
     if (isLoading) {
         return (
