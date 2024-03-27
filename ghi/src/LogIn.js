@@ -36,55 +36,53 @@ function LogIn() {
 
 
   return (
-    <section class="login-section">
-      <div class="account-container">
-        <div class="account-form-container">
-          <div class="card">
-            <div class="card-body p-5 h-100 d-flex flex-column justify-content-center">
-              <h2 class="text-center mkb-5">Log in</h2>
-              {error && <div class="alert alert-danger">{error}</div>}
-              <form method="POST" onSubmit={handleLogIn}>
-                <div class="form-outline mb-4">
-                  <label class="label" htmlFor="username">Username</label>
-                  <div class="control">
-                    <input
-                      required
-                      onChange={field}
-                      value={username}
-                      name="username"
-                      class="form-control form-control-lg"
-                      type="text"
-                      placeholder="Username"
-                    />
-                  </div>
-                </div>
-                <div class="form-outline mb-4">
-                  <label class="label">Password</label>
-                  <div class="control">
-                    <input
-                      required
-                      onChange={field}
-                      value={password}
-                      name="password"
-                      class="form-control form-control-lg"
-                      type="password"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <div class="control">
-                    <button disabled={logInLoading} class="account-btn">Log In</button>
-                  </div>
-                </div>
-              </form>
+    <section className="login-section">
+      <div className="account-form-container">
+        <div className="account-container">
+          <h2 className="text-center mkb-5">Log in</h2>
+          {error && <div className="alert alert-danger">{error}</div>}
+          <form method="POST" onSubmit={handleLogIn}>
+            <div className="form-outline mb-4">
+              <label className="label" htmlFor="username">Username</label>
+              <div className="control">
+                <input
+                  required
+                  onChange={field}
+                  value={username}
+                  name="username"
+                  className="form-control form-control-lg"
+                  type="text"
+                  placeholder="Username"
+                />
+              </div>
             </div>
-          </div>
+            <div className="form-outline mb-4">
+              <label className="label">Password</label>
+              <div className="control">
+                <input
+                  required
+                  onChange={field}
+                  value={password}
+                  name="password"
+                  className="form-control form-control-lg"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="control">
+                <button disabled={logInLoading} className="account-btn">Log In</button>
+              </div>
+            </div>
+          </form>
+
         </div>
       </div>
-    </section>
 
+    </section>
   );
+
 }
 
 export default LogIn;
