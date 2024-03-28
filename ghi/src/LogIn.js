@@ -37,46 +37,47 @@ function LogIn() {
 
   return (
     <section className="login-section">
-      <div className="account-form-container">
-        <div className="account-container">
-          <h2 className="text-center mkb-5">Log in</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <form method="POST" onSubmit={handleLogIn}>
-            <div className="form-outline mb-4">
-              <label className="label" htmlFor="username">Username</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={username}
-                  name="username"
-                  className="form-control form-control-lg"
-                  type="text"
-                  // placeholder="Username"
-                />
+      <div className={modalClass} key="login-modal">
+        <div className="account-form-container">
+          <div className="account-container">
+            <h2 className="text-center mkb-5">Log in</h2>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <form method="POST" onSubmit={handleLogIn}>
+              <div className="form-outline mb-4">
+                <label className="label" htmlFor="username">Username</label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={username}
+                    name="username"
+                    className="form-control form-control-lg"
+                    type="text"
+                    // placeholder="Username"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="form-outline mb-4">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  required
-                  onChange={field}
-                  value={password}
-                  name="password"
-                  className="form-control form-control-lg"
-                  type="password"
-                  // placeholder="Password"
-                />
+              <div className="form-outline mb-4">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={password}
+                    name="password"
+                    className="form-control form-control-lg"
+                    type="password"
+                    // placeholder="Password"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-center">
-              <div className="control">
-                <button disabled={logInLoading} className="account-btn">Start Cooking</button>
+              <div className="d-flex justify-content-center">
+                <div className="control">
+                  <button disabled={logInLoading} className="account-btn">Start</button>
+                </div>
               </div>
-            </div>
-          </form>
-
+            </form>
+          </div>
         </div>
       </div>
 

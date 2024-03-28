@@ -44,87 +44,81 @@ function SignUp() {
   );
 
   return (
-    <section className="vh-100 bg-image"
-      style={{ backgroundImage: "url('https://i.imgur.com/NBJdjVd.jpeg')" }}>
+    <section className="sign-up section">
       <div className={modalClass} key="signup-modal">
-        <div className="mask d-flex align-items-center h-100 gradient-custom-3"></div>
-        <div className="account-container">
-          <div className="account-form-container">
-            <div className="card" style={{ borderRadius: "15px" }}>
-              <div className="card-body p-5">
-                <h2 className="text-center mkb-5" style={{ fontFamily: "Amatic SC, sans-serif", fontSize: "60px" }} >Create An Account</h2>
-                <form onSubmit={handleSubmit}>
-                  {error && <div className="alert alert-danger">{"Username already exists!"}</div>}
-                  <div className="form-outline mb-4">
-                    <label className="label" htmlFor="username">
-                      Username
-                    </label>
-                    <div className="control">
-                      <input
-                        required
-                        onChange={field}
-                        value={username}
-                        name="username"
-                        className="form-control form-control-lg"
-                        type="text"
-                        placeholder="Username"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-outline mb-4">
-                    <label className="label">Password</label>
-                    <div className="control">
-                      <input
-                        required
-                        onChange={field}
-                        value={password}
-                        name="password"
-                        className="form-control form-control-lg"
-                        type="password"
-                        placeholder="Password"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-outline mb-4">
-                    <label className="label">First name</label>
-                    <div className="control">
-                      <input
-                        required
-                        onChange={field}
-                        value={first_name}
-                        name="first_name"
-                        className="form-control form-control-lg"
-                        type="text"
-                        placeholder="Your First Name"
-                      />
-                    </div>
-                  </div>
-                  <div className="form-outline mb-4">
-                    <label className="label">Last name</label>
-                    <div className="control">
-                      <input
-                        required
-                        onChange={field}
-                        value={last_name}
-                        name="last_name"
-                        className="form-control form-control-lg"
-                        type="text"
-                        placeholder="Your Last Name"
-                      />
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <div className="control">
-                      <button disabled={signUpLoading} className="account-btn">
-                        Sign up!
-                      </button>
-                    </div>
-                  </div>
-                    {errorMessage && <div className="error">{errorMessage}
-                  </div>}
-                </form>
+        <div className="account-form-container">
+          <div className="account-container">
+            <h2 className="text-center mkb-5">Create An Account</h2>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <form onSubmit={handleSubmit}>
+              <div className="form-outline mb-4">
+                <label className="label" htmlFor="username">
+                  Username
+                </label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={username}
+                    name="username"
+                    className="form-control form-control-lg"
+                    type="text"
+                  // placeholder="Username"
+                  />
+                </div>
               </div>
-            </div>
+              <div className="form-outline mb-4">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={password}
+                    name="password"
+                    className="form-control form-control-lg"
+                    type="password"
+                  // placeholder="Password"
+                  />
+                </div>
+              </div>
+              <div className="form-outline mb-4">
+                <label className="label">First name</label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={first_name}
+                    name="first_name"
+                    className="form-control form-control-lg"
+                    type="text"
+                  // placeholder="Your First Name"
+                  />
+                </div>
+              </div>
+              <div className="form-outline mb-4">
+                <label className="label">Last name</label>
+                <div className="control">
+                  <input
+                    required
+                    onChange={field}
+                    value={last_name}
+                    name="last_name"
+                    className="form-control form-control-lg"
+                    type="text"
+                  // placeholder="Your Last Name"
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <div className="control">
+                  <button disabled={signUpLoading} className="account-btn">
+                    Sign up!
+                  </button>
+                </div>
+              </div>
+              {errorMessage && <div className="error">{errorMessage}
+              </div>}
+            </form>
           </div>
         </div>
       </div>

@@ -428,6 +428,16 @@ section {
   background-position: 120px -45px;
 }
 
+@media (max-width: 1024px) {
+  .account-form-container {
+    padding-left: 50px;
+  }
+
+  .account-container {
+    width: 300px;
+  }
+}
+
 .account-container {
   height: 700px;
   width: 500px;
