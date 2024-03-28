@@ -419,22 +419,25 @@ section {
 
 .account-form-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 140px;
   align-items: center;
   z-index: 9999;
-  /* background-image: url('./../img/login-bg.avif'); */
-  /* background-size: cover; */
+  background-image: url('./../img/login-bg2.jpg');
+  background-size: cover;
+  background-position: 120px -45px;
 }
 
 .account-container {
   height: 700px;
-  width: 600px;
+  width: 500px;
   align-items: center;
   padding-top: 50px;
 }
 
 .account-container label,
-.account-container h2 {
+.account-container h2,
+.account-container ::placeholder {
   font-family: var(--font-primary);
 }
 

@@ -52,7 +52,7 @@ function LogIn() {
                   name="username"
                   className="form-control form-control-lg"
                   type="text"
-                  placeholder="Username"
+                  // placeholder="Username"
                 />
               </div>
             </div>
@@ -66,13 +66,13 @@ function LogIn() {
                   name="password"
                   className="form-control form-control-lg"
                   type="password"
-                  placeholder="Password"
+                  // placeholder="Password"
                 />
               </div>
             </div>
             <div className="d-flex justify-content-center">
               <div className="control">
-                <button disabled={logInLoading} className="account-btn">Log In</button>
+                <button disabled={logInLoading} className="account-btn">Start Cooking</button>
               </div>
             </div>
           </form>
