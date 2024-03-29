@@ -14,33 +14,6 @@ CookEase is built for those who struggle to find new recipes to fit their specif
 
 A wireframe was used as a guide to create the initial layout of this application. User authentication was implemented first in the backend using JWTdown. We then went into creating endpoints to filter and provide the search data coming from the third-party API, requiring users to have a token when necessary. Once the backend was running smoothly, we started building the frontend and their components to test. Unit tests were created to ensure that the endpoints were working.
 
-## M.V.P
-
-We created a:
-
--Login/logout/signup page
--Main page to welcome users
--Search page to search for recipes by integrating the Spoonacular API
--Recipe-detail page to view a recipe
--Favorite page for logged in users to save their recipes
--> If users are logged in, a heart button allows them to save their recipes to their favorites.
-
-## Test
-
-Sabina - Test Favorites (cookease\tests\test_favorites.py)
-Eric - Test Create Favorite (cookease\tests\test_createfav.py)
-Jennifer - Test Recipe Details (cookease\tests\test_recipe_detail.py)
-Braeden - Test Delete Favorite (cookease\tests\test_deletefav.py)
-Benjamin - Test Search Recipe (cookease\tests\get_recipe.py)
-
-## Stretch Goals
-
--Allows logged in users to create a recipe and save it to their own database
--Users will be able to edit their account information
--Users will be able to add a profile picture of their choice
--Can organize the recipes in their favorites based on their preferences
--> For example, a folder for drinks, mexican food, breakfast recipes, etc
-
 ## Set up
 
 1. Fork and Clone repo [https://gitlab.com/guardians-of-the-repository/cookease]
@@ -54,8 +27,3 @@ Benjamin - Test Search Recipe (cookease\tests\get_recipe.py)
 9. run -docker compose build
 10. run -docker compose up
 
-## Deliverables
-
-![Alt text](<image%20(3).png>)
-
--[API documentation] (docs\api-design.md) -[Project is deployed to render.com/GitLab-pages] (https://GuardiansOfTheRepository.gitlab.io/cookease) -[GitLab issue board is setup and in use] -[Sabina Journal] (journals\sabina_bahodirova.md) -[Eric Journal] (journals\eric_dong.md) -[Jennifer Journal] (journals\Jennifer_Tovar.md) -[Braeden Journal] (journals\braeden_sizemore.md) -[Benjamin Journal] (journals\benjamin_hoag.md)

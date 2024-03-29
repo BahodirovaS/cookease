@@ -3,6 +3,7 @@ import { useGetTokenQuery } from "./auth/authApi";
 import { useParams } from 'react-router-dom'
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import { NavLink } from 'react-router-dom';
 
 
 function RecipeDetails() {
@@ -41,25 +42,59 @@ function RecipeDetails() {
     return (
         <section id="recipe-detail" className="detail section-bg">
             <div className="container">
+                <div className="recipe-title mb-3">
+                    <div className="header-text">{data.title}</div>
+                    {currentUser ? (
+                        <button className="btn btn-link" onClick={() => handleFavorite(data.id, data.title, data.image)}>
+                            {favorites.favorites?.some(fav => fav.id === data.id) ?
+                                <i className="bi bi-heart-fill bi-3x heart-icon text-danger"></i> :
+                                <i className="bi bi-heart bi-3x heart-icon"></i>
+                            }
+                        </button>
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
                 <div className="row">
-                    <div className="col-12 col-lg-5">
-                        {currentUser ? (
-                            <button className="btn btn-link" onClick={() => handleFavorite(data.id, data.title, data.image)}>
-                                {favorites.favorites?.some(fav => fav.id === data.id) ?
-                                    <i className="bi bi-heart-fill bi-3x heart-icon text-danger"></i> :
-                                    <i className="bi bi-heart bi-3x heart-icon"></i>
-                                }
-                            </button>
-                        ) : (
-                            <div></div>
-                        )}
+                    <div className="col-12 col-lg-7">
                         <div className="rectangle-image">
                             <img src={data.image} alt={data.title} className="img-fluid mb-3" />
                         </div>
-                        <div className="card mb-3 text-white mb-3">
-                            <div className="card-header">Ingredients</div>
+                        <div className="instructions-title">
+                            <h3>Instructions</h3>
                         </div>
-                        <div className="card bg-danger2 text-white mb-3 scrollbar section-bg">
+                        <div className="instructions-list scrollbar">
+                            <table className="table table-borderless instructions">
+                                <tbody>
+                                    {data.analyzedInstructions.map((instruction) =>
+                                        instruction.steps.map((step) => (
+                                            <tr key={step.number}>
+                                                <td><strong>{step.number}</strong></td>
+                                                <td>{step.step}</td>
+                                            </tr>
+                                        ))
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div className="col-12 col-lg-4">
+                        <div className="recipe-info">
+                            <div className="card p-4 mb-3">
+                                <p className="info-text">
+                                    {data.dairyFree ? "Dairy Free" : "NOT Dairy Free"}<br />
+                                    {data.glutenFree ? "Gluten Free" : "NOT Gluten Free"}<br />
+                                    {data.veryHealthy ? "Very Healthy" : "NOT Very Healthy"}<br />
+                                    <strong>Servings:</strong> {data.servings}<br />
+                                    <strong>Cooking Time:</strong> {data.readyInMinutes} minutes<br />
+                                    <NavLink to={data.sourceUrl} className="link">View Original Recipe</NavLink>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="ingredient-title">
+                            <h4>Ingredients</h4>
+                        </div>
+                        <div className="ingredient-list scrollbar">
                             <table className="table table-borderless" id="style-1">
                                 <tbody>
                                     {data.extendedIngredients.map((ingredient) => (
@@ -75,55 +110,12 @@ function RecipeDetails() {
                             </table>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-7">
-                        <div className="text-white mb-3">
-                            <div className="card-header2">{data.title}</div>
-                        </div>
-                        <div className="card bg-danger text-white mb-3">
-                            <div className="card-body information">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <h5 className="card-title">Dietary Information</h5>
-                                        <p className="card-text info">
-                                            Dairy Free: {data.dairyFree ? "Yes" : "No"}<br />
-                                            Gluten Free: {data.glutenFree ? "Yes" : "No"}<br />
-                                            Very Healthy: {data.veryHealthy ? "Yes" : "No"}
-                                        </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <h5 className="card-title">Cooking Time</h5>
-                                        <p className="card-text info">{data.readyInMinutes} minutes</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card bg-danger4 mb-3 border-0 section-bg">
-                            <div className="card-body summary">
-                                <p className="card-text">{replace}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card mb-3 text-white mb-3">
-                    <div className="card-header">Instructions</div>
-                </div>
-                <div className="card bg-danger3 mb-3 section-bg">
-                    <table className="table table-borderless instructions">
-                        <tbody>
-                            {data.analyzedInstructions.map((instruction) =>
-                                instruction.steps.map((step) => (
-                                    <tr key={step.number}>
-                                        <td><strong>{step.number}</strong></td>
-                                        <td>{step.step}</td>
-                                    </tr>
-                                ))
-                            )}
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </section>
     );
+
+
 }
 
 export default RecipeDetails;
