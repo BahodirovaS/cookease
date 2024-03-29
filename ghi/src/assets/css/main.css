@@ -215,7 +215,7 @@ section {
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
-@media (min-width: 1280px) {
+
   .navbar {
     padding: 0;
   }
@@ -231,11 +231,12 @@ section {
   }
 
   .offcanvas .offcanvas-body .dropdown a {
-    font-family: var(--font-primary);
-    font-size: 50px;
+    font-family: var(--font-tertiary);
+    font-size: 25px;
     font-weight: bold;
     color: #7f7f90;
     transition: 0.3s;
+    padding-bottom: 10px;
   }
 
   .offcanvas>div>div>div>a:before {
@@ -250,8 +251,8 @@ section {
     color: #000;
   }
   .offcanvas .dropdown button {
-    font-family: var(--font-primary);
-    font-size: 50px;
+    font-family: var(--font-tertiary);
+    font-size: 25px;
     font-weight: bold;
     color: #7f7f90;
     transition: 0.3s;
@@ -390,7 +391,7 @@ section {
     left: 100%;
     visibility: visible;
   }
-}
+
 
 @media (min-width: 1280px) and (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
@@ -415,6 +416,7 @@ section {
 --------------------------------------------------------------*/
 .login-section {
   position: relative;
+  padding-bottom: 0px ;
 }
 
 .account-form-container {
