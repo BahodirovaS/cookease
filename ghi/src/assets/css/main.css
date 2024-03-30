@@ -592,7 +592,7 @@ section {
 }
 .recipe-card {
     margin-right: 25px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     overflow: hidden;
     transition: transform 0.3s ease;
     height: 400px;
@@ -1114,7 +1114,7 @@ section {
 .favorites-container {
     max-width: 1030px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px 50px;
 }
 
 .favorites-container .favorites-header {
@@ -1503,12 +1503,17 @@ section {
   background: rgba(206, 18, 18, 0.8);
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1200px) {
   .welcome h2 {
-    font-size: 36px;
+    font-size: 50px;
   }
 
+  .welcome .container {
+    margin-top: 70px;
+  }
 }
+
+
 
 /*--------------------------------------------------------------
 # Footer
