@@ -70,7 +70,7 @@ section {
 }
 
 .section-bg {
-  background: linear-gradient(to bottom, #fff 20%, hsl(27, 73%, 97%));
+  padding-top: 8px;
 }
 
 .section-header {
@@ -946,8 +946,9 @@ section {
 }
 
 .recipe-info .card {
-  background-color: #FCE4EC;
+  background-color: #f7d7d7;
   border-radius: 0%;
+  border-color: #f7d7d7;
 }
 
 .ingredient-title h4,
@@ -967,6 +968,10 @@ section {
   height: 50px;
 }
 
+.rectangle-image img {
+  width: 700px;
+  height: auto;
+}
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
