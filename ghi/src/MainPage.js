@@ -49,7 +49,7 @@ function MainPage() {
                         <div className="col-lg-7 position-relative about-img" data-aos="fade-up" data-aos-delay="150">
                             <div className="join-us position-absolute">
                                 <h4>Join to save hundreds of recipes!</h4>
-                                <NavLink to="signup">Create an Account</NavLink>
+                                <NavLink to="signup" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Create an Account</NavLink>
                             </div>
                         </div>
                         <div className="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">

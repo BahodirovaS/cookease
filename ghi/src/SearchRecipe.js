@@ -89,10 +89,14 @@ function RecipeSearch() {
                         <p>Fill out all or some of the fields below to uncover recipes that fit your preferences.
                             Create an account now or log in to save them!
                         </p>
+                        {!currentUser? (
                         <div className="button-container">
-                            <NavLink to="/signup" className="btn-signup">Create Account</NavLink>
-                            <NavLink to="/login" className="btn-login">Log In</NavLink>
+                            <NavLink to="/signup" className="btn-signup" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Create Account</NavLink>
+                            <NavLink to="/login" className="btn-login" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Log In</NavLink>
                         </div>
+                        ):(
+                        <div></div>
+                        )}
                     </div>
                     <div className="images-container">
                         <div className="image-grid">

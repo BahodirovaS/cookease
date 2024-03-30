@@ -9,6 +9,7 @@ import RecipeSearch from "./SearchRecipe";
 import RecipeDetails from "./RecipeDetail";
 import FavoriteRecipes from "./FavoriteRecipes";
 import Footer from "./Footer";
+import { useState, useEffect } from "react";
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
@@ -16,21 +17,38 @@ function App() {
   useGetTokenQuery();
   const domain = /https:\/\/[^/]+/;
   const basename = process.env.PUBLIC_URL.replace(domain, '');
+
+  const [screenLoading, setScreenLoading] = useState(false);
+
+  useEffect(() => {
+    setScreenLoading(true);
+    setTimeout(() => {
+      setScreenLoading(false);
+    }, 1000);
+  }, []);
+
   return (
-    <BrowserRouter basename={basename}>
-      <Nav />
-      <div>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="login" element={<LogIn accountId={accountId} />} />
-          <Route path="search-recipes" element={<RecipeSearch />} />
-          <Route path="recipe-details/:id" element={<RecipeDetails />} />
-          <Route path="favorites-recipes" element={<FavoriteRecipes />} />
-        </Routes>
-      </div>
-      <Footer />
-    </BrowserRouter>
+    <>
+      {screenLoading ? (
+        <div id="preloader">
+        </div>
+      ) : (
+        <BrowserRouter basename={basename}>
+          <Nav />
+          <div>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="login" element={<LogIn accountId={accountId} />} />
+              <Route path="search-recipes" element={<RecipeSearch />} />
+              <Route path="recipe-details/:id" element={<RecipeDetails />} />
+              <Route path="favorites-recipes" element={<FavoriteRecipes />} />
+            </Routes>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      )}
+    </>
   );
 }
 

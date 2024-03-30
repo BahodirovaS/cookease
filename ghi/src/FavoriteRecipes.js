@@ -26,6 +26,8 @@ function FavoriteRecipes() {
             <progress className="progress is-primary" max="100"></progress>
         )
     }
+
+
     const handleFavorite = async (id) => {
         let isFavorite = false;
         let recipe_id;
@@ -41,6 +43,7 @@ function FavoriteRecipes() {
             setDeletedRecipeId(id);
         }
     }
+
 
     return (
         <>
@@ -101,8 +104,8 @@ function FavoriteRecipes() {
                                     <div className="login-message">
                                         <h4>You must be logged in to see your favorites!</h4>
                                         <p>Create an account now or sign in!</p>
-                                        <NavLink className="favorites-navlink" to="/signup">Sign Up</NavLink>
-                                        <NavLink className="favorites-navlink" to="/login">Log In</NavLink>
+                                            <NavLink className="favorites-navlink" to="/signup" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Sign Up</NavLink>
+                                            <NavLink className="favorites-navlink" to="/login" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Log In</NavLink>
                                     </div>
                                 )}
                             </div>
