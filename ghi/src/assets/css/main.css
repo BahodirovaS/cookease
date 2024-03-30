@@ -592,7 +592,7 @@ section {
 }
 .recipe-card {
     margin-right: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     overflow: hidden;
     transition: transform 0.3s ease;
     height: 400px;
@@ -896,7 +896,13 @@ section {
 # Recipe Detail
 --------------------------------------------------------------*/
 
-.detail .ingredient-list,
+.detail .ingredient-list {
+  background-color: transparent;
+  overflow: auto;
+  height: 420px;
+}
+
+
 .detail .instructions-list {
   background-color: transparent;
   overflow: auto;
@@ -950,6 +956,10 @@ section {
   font-family: var(--font-quarternary);
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.ingredient-title h4 {
+  padding-top: 25px;
 }
 
 .image-parent {
@@ -1139,7 +1149,7 @@ section {
 }
 
 .favorite-foods-container {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: top;
   /* height: 100vh; */
@@ -1150,10 +1160,6 @@ section {
 .favorites-navlink {
   margin-right: 10px;
 }
-
-
-
-
 
 
 /*--------------------------------------------------------------
