@@ -73,7 +73,7 @@ function LogIn() {
               </div>
               <div className="d-flex justify-content-center">
                 <div className="control">
-                  <button disabled={logInLoading} className="account-btn">Start</button>
+                  <button disabled={logInLoading} className="account-btn">Log In</button>
                 </div>
               </div>
             </form>
