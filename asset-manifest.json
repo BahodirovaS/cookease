@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/cookease/static/css/main.61d72f42.css",
-    "main.js": "/cookease/static/js/main.f690671e.js",
-    "static/js/787.b2184f62.chunk.js": "/cookease/static/js/787.b2184f62.chunk.js",
+    "main.css": "/cookease/static/css/main.6dc358aa.css",
+    "main.js": "/cookease/static/js/main.1b398bab.js",
+    "static/js/787.ddae4ead.chunk.js": "/cookease/static/js/787.ddae4ead.chunk.js",
     "static/media/main-page3.png": "/cookease/static/media/main-page3.f46119d7e5090e9cd86e.png",
     "static/media/favorites-3.jpg": "/cookease/static/media/favorites-3.be3c946b3901d822e628.jpg",
     "static/media/stats-bg.jpg": "/cookease/static/media/stats-bg.80e2264dc486d45b803e.jpg",
@@ -17,12 +17,12 @@
     "static/media/favorites-1.webp": "/cookease/static/media/favorites-1.75b3821d9cdb292dd866.webp",
     "static/media/login-bg2.jpg": "/cookease/static/media/login-bg2.c1c3452b74dec8117ceb.jpg",
     "index.html": "/cookease/index.html",
-    "main.61d72f42.css.map": "/cookease/static/css/main.61d72f42.css.map",
-    "main.f690671e.js.map": "/cookease/static/js/main.f690671e.js.map",
-    "787.b2184f62.chunk.js.map": "/cookease/static/js/787.b2184f62.chunk.js.map"
+    "main.6dc358aa.css.map": "/cookease/static/css/main.6dc358aa.css.map",
+    "main.1b398bab.js.map": "/cookease/static/js/main.1b398bab.js.map",
+    "787.ddae4ead.chunk.js.map": "/cookease/static/js/787.ddae4ead.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.61d72f42.css",
-    "static/js/main.f690671e.js"
+    "static/css/main.6dc358aa.css",
+    "static/js/main.1b398bab.js"
   ]
 }
