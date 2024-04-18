@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/cookease/static/css/main.61d72f42.css",
+    "main.js": "/cookease/static/js/main.f690671e.js",
+    "static/js/787.b2184f62.chunk.js": "/cookease/static/js/787.b2184f62.chunk.js",
+    "static/media/main-page3.png": "/cookease/static/media/main-page3.f46119d7e5090e9cd86e.png",
+    "static/media/favorites-3.jpg": "/cookease/static/media/favorites-3.be3c946b3901d822e628.jpg",
+    "static/media/stats-bg.jpg": "/cookease/static/media/stats-bg.80e2264dc486d45b803e.jpg",
+    "static/media/search4.png": "/cookease/static/media/search4.6daee036b6b586346fac.png",
+    "static/media/search2.png": "/cookease/static/media/search2.ee426cb71da210d63c11.png",
+    "static/media/search3.png": "/cookease/static/media/search3.1e5c596e6d6d75390664.png",
+    "static/media/bootstrap-icons.woff?": "/cookease/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/search1.png": "/cookease/static/media/search1.1b7fbbd1f389f2ffe6bc.png",
+    "static/media/favorites-2.jpeg": "/cookease/static/media/favorites-2.fb1af9e403f4f7ff7019.jpeg",
+    "static/media/about-2.jpg": "/cookease/static/media/about-2.14937b5ba83cf6704df2.jpg",
+    "static/media/bootstrap-icons.woff2?": "/cookease/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/favorites-1.webp": "/cookease/static/media/favorites-1.75b3821d9cdb292dd866.webp",
+    "static/media/login-bg2.jpg": "/cookease/static/media/login-bg2.c1c3452b74dec8117ceb.jpg",
+    "index.html": "/cookease/index.html",
+    "main.61d72f42.css.map": "/cookease/static/css/main.61d72f42.css.map",
+    "main.f690671e.js.map": "/cookease/static/js/main.f690671e.js.map",
+    "787.b2184f62.chunk.js.map": "/cookease/static/js/787.b2184f62.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61d72f42.css",
+    "static/js/main.f690671e.js"
+  ]
+}
