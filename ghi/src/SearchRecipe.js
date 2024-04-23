@@ -6,7 +6,7 @@ import {
     useGetFavoriteQuery
 } from "./auth/api";
 import { useGetTokenQuery } from './auth/authApi';
-import RecipeCard from './RecipeCard';
+import RecipeCard from './RecipeCard.js';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import './assets/css/main.css';
 import { useRef, useEffect } from 'react';
