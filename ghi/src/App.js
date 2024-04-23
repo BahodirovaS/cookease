@@ -33,7 +33,7 @@ function App() {
         <div id="preloader">
         </div>
       ) : (
-        <BrowserRouter basename={basename}>
+        <BrowserRouter basename="/cookease">
           <Nav />
           <div>
             <Routes>
