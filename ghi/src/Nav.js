@@ -50,7 +50,7 @@ function Nav() {
                             <div className="dropdown mt-3" style={{ width: '100%', maxWidth: '100vw' }}>
                                 <div>
                                     <NavLink className="dropdown-item" to="/" onClick={() => offcanvasRef.current.classList.remove('show')}>Home</NavLink>
-                                    <NavLink className="dropdown-item" to="/search-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Search Recipes</NavLink>
+                                    <NavLink className="dropdown-item" to="search-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Search Recipes</NavLink>
                                     <NavLink className="dropdown-item" to="favorites-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Users - Loved Recipes</NavLink>
                                     <div>
                                         {currentUser ? (
