@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLogInMutation } from "../auth/authApi";
-import { showModal, updateField, LOG_IN_MODAL, updateToken } from "../auth/accountSlice";
+import { useLogInMutation } from "./auth/authApi";
+import { showModal, updateField, LOG_IN_MODAL, updateToken } from "./auth/accountSlice";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './assets/css/main.css'
