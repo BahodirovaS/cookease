@@ -1,5 +1,5 @@
-import '../assets/css/main.css'
-import '../assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import './assets/css/main.css'
+import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 

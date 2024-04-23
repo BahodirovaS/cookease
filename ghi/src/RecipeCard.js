@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import '../assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
 
 
 const RecipeCard = (props) => {
