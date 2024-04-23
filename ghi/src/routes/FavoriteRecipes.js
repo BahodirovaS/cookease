@@ -1,5 +1,5 @@
-import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "./auth/api";
-import { useGetTokenQuery } from "./auth/authApi";
+import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "../auth/api";
+import { useGetTokenQuery } from "../auth/authApi";
 import { useState, useEffect } from "react";
 import './assets/css/main.css';
 import RecipeCard from './RecipeCard';
@@ -72,8 +72,8 @@ function FavoriteRecipes() {
                     <div className="favorites-header">
                         <p>My <span>Favorite </span> Recipes</p>
                         {tokenData ? (
-                        <h2>Click on the heart to remove a recipe from your favorites</h2>
-                        ):(
+                            <h2>Click on the heart to remove a recipe from your favorites</h2>
+                        ) : (
                             <div></div>
                         )}
                     </div>
@@ -104,8 +104,8 @@ function FavoriteRecipes() {
                                     <div className="login-message">
                                         <h4>You must be logged in to see your favorites!</h4>
                                         <p>Create an account now or sign in!</p>
-                                            <NavLink className="favorites-navlink" to="/signup" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Sign Up</NavLink>
-                                            <NavLink className="favorites-navlink" to="/login" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Log In</NavLink>
+                                        <NavLink className="favorites-navlink" to="/signup" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Sign Up</NavLink>
+                                        <NavLink className="favorites-navlink" to="/login" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}>Log In</NavLink>
                                     </div>
                                 )}
                             </div>

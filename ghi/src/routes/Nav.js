@@ -1,6 +1,6 @@
 import './assets/css/main.css'
 import { useNavigate, NavLink } from 'react-router-dom';
-import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
+import { useLogOutMutation, useGetTokenQuery } from '../auth/authApi';
 import { useEffect, useRef } from "react";
 
 

@@ -1,14 +1,14 @@
 import "./App.css";
 import { useGetTokenQuery } from "./auth/authApi.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from "./SignUp";
-import LogIn from "./LogIn";
-import Nav from "./Nav";
-import MainPage from "./MainPage";
-import RecipeSearch from "./SearchRecipe";
-import RecipeDetails from "./RecipeDetail";
-import FavoriteRecipes from "./FavoriteRecipes";
-import Footer from "./Footer";
+import SignUp from "./routes/SignUp.js";
+import LogIn from "./routes/LogIn.js";
+import Nav from "./routes/Nav.js";
+import MainPage from "./routes/MainPage.js";
+import RecipeSearch from "./routes/SearchRecipe.js";
+import RecipeDetails from "./routes/RecipeDetail.js";
+import FavoriteRecipes from "./routes/FavoriteRecipes.js";
+import Footer from "./routes/Footer.js";
 import { useState, useEffect } from "react";
 
 function App() {

@@ -1,5 +1,5 @@
-import { useGetRecipeDetailsQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "./auth/api";
-import { useGetTokenQuery } from "./auth/authApi";
+import { useGetRecipeDetailsQuery, useAddFavoriteRecipeMutation, useDeleteFavoriteMutation, useGetFavoriteQuery } from "../auth/api";
+import { useGetTokenQuery } from "../auth/authApi";
 import { useParams } from 'react-router-dom'
 import './assets/css/main.css'
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css'

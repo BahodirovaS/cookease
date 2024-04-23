@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLogInMutation } from "./auth/authApi";
-import { showModal, updateField, LOG_IN_MODAL, updateToken } from "./auth/accountSlice";
+import { useLogInMutation } from "../auth/authApi";
+import { showModal, updateField, LOG_IN_MODAL, updateToken } from "../auth/accountSlice";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './assets/css/main.css'
@@ -53,7 +53,7 @@ function LogIn() {
                     name="username"
                     className="form-control form-control-lg"
                     type="text"
-                    // placeholder="Username"
+                  // placeholder="Username"
                   />
                 </div>
               </div>
@@ -67,7 +67,7 @@ function LogIn() {
                     name="password"
                     className="form-control form-control-lg"
                     type="password"
-                    // placeholder="Password"
+                  // placeholder="Password"
                   />
                 </div>
               </div>
