@@ -7,7 +7,7 @@ import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
 import RecipeSearch from "./SearchRecipe.js";
 import RecipeDetails from "./RecipeDetail.js";
-import FavoriteRecipes from "./routes/FavoriteRecipes.js";
+import FavoriteRecipes from "./FavoriteRecipes.js";
 import Footer from "./routes/Footer.js";
 import { useState, useEffect } from "react";
 
