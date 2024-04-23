@@ -1,7 +1,7 @@
 import { useGetFavoriteQuery, useDeleteFavoriteMutation } from "../auth/api";
 import { useGetTokenQuery } from "../auth/authApi";
 import { useState, useEffect } from "react";
-import './assets/css/main.css';
+import '../assets/css/main.css';
 import RecipeCard from './RecipeCard';
 import { NavLink } from "react-router-dom";
 

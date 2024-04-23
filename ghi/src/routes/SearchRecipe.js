@@ -7,8 +7,8 @@ import {
 } from "../auth/api";
 import { useGetTokenQuery } from '../auth/authApi';
 import RecipeCard from './RecipeCard';
-import './assets/vendor/bootstrap-icons/bootstrap-icons.css'
-import './assets/css/main.css';
+import '../assets/vendor/bootstrap-icons/bootstrap-icons.css'
+import '../assets/css/main.css';
 import { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
