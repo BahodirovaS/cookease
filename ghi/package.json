@@ -20,7 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "dotenv REACT_APP_COOKEASE_API_HOST=$(cat .env | grep REACT_APP_COOKEASE_API_HOST | cut -d '=' -f2) gh-pages -d build",
+    "deploy": "set /p REACT_APP_BACKEND_URL=<.env && gh-pages -d build",
     "start": "node ./windows-setup.js && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
