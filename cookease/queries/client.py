@@ -1,8 +1,10 @@
 import os
 import pymongo
+from dotenv import load_dotenv
 
+load_dotenv()
 
-MONGO_URL = os.environ["DATABASE_URL"]
+MONGO_URL = os.environ.get("DATABASE_URI")
 client = pymongo.MongoClient(MONGO_URL)
 
 

@@ -1,9 +1,10 @@
 import requests
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-SPOONACULAR_API_KEY = os.environ["SPOONACULAR_API_KEY"]
-
+SPOONACULAR_API_KEY = os.environ.get("SPOONACULAR_API_KEY")
 
 class RecipeQueries:
     def get_recipe(

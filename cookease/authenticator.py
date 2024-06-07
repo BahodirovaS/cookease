@@ -2,7 +2,9 @@ import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.accounts import AccountQueries, AccountOutWithPassword
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class AccountsAuthenticator(Authenticator):
     async def get_account_data(
@@ -32,4 +34,4 @@ class AccountsAuthenticator(Authenticator):
         return account.username, AccountOutWithPassword(**account.dict())
 
 
-authenticator = AccountsAuthenticator(os.environ["SIGNING_KEY"])
+authenticator = AccountsAuthenticator(os.environ.get("SIGNING_KEY"))
