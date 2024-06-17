@@ -25,7 +25,9 @@ app.add_middleware(ContentSecurityPolicyMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://bahodirovas.github.io/cookease/"],
+    allow_origins=[
+        "https://bahodirovas.github.io/cookease/"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
