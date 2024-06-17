@@ -21,15 +21,13 @@ app.include_router(router.router)
 app.include_router(recipe.router)
 app.include_router(favorites.router)
 
+app.add_middleware(ContentSecurityPolicyMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    ContentSecurityPolicyMiddleware,
     allow_origins=[
-        # os.environ.get("CORS_HOST", "http://localhost:3000"),
-        "https://bahodirovas.github.io/",
+        os.environ.get("CORS_HOST", "https://bahodirovas.github.io/"),
     ],
-
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
