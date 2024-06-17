@@ -4,7 +4,7 @@ import { authApiSlice } from "./authApi";
 export const apiSlice = createApi({
   reducerPath: "recipes",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_COOKEASE_API_HOST,
+    baseUrl: process.env.REACT_APP_BACKEND_URL,
     prepareHeaders: (headers, { getState }) => {
       const selector = authApiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
