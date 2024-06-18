@@ -6,14 +6,14 @@ from starlette.responses import Response
 from authenticator import authenticator
 from routers import router, recipe, favorites
 
-class ContentSecurityPolicyMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request, call_next):
-        response = await call_next(request)
-        response.headers['Content-Security-Policy'] = (
-            "default-src 'self'; "
-            "connect-src 'self' https://git.heroku.com;"
-        )
-        return response
+# class ContentSecurityPolicyMiddleware(BaseHTTPMiddleware):
+#     async def dispatch(self, request, call_next):
+#         response = await call_next(request)
+#         response.headers['Content-Security-Policy'] = (
+#             "default-src 'self'; "
+#             "connect-src 'self' https://git.heroku.com;"
+#         )
+#         return response
 
 app = FastAPI()
 app.include_router(authenticator.router)
@@ -21,7 +21,7 @@ app.include_router(router.router)
 app.include_router(recipe.router)
 app.include_router(favorites.router)
 
-app.add_middleware(ContentSecurityPolicyMiddleware)
+# app.add_middleware(ContentSecurityPolicyMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
