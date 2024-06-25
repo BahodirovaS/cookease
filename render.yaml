@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: cookease-backend
+    env: docker
+    plan: free
+    dockerfilePath: cookease/Dockerfile
+    buildCommand: docker build -t cookease-backend -f cookease/Dockerfile .
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: SPOONACULAR_API_KEY
+        value: ${SPOONACULAR_API_KEY}
+      - key: DATABASE_URI
+        value: ${DATABASE_URI}
+      - key: SIGNING_KEY
+        value: ${SIGNING_KEY}
+      - key: DATABASE_NAME
+        value: ${DATABASE_NAME}
+      - key: WAIT_HOSTS
+        value: ${WAIT_HOSTS}
+
+
+  - type: web
+    name: ghi-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: development
+      - key: PUBLIC_URL
+        value: http://localhost:3000
+      - key: REACT_APP_COOKEASE_API_HOST
+        value: http://localhost:8000
+      - key: REACT_APP_SPOONACULAR_HOST
+        value: https://api.spoonacular.com/recipes/complexSearch?
