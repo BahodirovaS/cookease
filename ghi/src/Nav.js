@@ -1,28 +1,12 @@
-import './assets/css/main.css'
+import './assets/css/main.css';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useLogOutMutation, useGetTokenQuery } from './auth/authApi';
-import { useEffect, useRef } from "react";
-
+import { useEffect } from "react";
 
 function Nav() {
     const navigate = useNavigate();
     const [logOut, { data }] = useLogOutMutation();
-    const { data: currentUser } = useGetTokenQuery()
-    const offcanvasRef = useRef(null);
-
-    useEffect(() => {
-        const handleClick = (event) => {
-            if (offcanvasRef.current && !offcanvasRef.current.contains(event.target)) {
-                offcanvasRef.current.classList.remove('show');
-            }
-        };
-
-        document.addEventListener('click', handleClick);
-
-        return () => {
-            document.removeEventListener('click', handleClick);
-        };
-    }, [offcanvasRef]);
+    const { data: currentUser } = useGetTokenQuery();
 
     useEffect(() => {
         if (data) {
@@ -32,44 +16,43 @@ function Nav() {
     }, [data, navigate]);
 
     return (
-        <>
-            <header id="header" className="header navigation d-flex align-items-center">
-                <div className="container justify-content-between">
-                    <NavLink to="/" className="logo d-flex  me-auto me-lg-0">
-                        <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ maxWidth: '130px' }} />
-                    </NavLink>
-                    <NavLink className="btn-search-for-recipes" data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                        Menu
-                    </NavLink>
-                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style={{ width: '300px' }}>
-                        <div className="offcanvas-header">
-                            <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid" alt="CookEase" style={{ maxWidth: '150px' }} />
-                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div className="offcanvas-body" style={{ width: '100%', maxWidth: '100vw' }}>
-                            <div className="dropdown mt-3" style={{ width: '100%', maxWidth: '100vw' }}>
-                                <div>
-                                    <NavLink className="dropdown-item" to="/" onClick={() => offcanvasRef.current.classList.remove('show')}>Home</NavLink>
-                                    <NavLink className="dropdown-item" to="search-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Search Recipes</NavLink>
-                                    <NavLink className="dropdown-item" to="favorites-recipes" onClick={() => offcanvasRef.current.classList.remove('show')}>Users - Loved Recipes</NavLink>
-                                    <div>
-                                        {currentUser ? (
-                                            <button className="dropdown-item" onClick={() => logOut()}>Log Out</button>
-                                        ) : (
-                                            <>
-                                                <NavLink className="dropdown-item" to="signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
-                                                <NavLink className="dropdown-item" to="login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
-                                            </>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <header id="header" className="header navigation d-flex align-items-center">
+            <div className="container d-flex justify-content-between align-items-center">
+                <NavLink to="/" className="logo d-flex me-auto me-lg-0">
+                    <img src="https://i.imgur.com/O0EFl9W.png" className="img-fluid logo-image" alt="CookEase" style={{ maxWidth: '130px' }} />
+                </NavLink>
+                <nav className="navbar navbar-expand-lg">
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/" end>Home</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/search-recipes">Search Recipes</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/favorites-recipes">Users - Loved Recipes</NavLink>
+                            </li>
+                            {!currentUser ? (
+                                <>
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="/login">Log In</NavLink>
+                                    </li>
+                                </>
+                            ) : (
+                                <li className="nav-item">
+                                    <button className="nav-link btn btn-link" onClick={() => logOut()}>Log Out</button>
+                                </li>
+                            )}
+                        </ul>
                     </div>
-                </div>
-            </header>
-        </>
-    )
+                </nav>
+            </div>
+        </header>
+    );
 }
 
 export default Nav;
