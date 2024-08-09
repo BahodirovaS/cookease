@@ -57,8 +57,8 @@ function Nav() {
                                             <button className="dropdown-item" onClick={() => logOut()}>Log Out</button>
                                         ) : (
                                             <>
-                                                <NavLink className="dropdown-item" to="/signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
-                                                <NavLink className="dropdown-item" to="/login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
+                                                <NavLink className="dropdown-item" to="signup" onClick={() => offcanvasRef.current.classList.remove('show')}>Sign Up</NavLink>
+                                                <NavLink className="dropdown-item" to="login" onClick={() => offcanvasRef.current.classList.remove('show')}>Log In</NavLink>
                                             </>
                                         )}
                                     </div>
